@@ -1,0 +1,313 @@
+%! Author = felix
+%! Date = 11.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 2}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\subsection{Aufgabe 1.1}
+Die Gerade \( G \) im \( \mathbb{R}^3 \) ist definiert durch die beiden Ebenengleichungen:
+\[
+2x_1 - 3x_2 + x_3 = 3
+\]
+\[
+x_1 + x_2 + 2x_3 = 1
+\]
+
+Die Ebene \( E_a \) ist gegeben durch:
+\[
+5x_1 - 5x_2 + a^2 x_3 = 3a + 1
+\]
+
+\section*{Schritt 1: Bestimme den Richtungsvektor der Geraden \( G \)}
+
+Die Gerade \( G \) ist der Schnitt der beiden Ebenen, deren Normalenvektoren wir bestimmen. Die Normalenvektoren der Ebenen lauten:
+
+\[
+\vec{n}_1 = (2, -3, 1), \quad \vec{n}_2 = (1, 1, 2)
+\]
+
+Der Richtungsvektor der Geraden \( G \) ergibt sich aus dem Kreuzprodukt der beiden Normalenvektoren:
+
+\[
+\vec{r}_G = \vec{n}_1 \times \vec{n}_2
+\]
+Berechne das Kreuzprodukt:
+\[
+\vec{r}_G = \begin{pmatrix}
+-3 \times 2 - 1 \times 1 \\
+1 \times 1 - 2 \times 2 \\
+2 \times 1 - (-3) \times 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-7 \\
+-3 \\
+5
+\end{pmatrix}
+\]
+
+Der Richtungsvektor der Geraden \( G \) ist also:
+\[
+\vec{r}_G = (-7, -3, 5)
+\]
+
+\section*{Schritt 2: Bestimme den Normalenvektor der Ebene \( E_a \)}
+
+Die Ebene \( E_a \) ist durch die Gleichung:
+\[
+5x_1 - 5x_2 + a^2 x_3 = 3a + 1
+\]
+gegeben. Der Normalenvektor dieser Ebene ist:
+\[
+\vec{n}_E = (5, -5, a^2)
+\]
+
+\section*{Schritt 3: Prüfen der Parallelität}
+
+Um zu überprüfen, ob die Gerade \( G \) parallel zur Ebene \( E_a \) ist, prüfen wir, ob der Richtungsvektor \( \vec{r}_G \) senkrecht zum Normalenvektor \( \vec{n}_E \) der Ebene ist.
+
+Dazu berechnen wir das Skalarprodukt:
+\[
+\vec{r}_G \cdot \vec{n}_E = (-7) \cdot 5 + (-3) \cdot (-5) + 5 \cdot a^2
+\]
+\[
+= -35 + 15 + 5a^2 = -20 + 5a^2
+\]
+
+Das Skalarprodukt muss 0 ergeben, wenn die Gerade parallel zur Ebene ist. Das bedeutet:
+\[
+-20 + 5a^2 = 0
+\]
+\[
+a^2 = 4
+\]
+\[
+a = \pm 2
+\]
+
+Die Gerade \( G \) ist also für \( a = 2 \) oder \( a = -2 \) parallel zur Ebene \( E_a \).
+
+\section*{Schritt 4: Prüfen, wann die Gerade \( G \) in der Ebene liegt}
+
+Damit die Gerade \( G \) in der Ebene liegt, muss sie einen Punkt gemeinsam mit der Ebene haben. Dazu setzen wir einen Punkt der Geraden in die Ebenengleichung von \( E_a \) ein und prüfen, ob die Gleichung für diesen Punkt erfüllt ist.
+
+Die Parametergleichung der Geraden \( G \) kann aufgestellt werden, indem wir die beiden Ebenengleichungen lösen. Dieser Schritt ist nicht im Detail ausgeführt, aber wir können numerisch überprüfen, ob es eine Lösung gibt.
+
+\subsection{Aufgabe 1.2}
+Bestimmen Sie drei reelle Zahlen $a \in \mathbb{R}$, sodass das folgende lineare Gleichungssystem über $\mathbb{R}$ eindeutig, mehrdeutig bzw. überhaupt nicht lösbar ist:
+
+\[
+\begin{aligned}
+    ax + y & = 1 \\
+    4x + ay & = 2
+\end{aligned}
+\]
+
+Über die Determinante der Koeffizientenmatrix des LGS lässt sich die Eindeutigkeit der Lösung bestimmen. Ist die
+Determinante 0 gibt es keine eindeutige Lösung. Ist die Determinante ungleich 0 gibt es eine eindeutige Lösung.
+
+\[
+\det\begin{pmatrix}
+    a & 1 \\
+    4 & a
+\end{pmatrix} = a \cdot a - 4 \cdot 1 = a^2 - 4
+\]
+
+\[
+    a^2 - 4 = 0 \Rightarrow a^2 = 4 \Rightarrow a = \pm 2.
+\]
+
+Damit ist das LGS nicht eindeutig lösbar für $a = 2$ und $a = -2$. Setzt man nun $a = 2$ ein erhält man das folgende LGS:
+
+\[
+\begin{aligned}
+    2x + y = 1 \\
+    4x + 2y = 2
+\end{aligned}
+\]
+
+Durch Multiplikation mit 2 der ersten Gleichung und anschließender Subtraktion der zweiten Gleichung erhält man:
+
+\[
+    0x + 0y = 0 \Rightarrow 0 = 0
+\]
+
+Da dies eine wahre Aussage ist, folgt daraus, dass das LGS unendlich viele Lösungen hat.
+Geometrisch betrachtet handelt es sich um die gleiche Gerade, wodurch es unendlich viele "Schnittpunkte" gibt.
+
+Für a = -2 ergibt sich folgende Gleichung für das LGS:
+
+\[
+\begin{aligned}
+    -2x + y = 1 \\
+    4x-2y = 2
+\end{aligned}
+\]
+
+Durch Multiplikation mit 2 und Subtraktion der ersten Gleichung von der zweiten erhält man:
+\[
+    0 = 4
+\]
+
+Da dies eine falsche Aussage ist, folgt daraus, dass das LGS keine Lösung hat.
+Geometrisch betrachtet handelt es sich um parallele Geraden, die sich nicht schneiden.
+Daraus folgt, dass für jedes $a \in \mathbb{R}$, $a \neq -2$ und $a \neq 2$, das LGS eindeutig lösbar ist, für $a = 2$ unendlich viele Lösungen hat und für $a = -2$ keine Lösung hat.
+
+
+\subsection{Aufgabe 1.3}
+
+(a) Geometrische Bedeutung der möglichen Lösungen
+
+\[
+\begin{aligned}
+    a_1x + b_1y + c_1z & = d_1 \\
+    a_2x + b_2y + c_2z & = d_2 \\
+    a_3x + b_3y + c_3z & = d_3
+\end{aligned}
+\]
+mit Koeffizienten $a_i, b_i, c_i, d_i \in \mathbb{R}, i = 1, 2, 3$.
+\bigskip
+
+Wir betrachten hier einen Raum mit drei Dimensionen, in dem die Variablen x, y und z die Achsen bilden.
+Dementsprechend handelt es sich bei jeder der drei Gleichungen um eine Ebene im Raum.
+
+\begin{enumerate}
+    \item  Keine Lösung: Die Ebenen liegen parallel zueinander im Raum
+    \item  Eine Lösung: Die Ebenen schneiden sich in genau einem Punkt
+    \item  Unendlich viele Lösungen: Mindestens zwei der Ebenen sind identisch oder parallel zueinander. Dies führt dazu, dass mindestens eine Gerade als Schnittmenge der Ebenen existiert und somit unendlich viele Schnittpunkte existieren.
+\end{enumerate}
+\bigskip
+
+(b) Lösen des folgenden Gleichungssystems
+
+\[
+\begin{aligned}
+    6x + 5y + 3z & = 1 \\
+    x + 2y + z & = 4 \\
+    2x - 2y - 2z & = 8
+\end{aligned}
+\]
+\bigskip
+
+Um das Gleichungssystem zu lösen, wenden wir den Gauß-Algorithmus an.
+
+\[
+\begin{pmatrix}
+    6 & 5 & 3 & | & 1 \\
+    1 & 2 & 1 & | & 4 \\
+    2 & -2 & -2 & | & 8
+\end{pmatrix}
+\]
+
+Multiplikaion der ersten Zeile mit $\frac{1}{6}$ und Subtraktion der ersten Zeile von der zweiten Zeile:
+
+\[
+\begin{pmatrix}
+    6 & 5 & 3 & | & 1 \\
+    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
+    2 & -2 & -2 & | & 8
+\end{pmatrix}
+\]
+
+Multiplikation der ersten Zeile mit $\frac{1}{3}$ und Subtraktion der ersten Zeile von der dritten Zeile:
+
+\[
+\begin{pmatrix}
+    6 & 5 & 3 & | & 1 \\
+    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
+    0 & -\frac{11}{3} & -3 & | & \frac{23}{3}
+\end{pmatrix}
+\]
+
+Multiplikation der zweiten Zeile mit $-\frac{22}{7}$ und Subtraktion der zweiten Zeile von der dritten Zeile:
+
+\[
+\begin{pmatrix}
+    6 & 5 & 3 & | & 1 \\
+    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
+    0 & 0 & -\frac{10}{7} & | & \frac{138}{7}
+\end{pmatrix}
+\]
+
+Daraus folgt, dass:
+
+\[
+-\frac{10}{7}z = \frac{138}{70} \Rightarrow z= -\frac{69}{5}.
+\]
+
+Durch Einsetzen von z in die zweite Gleichung erhält man:
+
+\[
+\frac{7}{6}y = \frac{23}{6} - \frac{1}{2} \cdot \left(-\frac{69}{5}\right) \Rightarrow y = \frac{161}{15}
+\]
+
+Durch Einsetzen von y und z in die erste Gleichung erhält man:
+
+\[
+6x = 1 - 5 \cdot \frac{46}{5} - 3 \cdot -\frac{69}{5} \Rightarrow x = -\frac{3}{5}
+\]
+
+Ergebnis: Die drei Ebenen schneiden sich in genau einem Punkt der durch diesen Vektor beschrieben ist:
+
+\[
+\begin{pmatrix}
+    -\frac{3}{5} \\
+    \frac{46}{5} \\
+    -\frac{69}{5}
+\end{pmatrix}
+\]
+
+\subsection{Aufgabe 1.4}
+
+Es soll gezeigt werden, welche von ${(0,0,0)}$ verschiedenen Lösungsmengen ein Gleichungssystem
+unter Berücksichtigung zweier Bedingungen haben kann. Zunächst berechnen wir hierfür die Determinante der Koeffizientenmatrix des Gleichungssystems um daraus eine
+Aussage über die Lösbarkeit des Gleichungssystem abzuleiten.
+
+\[
+\det\begin{pmatrix}
+    1 & a & b \\
+    b & 1 & a \\
+    a & b & 1
+\end{pmatrix} = 1 + a^3 + b^3 - 3ab
+\]
+
+Unter der ersten Bedingung $a = b = 1$ ergibt sich folgende Aussage:
+
+\[
+1 + 1^3 + 1^3 - 3 \cdot 1 \cdot 1 = 0
+\]
+
+Daraus folgt, dass es keine eindeutige Lösung gibt.
+Betrachtet man das Gleichungssystem unter dieser Bedingung, so ergibt sich für alle drei Gleichungen:
+
+\[
+    x + y + z = 0
+\]
+
+Hinsichtlich der Lösungsmenge bedeutet dies, dass es unendlich viele Lösungen gibt, da es sich jeweils um dieselbe Ebene handelt.
+\bigskip
+Unter der zweiten Bedingung $a + b + 1 = 0$ $\Leftrightarrow$ $a= -b-1$ ergibt sich folgende Aussage:
+
+\[
+    1 + (-b-1)^3 + b^3 - 3b \cdot (-b-1) = b^3 - b^3 -3b^2 -3b - 1 + 3b^2 + 3b + 1 = 0
+\]
+
+Auch unter dieser Bedingung gibt es keine eindeutige Lösung, sodass es entweder keine oder unendlich viele Lösungen gibt.
+Da die Ebenen weder identisch noch parallel zueinander sind, gibt es per ausschlussverfahren unendlich viele
+Lösungen im Sinne von Schnittgeraden zwischen den Ebenen.
+
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}

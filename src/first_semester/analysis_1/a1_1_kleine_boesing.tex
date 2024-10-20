@@ -6,9 +6,278 @@
 
 % Packages
 \usepackage{amsmath}
+\usepackage{amsfonts}
 
 % Document
 \begin{document}
+
+\title{Übungsblatt 1}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+Wir haben hier jeweils zwei/drei Aussagen, die nur die Ausprägungen wahr oder falsch annehmen können.
+Dementsprechen müssen wir nur vier/acht mögliche Fälle prüfen und können mit einer Wahrheitstabelle die Äquivalenz beweisen.
+
+\subsection*{(a) \( \neg (A \land B) \equiv \neg A \lor \neg B \)}
+
+
+\[
+\begin{array}{|c|c|c|c|c|c|c|}
+A & B & A \land B & \neg (A \land B) & \neg A & \neg B & \neg A \lor \neg B \\
+\hline
+T & T & T & F & F & F & F \\
+T & F & F & T & F & T & T \\
+F & T & F & T & T & F & T \\
+F & F & F & T & T & T & T \\
+\end{array}
+\]
+
+Da die Spalten für \( \neg (A \land B) \) und \( \neg A \lor \neg B \) identisch sind, schließen wir daras, dass:
+\[
+\neg (A \land B) \equiv \neg A \lor \neg B
+\]
+
+\subsection*{(b) \( A \Rightarrow B \equiv \neg B \Rightarrow \neg A \)}
+
+
+\[
+\begin{array}{|c|c|c|c|c|c|}
+A & B & \neg A & \neg B & A \Rightarrow B & \neg B \Rightarrow \neg A \\
+\hline
+T & T & F & F & T & T \\
+T & F & F & T & F & F \\
+F & T & T & F & T & T \\
+F & F & T & T & T & T \\
+\end{array}
+\]
+
+Da die Spalten für \( A \Rightarrow B \) und \( \neg B \Rightarrow \neg A \) identisch sind, schließen wir, dass:
+\[
+A \Rightarrow B \equiv \neg B \Rightarrow \neg A
+\]
+
+\subsection*{(c) \( A \lor (B \land C) \equiv (A \lor B) \land (A \lor C) \)}
+
+
+\[
+\begin{array}{|c|c|c|c|c|c|c|c|}
+A & B & C & B \land C & A \lor (B \land C) & A \lor B & A \lor C & (A \lor B) \land (A \lor C) \\
+\hline
+T & T & T & T & T & T & T & T \\
+T & T & F & F & T & T & T & T \\
+T & F & T & F & T & T & T & T \\
+T & F & F & F & T & T & T & T \\
+F & T & T & T & T & T & T & T \\
+F & T & F & F & F & T & F & F \\
+F & F & T & F & F & F & T & F \\
+F & F & F & F & F & F & F & F \\
+\end{array}
+\]
+
+Da die Spalten für \( A \lor (B \land C) \) und \( (A \lor B) \land (A \lor C) \) identisch sind, schließen wir daraus, dass:
+\[
+A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)
+\]
+
+    \section*{Aufgabe 2}
+
+Gegeben sei eine Menge \( M \). Für jedes Element \( x \in M \) bezeichne \( A(x) \) eine gegebene Aussage. Zeigen Sie:
+
+\subsection*{(a) \( \neg (\forall x \in M : A(x)) \iff \exists x \in M : \neg A(x) \)}
+
+Wir beweisen, dass:
+
+\[
+\neg (\forall x \in M : A(x)) \iff \exists x \in M : \neg A(x)
+\]
+
+\begin{itemize}
+    \item Die linke Seite \( \neg (\forall x \in M : A(x)) \) besagt, dass es nicht wahr ist, dass \( A(x) \) für alle \( x \in M \) gilt. Das bedeutet, dass es mindestens ein \( x \in M \) geben muss, für das \( A(x) \) nicht gilt.
+    \item Die rechte Seite \( \exists x \in M : \neg A(x) \) besagt genau das: Es existiert ein \( x \in M \), für das \( A(x) \) nicht wahr ist.
+\end{itemize}
+
+Da beide Seiten dasselbe ausdrücken, gilt die Äquivalenz:
+\[
+\neg (\forall x \in M : A(x)) \iff \exists x \in M : \neg A(x)
+\]
+
+\subsection*{(b) \( \neg (\exists x \in M : A(x)) \iff \forall x \in M : \neg A(x) \)}
+
+Wir beweisen, dass:
+
+\[
+\neg (\exists x \in M : A(x)) \iff \forall x \in M : \neg A(x)
+\]
+
+Wir wissen bereits aus 1b), dass:
+\[
+    A \rightarrow B \iff \neg B \rightarrow \neg A
+\]
+
+sowie Äquivalenz aus zwei Implikationen besteht:
+\[
+    A \iff B \equiv (A \rightarrow B) \land (B \rightarrow A)
+\]
+
+
+Nehmen wir nun an, dass 2a) wahr ist, dann gilt:
+
+\[
+ \( \neg (\forall x \in M : A(x)) \iff \exists x \in M : \neg A(x) \)
+\]
+
+
+Daraus folgt, dass wir die Aussagen von 2a vertauschen und negieren können und erhalten:
+
+\[
+    \neg (\exists x \in M : A(x)) \iff \forall x \in M : \neg A(x)
+\]
+
+Womit die Äquivalenz bewiesen ist.
+
+\section*{Aufgabe 3}
+
+\subsection*{(a)}
+
+Gegeben sind die folgenden Mengen:
+\[
+X = \{n \in \mathbb{N} \mid 1 \leq n \leq 100\}
+\]
+\[
+A = \{n \in X \mid 2(n - 13)(n - 3) < 0\}
+\]
+\[
+B = \{n \in X \mid \exists m \in \mathbb{N}, m^2 = n\}
+\]
+\[
+C = \{n \in X \mid n \text{ ist durch 2 teilbar}\}
+\]
+
+Die Mengen ergeben sich daher wie folgt:
+
+Die Menge A ergibt sich aus allen natürlichen Zahlen \( n \) im Intervall \( [1, 100] \), für die die Ungleichung \( 2(n - 13)(n - 3) < 0 \) gilt.
+Die Nullstellen der Ungleichung liegen bei \( n = 3 \) und \( n = 13 \). Für Werte zwischen 3 und 13 ist \( 2(n - 13)(n - 3)\) negativ und die Ungleichung somit wahr.
+
+\[
+A = \{4, 5, 6, 7, 8, 9, 10, 11, 12\}
+\]
+
+Die Menge B umfasst alle natürlichen Zahlen \( n \) im Intervall \( [1, 100] \), für die es eine natürliche Zahl \( m \) gibt, sodass \( m^2 = n \).
+Da die Quadratzahlen im Intervall \( [1, 100] \) die Zahlen \(( 1, 2^2, 3^2, 4^2, 5^2, 6^2, 7^2, 8^2, 9^2, 10^2 )\) sind, ergibt sich:
+
+\[
+B = \{1, 4, 9, 16, 25, 36, 49, 64, 81, 100\}
+\]
+
+Die Menge C umfasst alle natürlichen Zahlen \( n \) im Intervall \( [1, 100] \), die durch 2 teilbar sind.
+
+\[
+C = \{2, 4, 6, 8, 10, 12, \dots, 100\}
+\]
+
+Bestimmen Sie die Mengen:
+
+1. \( (A \cup B) - C \): Union von A und B mit Differenz von C.
+
+\[
+(A \cup B) = \{1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 25, 36, 49, 64, 81, 100\}
+\]
+\[
+(A \cup B) - C = \{1, 5, 7, 9, 11, 25, 49, 81\}
+\]
+
+2. \( A \cup (B - C) \): Vereinigung von A und der Differenz von B und C.
+\[
+B - C = \{1, 9, 25, 49, 81\}, \quad A \cup (B - C) = \{1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25, 49, 81\}
+\]
+
+3. \( (B \cap A) - C \): Schnittmenge von B uund A mit Differenz von C.
+\[
+B \cap A = \{4, 9\}, \quad (B \cap A) - C = \{9\}
+\]
+
+4. \( B \cap (A - C) \): Schnittmenge von B und der Differenz von A und C.
+\[
+A - C = \{5, 7, 9, 11\}, \quad B \cap (A - C) = \{9\}
+\]
+
+\subsection*{(b) De Morgansche Regeln}
+
+\[
+i) X \setminus (Y \cap Z) = (X \setminus Y) \cup (X \setminus Z)
+\]
+\[
+ii) X \setminus (Y \cup Z) = (X \setminus Y) \cap (X \setminus Z)
+\]
+
+\textbf{Beweis für (i):}
+
+Die Menge links des Gleichheitszeichens besteht aus allen Elementen von \( X \), die nicht in der Schnittmenge von \( Y \) und \( Z \) enthalten sind.
+    Anders könnte man schreiben \( x \in X \land (x \notin Y \lor x \notin Z\). Der Ausdruck in Klammern evaluiert zu wahr, wenn x mindestens in einer der beiden Mengen nicht existiert.
+    Oder ander ausgedrückt: \( (x \in X \land x \notin Y) \lor  (x \in X \land x \notin Z )\). Womit wir beim Ausdruck rechts des Gleichheitszeichens angekommen sind.
+
+\bigskip
+\textbf{Beweis für (ii):}
+Die Menge links des Gleichheitszeichens besteht aus allen Elementen von \( X \), die nicht in der Vereinigungsmenge von \( Y \) und \( Z \) enthalten sind.
+    Anders könnte man schreiben \( x \in X \land x \notin Y \land x \notin Z\). Für x muss gelten, dass es weder in Y noch in Z enthalten sein darf.
+    Oder wie es rechts des Gleichheitszeichens ausgedrückt ist: \( (x \in X \land x \notin Y) \land (x \in X \land x \notin Z)\).
+    Den Ausdruck \( x in X \) können wir in beiden Teilen der Konjunktion rausziehen und so die Äquivalenz zeigen.
+
+
+\section*{Aufgabe 4}
+
+Seien \( X, Y \) Mengen und \( f : X \to Y \) eine Abbildung.
+
+\begin{enumerate}
+    \item[(i)] Für \( A \subseteq X \) setzen wir \( f(A) := \{f(a) \mid a \in A\} \).
+    \item[(ii)] Für \( B \subseteq Y \) setzen wir \( f^{-1}(B) := \{x \in X \mid f(x) \in B\} \).
+\end{enumerate}
+
+Wir prüfen die folgenden Aussagen:
+
+\subsection*{(a) \( f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B) \)}
+
+Diese Aussage ist \textbf{wahr}.
+
+\textit{Begründung:} Das Urbild von \( A \cap B \) unter \( f \) besteht aus allen \( x \in X \), für die \( f(x) \in A \cap B \) gilt. Das bedeutet, dass \( f(x) \in A \) und \( f(x) \in B \), was genau dem Schnitt der Urbilder entspricht:
+\[
+f^{-1}(A \cap B) = f^{-1}(A) \cap f^{-1}(B)
+\]
+
+\subsection*{(b) \( f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B) \)}
+
+Diese Aussage ist \textbf{wahr}.
+
+\textit{Begründung:} Das Urbild von \( A \cup B \) unter \( f \) besteht aus allen \( x \in X \), für die \( f(x) \in A \cup B \) gilt. Das bedeutet, dass \( f(x) \in A \) oder \( f(x) \in B \), was genau der Vereinigung der Urbilder entspricht:
+\[
+f^{-1}(A \cup B) = f^{-1}(A) \cup f^{-1}(B)
+\]
+
+\subsection*{(c) \( f(A \cap B) = f(A) \cap f(B) \)}
+
+Diese Aussage ist \textbf{falsch}.
+
+\textit{Gegenbeispiel:} Angenommen, \( f \) ist nicht injektiv. Sei \( f(x_1) = f(x_2) \) mit \( x_1 \neq x_2 \), wobei \( x_1 \in A \) und \( x_2 \in B \). Dann gilt:
+\[
+A \cap B = \emptyset, \quad f(A \cap B) = f(\emptyset) = \emptyset
+\]
+Aber:
+\[
+f(A) \cap f(B) = \{f(x_1)\} = \{f(x_2)\}
+\]
+Das zeigt, dass \( f(A \cap B) \neq f(A) \cap f(B) \), wenn \( f \) nicht injektiv ist.
+
+\subsection*{(d) \( f(A \cup B) = f(A) \cup f(B) \)}
+
+Diese Aussage ist \textbf{wahr}.
+
+\textit{Begründung:} Das Bild von \( A \cup B \) unter \( f \) besteht aus allen \( f(x) \) für \( x \in A \cup B \), was dem Bild der Vereinigung \( f(A) \cup f(B) \) entspricht:
+\[
+f(A \cup B) = f(A) \cup f(B)
+\]
+
 
 
 
