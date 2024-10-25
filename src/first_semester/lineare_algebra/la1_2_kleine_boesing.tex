@@ -15,8 +15,9 @@
 \author{Felix Kleine Bösing}
 \maketitle
 
-\subsection{Aufgabe 1.1}
-Die Gerade \( G \) im \( \mathbb{R}^3 \) ist definiert durch die beiden Ebenengleichungen:
+\section*{Aufgabe 1}
+Die Gerade \( G \) ist durch den Schnitt der beiden Ebenen definiert:
+
 \[
 2x_1 - 3x_2 + x_3 = 3
 \]
@@ -29,283 +30,323 @@ Die Ebene \( E_a \) ist gegeben durch:
 5x_1 - 5x_2 + a^2 x_3 = 3a + 1
 \]
 
-\section*{Schritt 1: Bestimme den Richtungsvektor der Geraden \( G \)}
-
-Die Gerade \( G \) ist der Schnitt der beiden Ebenen, deren Normalenvektoren wir bestimmen. Die Normalenvektoren der Ebenen lauten:
+Wir setzen \( x_3 = t \) als Parameter und lösen das Gleichungssystem nach \( x_1 \) und \( x_2 \) auf:
 
 \[
-\vec{n}_1 = (2, -3, 1), \quad \vec{n}_2 = (1, 1, 2)
-\]
-
-Der Richtungsvektor der Geraden \( G \) ergibt sich aus dem Kreuzprodukt der beiden Normalenvektoren:
-
-\[
-\vec{r}_G = \vec{n}_1 \times \vec{n}_2
-\]
-Berechne das Kreuzprodukt:
-\[
-\vec{r}_G = \begin{pmatrix}
--3 \times 2 - 1 \times 1 \\
-1 \times 1 - 2 \times 2 \\
-2 \times 1 - (-3) \times 1
-\end{pmatrix}
-=
-\begin{pmatrix}
--7 \\
--3 \\
-5
-\end{pmatrix}
-\]
-
-Der Richtungsvektor der Geraden \( G \) ist also:
-\[
-\vec{r}_G = (-7, -3, 5)
-\]
-
-\section*{Schritt 2: Bestimme den Normalenvektor der Ebene \( E_a \)}
-
-Die Ebene \( E_a \) ist durch die Gleichung:
-\[
-5x_1 - 5x_2 + a^2 x_3 = 3a + 1
-\]
-gegeben. Der Normalenvektor dieser Ebene ist:
-\[
-\vec{n}_E = (5, -5, a^2)
-\]
-
-\section*{Schritt 3: Prüfen der Parallelität}
-
-Um zu überprüfen, ob die Gerade \( G \) parallel zur Ebene \( E_a \) ist, prüfen wir, ob der Richtungsvektor \( \vec{r}_G \) senkrecht zum Normalenvektor \( \vec{n}_E \) der Ebene ist.
-
-Dazu berechnen wir das Skalarprodukt:
-\[
-\vec{r}_G \cdot \vec{n}_E = (-7) \cdot 5 + (-3) \cdot (-5) + 5 \cdot a^2
+2x_1 - 3x_2 + t = 3
 \]
 \[
-= -35 + 15 + 5a^2 = -20 + 5a^2
+x_1 + x_2 + 2t = 1
 \]
 
-Das Skalarprodukt muss 0 ergeben, wenn die Gerade parallel zur Ebene ist. Das bedeutet:
+Löse die zweite Gleichung nach \( x_1 \) auf:
 \[
--20 + 5a^2 = 0
+x_1 = 1 - x_2 - 2t
+\]
+
+Setze dies in die erste Gleichung ein:
+\[
+2(1 - x_2 - 2t) - 3x_2 + t = 3
 \]
 \[
-a^2 = 4
+2 - 2x_2 - 4t - 3x_2 + t = 3
 \]
 \[
-a = \pm 2
+-5x_2 - 3t = 1
+\]
+\[
+x_2 = \frac{-3t - 1}{5}
 \]
 
-Die Gerade \( G \) ist also für \( a = 2 \) oder \( a = -2 \) parallel zur Ebene \( E_a \).
+Setze \( x_2 \) in \( x_1 = 1 - x_2 - 2t \) ein:
+\[
+x_1 = 1 - \left(\frac{-3t - 1}{5}\right) - 2t
+\]
+\[
+x_1 = 1 + \frac{3t + 1}{5} - 2t
+\]
+\[
+x_1 = \frac{6 - 7t}{5}
+\]
 
-\section*{Schritt 4: Prüfen, wann die Gerade \( G \) in der Ebene liegt}
+Die Parametergleichung der Geraden \( G \) lautet damit:
+\[
+(x_1, x_2, x_3) = \left( \frac{6 - 7t}{5}, \frac{-3t - 1}{5}, t \right)
+\]
 
-Damit die Gerade \( G \) in der Ebene liegt, muss sie einen Punkt gemeinsam mit der Ebene haben. Dazu setzen wir einen Punkt der Geraden in die Ebenengleichung von \( E_a \) ein und prüfen, ob die Gleichung für diesen Punkt erfüllt ist.
+Durch Einsetzen der Parametergleichung der Geraden \( G \) in die Gleichung der Ebene \( E_a \) erhalten wir:
+\[
+5 \cdot \frac{6 - 7t}{5} - 5 \cdot \frac{-3t - 1}{5} + a^2 \cdot t = 3a + 1
+\]
+Vereinfacht ergibt sich:
+\[
+(6 - 7t) - (-3t - 1) + a^2 t = 3a + 1
+\]
+\[
+7 - 4t + a^2 t = 3a + 1
+\]
+\[
+(a^2-4) t = 3(a - 2)
+\]
 
-Die Parametergleichung der Geraden \( G \) kann aufgestellt werden, indem wir die beiden Ebenengleichungen lösen. Dieser Schritt ist nicht im Detail ausgeführt, aber wir können numerisch überprüfen, ob es eine Lösung gibt.
+Wir suchen Werte für \( a \), bei denen die Gerade \( G \) die Ebene \( E_a \) schneidet, dazu parallel ist oder sich vollständig in der Ebene befindet.
 
-\subsection{Aufgabe 1.2}
-Bestimmen Sie drei reelle Zahlen $a \in \mathbb{R}$, sodass das folgende lineare Gleichungssystem über $\mathbb{R}$ eindeutig, mehrdeutig bzw. überhaupt nicht lösbar ist:
+In unserer Gleichung wir t eliminiert, wenn \(a = 2 \lor a = -2\)
+Für alle \(a \neq 2 \land a \neq -2\) kann ein t bestimmt werden, sodass die Gleichung erfüllt ist.
 
+\textbf{Fall 1: \( a = 2 \)}
+
+Für \( a = 2 \) wird die Gleichung zu:
+\[
+7 - 4t + 4t = 6 + 1
+\]
+\[
+7 = 7
+\]
+Dies ist immer wahr, unabhängig von \( t \). Das bedeutet, dass jeder Punkt auf der Geraden die Gleichung der Ebene erfüllt. **Die Gerade liegt vollständig in der Ebene**, wenn \( a = 2 \).
+
+\textbf{Fall 2: \( a = -2 \)}
+
+Für \( a = -2 \) wird die Gleichung zu:
+\[
+7 - 4t + 4t = -6 + 1
+\]
+\[
+7 = -5
+\]
+Dies ist ein Widerspruch. Das bedeutet, dass kein Punkt auf der Geraden die Gleichung der Ebene erfüllt. **Die Gerade ist parallel zur Ebene**, wenn \( a = -2 \).
+
+\textbf{Fall 3: \( a \neq 2 \land a \neq -2 \)}
+
+In diesem Fall können wir \( t \) berechnen:
+\[
+( -4 + a^2 )t = 3a - 6
+\]
+\[
+t = \frac{3a - 6}{a^2 - 4}
+\]
+Es gibt genau einen Wert für \( t \), bei dem die Gerade die Ebene schneidet.
+
+Zusammenfassend:
+\begin{enumerate}
+  \item Für \( a = 2 \) liegt die Gerade vollständig in der Ebene.
+  \item Für \( a = -2 \) ist die Gerade parallel zur Ebene.
+  \item Für \( a \neq 2 \) und \( a \neq -2 \) schneidet die Gerade die Ebene in genau einem Punkt.
+\end{enumerate}
+\section*{Aufgabe 2}
+
+
+Gegeben ist das folgende lineare Gleichungssystem:
 \[
 \begin{aligned}
-    ax + y & = 1 \\
-    4x + ay & = 2
+a x + (a+1) y + (a+2) z &= 0 \\
+(a+3) x + (a+4) y + (a+5) z &= 0 \\
+(a+6) x + (a+7) y + (a+8) z &= 0
 \end{aligned}
 \]
 
-Über die Determinante der Koeffizientenmatrix des LGS lässt sich die Eindeutigkeit der Lösung bestimmen. Ist die
-Determinante 0 gibt es keine eindeutige Lösung. Ist die Determinante ungleich 0 gibt es eine eindeutige Lösung.
+Wir sollen zeigen, dass das Gleichungssystem nicht nur die triviale Lösung besitzt.
+
+
+Die triviale Lösung ist \( x = y = z = 0 \). Um zu zeigen, dass es noch andere Lösungen gibt, bestimmen wir zunächst die Determinante der Koeffizientenmatrix.
 
 \[
 \det\begin{pmatrix}
-    a & 1 \\
-    4 & a
-\end{pmatrix} = a \cdot a - 4 \cdot 1 = a^2 - 4
+    a & a+1 & a+2 \\
+    a +3 & a+4 & a+5 \\
+    a+6 & a+7 & a+8
+\end{pmatrix} = 0
 \]
 
-\[
-    a^2 - 4 = 0 \Rightarrow a^2 = 4 \Rightarrow a = \pm 2.
-\]
-
-Damit ist das LGS nicht eindeutig lösbar für $a = 2$ und $a = -2$. Setzt man nun $a = 2$ ein erhält man das folgende LGS:
-
-\[
-\begin{aligned}
-    2x + y = 1 \\
-    4x + 2y = 2
-\end{aligned}
-\]
-
-Durch Multiplikation mit 2 der ersten Gleichung und anschließender Subtraktion der zweiten Gleichung erhält man:
-
-\[
-    0x + 0y = 0 \Rightarrow 0 = 0
-\]
-
-Da dies eine wahre Aussage ist, folgt daraus, dass das LGS unendlich viele Lösungen hat.
-Geometrisch betrachtet handelt es sich um die gleiche Gerade, wodurch es unendlich viele "Schnittpunkte" gibt.
-
-Für a = -2 ergibt sich folgende Gleichung für das LGS:
-
-\[
-\begin{aligned}
-    -2x + y = 1 \\
-    4x-2y = 2
-\end{aligned}
-\]
-
-Durch Multiplikation mit 2 und Subtraktion der ersten Gleichung von der zweiten erhält man:
-\[
-    0 = 4
-\]
-
-Da dies eine falsche Aussage ist, folgt daraus, dass das LGS keine Lösung hat.
-Geometrisch betrachtet handelt es sich um parallele Geraden, die sich nicht schneiden.
-Daraus folgt, dass für jedes $a \in \mathbb{R}$, $a \neq -2$ und $a \neq 2$, das LGS eindeutig lösbar ist, für $a = 2$ unendlich viele Lösungen hat und für $a = -2$ keine Lösung hat.
-
-
-\subsection{Aufgabe 1.3}
-
-(a) Geometrische Bedeutung der möglichen Lösungen
-
-\[
-\begin{aligned}
-    a_1x + b_1y + c_1z & = d_1 \\
-    a_2x + b_2y + c_2z & = d_2 \\
-    a_3x + b_3y + c_3z & = d_3
-\end{aligned}
-\]
-mit Koeffizienten $a_i, b_i, c_i, d_i \in \mathbb{R}, i = 1, 2, 3$.
-\bigskip
-
-Wir betrachten hier einen Raum mit drei Dimensionen, in dem die Variablen x, y und z die Achsen bilden.
-Dementsprechend handelt es sich bei jeder der drei Gleichungen um eine Ebene im Raum.
+Da die Determinante der Koeffizientenmatrix gleich 0 ist, können wir davon ausgehen, dass das LGS keine oder unendlich Lösungen hat.
+Weitergehend bestimmen wir den Rang um festzustellen, ob es keine oder unendlich viele Lösungen gibt.
 
 \begin{enumerate}
-    \item  Keine Lösung: Die Ebenen liegen parallel zueinander im Raum
-    \item  Eine Lösung: Die Ebenen schneiden sich in genau einem Punkt
-    \item  Unendlich viele Lösungen: Mindestens zwei der Ebenen sind identisch oder parallel zueinander. Dies führt dazu, dass mindestens eine Gerade als Schnittmenge der Ebenen existiert und somit unendlich viele Schnittpunkte existieren.
+  \item Subtraktion der ersten Zeile von der zweiten und dritten Zeile:
+  \[
+  \begin{pmatrix}
+  a & a+1 & a+2 \\
+  3 & 3 & 3 \\
+  6 & 6 & 6
+  \end{pmatrix}
+  \]
+  \item Subtraktion den Doppelten der zweiten Zeile von der dritten Zeile:
+  \[
+  \begin{pmatrix}
+  a & a+1 & a+2 \\
+  3 & 3 & 3 \\
+  0 & 0 & 0
+  \end{pmatrix}
+  \]
 \end{enumerate}
-\bigskip
 
-(b) Lösen des folgenden Gleichungssystems
+Der Rang dieser Matrix ist 2, da zwei Zeilen nicht nur aus Nullen bestehen. Das bedeutet, dass es unendlich viele Lösungen gibt.
+
+Um nun die Lösungen zu bestimmen, lösen wir das zuvor vereinfachte Gleichungssystem:
 
 \[
 \begin{aligned}
-    6x + 5y + 3z & = 1 \\
-    x + 2y + z & = 4 \\
-    2x - 2y - 2z & = 8
+a x + (a+1) y + (a+2) z = 0 \\
+3x + 3y + 3z = 0 \\
+x + y + z = 0
 \end{aligned}
 \]
+
+Lösen der dritten Gleichung nach \( y \):
+\[
+y = -x - z
+\]
+
+Einsetzen in die erste Gleichung:
+\[
+a x + (a+1) (-x - z) + (a+2) z = 0
+\]
+
+Vereinfachen:
+\[
+a x - (a+1) x - (a+1) z + (a+2) z = 0
+\]
+\[
+(a - (a+1)) x + ((a+2) - (a+1)) z = 0
+\]
+\[
+-1x + z = 0 \quad \Rightarrow \quad x = z
+\]
+
+Da \( y = -x - z \), ergibt sich:
+\[
+y = -z - z = -2z
+\]
+
+Zusammenfassend:
+Das Gleichungssystem hat nicht nur die triviale Lösung. Die allgemeine Lösung ist:
+\[
+x = z, \quad y = -2z
+\]
+
+Damit ist die Lösung des Gleichungssystems:
+\[
+(x, y, z) = (z, -2z, z) \quad \text{für beliebiges} \ z \in \mathbb{R}
+\]
+Das Gleichungssystem besitzt also unendlich viele Lösungen.
+
+\section*{Aufgabe 3}
+
+Gegeben seien Mengen \( X, Y, Z \) sowie zwei Abbildungen \( f : X \to Y \) und \( g : Y \to Z \). Wir untersuchen nun die gegebenen Aussagen:
+
+\medskip
+
+\textbf{(a)} Sind \( f \) und \( g \) injektiv (bzw. surjektiv), so ist \( g \circ f \) injektiv (bzw. surjektiv).
+\smallskip
+
+\textbf{Injektivität:} Wenn \( f \) und \( g \) beide injektiv sind, bedeutet dies, dass \( f \) verschiedene Elemente von \( X \) auf verschiedene Elemente in \( Y \) abbildet und \( g \) verschiedene Elemente von \( Y \) auf verschiedene Elemente in \( Z \). Da beide Funktionen injektiv sind, muss auch die Komposition \( g \circ f \) injektiv sein.
+
+Beweis:
+\[
+g(f(x_1)) = g(f(x_2)) \implies f(x_1) = f(x_2) \quad \text{(weil \( g \) injektiv ist)}
+\]
+\[
+f(x_1) = f(x_2) \implies x_1 = x_2 \quad \text{(weil \( f \) injektiv ist)}
+\]
+Also ist \( g \circ f \) injektiv.
+
+\medskip
+
+\textbf{Surjektivität:} Wenn \( f \) und \( g \) beide surjektiv sind, dann bedeutet dies, dass jedes Element in \( Z \) durch \( g \) aus einem Element von \( Y \) erreicht wird und jedes Element in \( Y \) durch \( f \) aus einem Element von \( X \) erreicht wird. Also ist die Komposition \( g \circ f \) surjektiv, da die gesamte Zielmenge abgedeckt wird.
+
+Beweis:
+\[
+\forall z \in Z, \exists y \in Y \ \text{mit} \ g(y) = z
+\]
+\[
+\forall y \in Y, \exists x \in X \ \text{mit} \ f(x) = y
+\]
+Damit existiert für jedes \( z \in Z \) ein \( x \in X \), sodass \( g(f(x)) = z \). Also ist \( g \circ f \) surjektiv.
+
 \bigskip
 
-Um das Gleichungssystem zu lösen, wenden wir den Gauß-Algorithmus an.
+\textbf{(b)} Ist \( g \circ f \) injektiv (bzw. surjektiv), so ist \( f \) injektiv (bzw. \( g \) surjektiv).
 
-\[
-\begin{pmatrix}
-    6 & 5 & 3 & | & 1 \\
-    1 & 2 & 1 & | & 4 \\
-    2 & -2 & -2 & | & 8
-\end{pmatrix}
-\]
+\smallskip
 
-Multiplikaion der ersten Zeile mit $\frac{1}{6}$ und Subtraktion der ersten Zeile von der zweiten Zeile:
+\textbf{Injektivität:} Wenn \( g \circ f \) injektiv ist, folgt, dass auch \( f \) injektiv sein muss. Andernfalls gäbe es zwei verschiedene Werte \( x_1, x_2 \in X \), für die \( f(x_1) = f(x_2) \). Dies würde bedeuten, dass \( g(f(x_1)) = g(f(x_2)) \), was der Injektivität von \( g \circ f \) widerspricht. Daher muss \( f \) injektiv sein.
 
-\[
-\begin{pmatrix}
-    6 & 5 & 3 & | & 1 \\
-    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
-    2 & -2 & -2 & | & 8
-\end{pmatrix}
-\]
+\medskip
 
-Multiplikation der ersten Zeile mit $\frac{1}{3}$ und Subtraktion der ersten Zeile von der dritten Zeile:
+\textbf{Surjektivität:} Wenn \( g \circ f \) surjektiv ist, muss auch \( g \) surjektiv sein. Denn wenn \( g \) nicht surjektiv wäre, könnte \( g \circ f \) nicht jedes Element in \( Z \) erreichen, was der Surjektivität von \( g \circ f \) widerspricht.
 
-\[
-\begin{pmatrix}
-    6 & 5 & 3 & | & 1 \\
-    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
-    0 & -\frac{11}{3} & -3 & | & \frac{23}{3}
-\end{pmatrix}
-\]
-
-Multiplikation der zweiten Zeile mit $-\frac{22}{7}$ und Subtraktion der zweiten Zeile von der dritten Zeile:
-
-\[
-\begin{pmatrix}
-    6 & 5 & 3 & | & 1 \\
-    0 & \frac{7}{6} & \frac{1}{2} & | & \frac{23}{6} \\
-    0 & 0 & -\frac{10}{7} & | & \frac{138}{7}
-\end{pmatrix}
-\]
-
-Daraus folgt, dass:
-
-\[
--\frac{10}{7}z = \frac{138}{70} \Rightarrow z= -\frac{69}{5}.
-\]
-
-Durch Einsetzen von z in die zweite Gleichung erhält man:
-
-\[
-\frac{7}{6}y = \frac{23}{6} - \frac{1}{2} \cdot \left(-\frac{69}{5}\right) \Rightarrow y = \frac{161}{15}
-\]
-
-Durch Einsetzen von y und z in die erste Gleichung erhält man:
-
-\[
-6x = 1 - 5 \cdot \frac{46}{5} - 3 \cdot -\frac{69}{5} \Rightarrow x = -\frac{3}{5}
-\]
-
-Ergebnis: Die drei Ebenen schneiden sich in genau einem Punkt der durch diesen Vektor beschrieben ist:
-
-\[
-\begin{pmatrix}
-    -\frac{3}{5} \\
-    \frac{46}{5} \\
-    -\frac{69}{5}
-\end{pmatrix}
-\]
-
-\subsection{Aufgabe 1.4}
-
-Es soll gezeigt werden, welche von ${(0,0,0)}$ verschiedenen Lösungsmengen ein Gleichungssystem
-unter Berücksichtigung zweier Bedingungen haben kann. Zunächst berechnen wir hierfür die Determinante der Koeffizientenmatrix des Gleichungssystems um daraus eine
-Aussage über die Lösbarkeit des Gleichungssystem abzuleiten.
-
-\[
-\det\begin{pmatrix}
-    1 & a & b \\
-    b & 1 & a \\
-    a & b & 1
-\end{pmatrix} = 1 + a^3 + b^3 - 3ab
-\]
-
-Unter der ersten Bedingung $a = b = 1$ ergibt sich folgende Aussage:
-
-\[
-1 + 1^3 + 1^3 - 3 \cdot 1 \cdot 1 = 0
-\]
-
-Daraus folgt, dass es keine eindeutige Lösung gibt.
-Betrachtet man das Gleichungssystem unter dieser Bedingung, so ergibt sich für alle drei Gleichungen:
-
-\[
-    x + y + z = 0
-\]
-
-Hinsichtlich der Lösungsmenge bedeutet dies, dass es unendlich viele Lösungen gibt, da es sich jeweils um dieselbe Ebene handelt.
 \bigskip
-Unter der zweiten Bedingung $a + b + 1 = 0$ $\Leftrightarrow$ $a= -b-1$ ergibt sich folgende Aussage:
 
+\textbf{(c)} Ist \( g \circ f \) injektiv und \( f \) surjektiv, so ist \( g \) injektiv.
+
+\textit{Beweis:} Da \( f \) surjektiv ist, erreicht jedes Element von \( Y \) durch \( f \) ein Element von \( X \). Wenn \( g \circ f \) injektiv ist, muss auch \( g \) injektiv sein. Andernfalls gäbe es zwei verschiedene Elemente \( y_1, y_2 \in Y \), die auf dasselbe Element in \( Z \) abgebildet werden, was der Injektivität von \( g \circ f \) widerspricht.
+
+\bigskip
+
+\textbf{(d)} Beispiel: \( g \circ f \) ist bijektiv, aber \( f \) ist nicht surjektiv und \( g \) ist nicht injektiv.
+
+Wir konstruieren ein Beispiel, bei dem \( g \circ f \) bijektiv ist, aber \( f \) nicht surjektiv und \( g \) nicht injektiv ist.
+
+Seien:
 \[
-    1 + (-b-1)^3 + b^3 - 3b \cdot (-b-1) = b^3 - b^3 -3b^2 -3b - 1 + 3b^2 + 3b + 1 = 0
+X = \{1, 2\}, \quad Y = \{1, 2, 3\}, \quad Z = \{1, 2\}
 \]
+Definiere die Funktionen \( f \) und \( g \) wie folgt:
+\[
+f(1) = 1, \quad f(2) = 2 \quad \text{(nicht surjektiv, da \( 3 \) in \( Y \) nicht erreicht wird)},
+\]
+\[
+g(1) = 1, \quad g(2) = 2, \quad g(3) = 2 \quad \text{(nicht injektiv, da \( g(2) = g(3) \))}.
+\]
+Die Komposition \( g \circ f \) ergibt:
+\[
+g(f(1)) = g(1) = 1, \quad g(f(2)) = g(2) = 2
+\]
+Also ist \( g \circ f \) bijektiv, obwohl \( f \) nicht surjektiv und \( g \) nicht injektiv ist.
 
-Auch unter dieser Bedingung gibt es keine eindeutige Lösung, sodass es entweder keine oder unendlich viele Lösungen gibt.
-Da die Ebenen weder identisch noch parallel zueinander sind, gibt es per ausschlussverfahren unendlich viele
-Lösungen im Sinne von Schnittgeraden zwischen den Ebenen.
+
+\section*{Aufgabe 4}
+
+Wir sollen zeigen, dass die Abbildung
+\[
+f \mapsto (p_i \circ f)_{i \in I}
+\]
+der Menge aller Abbildungen \( \text{Abb}(X, \prod_{i \in I} X_i) \) in das kartesische Produkt \( \prod_{i \in I} \text{Abb}(X, X_i) \) bijektiv ist.
+
+\medskip
+
+Um dies zu zeigen, müssen wir zeigen, dass die Abbildung sowohl injektiv als auch surjektiv ist.
+
+\textbf{1. Injektivität}
+
+Wir zeigen zunächst, dass die Abbildung injektiv ist. Das bedeutet, wenn für zwei Abbildungen \( f_1, f_2 \in \text{Abb}(X, \prod_{i \in I} X_i) \) gilt, dass \( (p_i \circ f_1)(x) = (p_i \circ f_2)(x) \) für alle \( i \in I \) und für jedes \( x \in X \), dann folgt daraus \( f_1 = f_2 \).
+
+Beweis:
+Seien \( f_1, f_2 : X \to \prod_{i \in I} X_i \) zwei Abbildungen, sodass \( (p_i \circ f_1) = (p_i \circ f_2) \) für alle \( i \in I \). Das bedeutet, dass für jedes \( x \in X \) und für alle \( i \in I \) gilt:
+\[
+p_i(f_1(x)) = p_i(f_2(x))
+\]
+Da \( p_i \) die Projektion auf die \( i \)-te Komponente ist, folgt daraus, dass \( f_1(x) = f_2(x) \) für jedes \( x \in X \). Somit ist \( f_1 = f_2 \), also ist die Abbildung injektiv.
+
+\textbf{2. Surjektivität}
+
+Wir zeigen nun, dass die Abbildung surjektiv ist. Das bedeutet, dass für jede Familie von Abbildungen \( (g_i)_{i \in I} \), wobei \( g_i : X \to X_i \), eine Abbildung \( f \in \text{Abb}(X, \prod_{i \in I} X_i) \) existiert, sodass \( p_i \circ f = g_i \) für alle \( i \in I \).
+
+Beweis:
+Sei \( (g_i)_{i \in I} \) eine Familie von Abbildungen \( g_i : X \to X_i \). Definiere eine Abbildung \( f : X \to \prod_{i \in I} X_i \) durch:
+\[
+f(x) = (g_i(x))_{i \in I}
+\]
+Das heißt, \( f(x) \) ist das Tupel, dessen \( i \)-te Komponente \( g_i(x) \) ist. Für jedes \( i \in I \) gilt dann:
+\[
+p_i(f(x)) = g_i(x)
+\]
+Also ist \( p_i \circ f = g_i \), und damit ist die Abbildung surjektiv.
+
+
+Zusammenfassend:
+Da die Abbildung sowohl injektiv als auch surjektiv ist, ist sie per Defintion bijektiv.
+
 
 \bibliography{main}
 \bibliographystyle{plain}

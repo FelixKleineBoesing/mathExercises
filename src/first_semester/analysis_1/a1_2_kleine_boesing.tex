@@ -1,0 +1,196 @@
+%! Author = felix
+%! Date = 14.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 2}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+Zeigen Sie: Für alle \( n \in \mathbb{N} \) gilt
+\[
+\sum_{k=1}^{n} k^3 = \left( \sum_{k=1}^{n} k \right)^2
+\]
+
+\subsection*{Beweis durch vollständige Induktion}
+
+\textbf{Induktionsanfang:} Für \( n = 1 \) gilt:
+\[
+\sum_{k=1}^{1} k^3 = 1^3 = 1
+\]
+und
+\[
+\left( \sum_{k=1}^{1} k \right)^2 = (1)^2 = 1.
+\]
+Also gilt die Aussage für \( n = 1 \).
+
+\textbf{Induktionsvoraussetzung:}
+Angenommen, die Aussage gilt für ein \( n \in \mathbb{N} \), d.h.
+\[
+\sum_{k=1}^{n} k^3 = \left( \sum_{k=1}^{n} k \right)^2.
+\]
+
+\textbf{Induktionsschritt:}
+Es ist zu zeigen, dass die Aussage auch für \( n + 1 \) gilt:
+\[
+\sum_{k=1}^{n+1} k^3 = \left( \sum_{k=1}^{n+1} k \right)^2.
+\]
+Die linke Seite der Gleichung ist:
+\[
+\sum_{k=1}^{n+1} k^3 = \sum_{k=1}^{n} k^3 + (n+1)^3.
+\]
+Nach Induktionsvoraussetzung gilt:
+\[
+\sum_{k=1}^{n} k^3 = \left( \sum_{k=1}^{n} k \right)^2.
+\]
+Daher folgt:
+\[
+\sum_{k=1}^{n+1} k^3 = \left( \sum_{k=1}^{n} k \right)^2 + (n+1)^3.
+\]
+
+Nun betrachten wir die rechte Seite der Gleichung:
+\[
+\left( \sum_{k=1}^{n+1} k \right)^2 = \left( \sum_{k=1}^{n} k + (n+1) \right)^2 = \left( S_n + (n+1) \right)^2,
+\]
+wobei \( S_n = \sum_{k=1}^{n} k \) ist.
+
+Erweitern wir den Term:
+\[
+\left( S_n + (n+1) \right)^2 = S_n^2 + 2S_n(n+1) + (n+1)^2.
+\]
+
+Vergleichen wir dies mit der linken Seite:
+\[
+S_n^2 + (n+1)^3 = S_n^2 + 2S_n(n+1) + (n+1)^2.
+\]
+
+Beide Seiten stimmen überein, also gilt die Aussage auch für \( n + 1 \).
+
+\textbf{Schluss:}
+Da die Aussage für \( n = 1 \) gilt und der Induktionsschritt erfolgreich durchgeführt wurde, folgt aus der vollständigen Induktion, dass die Gleichung für alle \( n \in \mathbb{N} \) gilt:
+\[
+\sum_{k=1}^{n} k^3 = \left( \sum_{k=1}^{n} k \right)^2.
+\]
+
+\section*{Aufgabe 2}
+
+Geben Sie je ein Beispiel für eine Abbildung von \( \mathbb{R} \) nach \( \mathbb{R} \), welche
+
+\begin{itemize}
+    \item[a)] injektiv und surjektiv ist,
+    \item[b)] injektiv, aber nicht surjektiv ist,
+    \item[c)] surjektiv, aber nicht injektiv ist,
+    \item[d)] weder injektiv noch surjektiv ist.
+\end{itemize}
+
+\subsection*{Lösung}
+
+\subsubsection*{(a) Injektiv und sujektiv (bijektiv)}
+
+Ein Beispiel für eine bijektive Abbildung ist:
+\[
+f(x) = x
+\]
+\textbf{Begründung:}
+\begin{itemize}
+    \item Injektivität: Wenn \( f(x_1) = f(x_2) \), dann folgt sofort \( x_1 = x_2 \). Also ist \( f \) injektiv.
+    \item Surjektivität: Für jedes \( y \in \mathbb{R} \) gibt es ein \( x \in \mathbb{R} \) mit \( f(x) = y \), nämlich \( x = y \). Also ist \( f \) auch surjektiv.
+\end{itemize}
+
+\subsubsection*{(b) Injektiv, aber nicht surjektiv}
+
+Ein Beispiel für eine injektive, aber nicht surjektive Abbildung ist:
+\[
+f(x) = e^x
+\]
+\textbf{Begründung:}
+\begin{itemize}
+    \item Injektivität: Wenn \( e^{x_1} = e^{x_2} \), folgt \( x_1 = x_2 \), also ist \( f \) injektiv.
+    \item Nicht surjektiv: Es gibt kein \( x \in \mathbb{R} \), für das \( f(x) = -1 \) gilt, da der Wertebereich von \( e^x \) nur positive Werte annimmt. Daher ist \( f \) nicht surjektiv.
+\end{itemize}
+
+\subsubsection*{(c) Surjektiv, aber nicht injektiv}
+
+Ein Beispiel für eine surjektive, aber nicht injektive Abbildung ist:
+\[
+f(x) = x^3
+\]
+\textbf{Begründung:}
+\begin{itemize}
+    \item Surjektivität: Für jedes \( y \in \mathbb{R} \) gibt es ein \( x \in \mathbb{R} \), für das \( f(x) = y \), nämlich \( x = \sqrt[3]{y} \). Also ist \( f \) surjektiv.
+    \item Nicht injektiv: Es gibt verschiedene Werte \( x \), die denselben Funktionswert haben, zum Beispiel \( f(-1) = (-1)^3 = -1 \) und \( f(1) = 1^3 = 1 \). Also ist \( f \) nicht injektiv.
+\end{itemize}
+
+\subsubsection*{(d) Weder injektiv noch surjektiv}
+
+Ein Beispiel fpr eine Abbildung, die weder injektiv noch surjektiv ist:
+\[
+f(x) = \sin(x)
+\]
+\textbf{Begründung:}
+\begin{itemize}
+    \item Nicht injektiv: \( \sin(x) \) ist nicht injektiv, da \( \sin(0) = \sin(2\pi) = 0 \). Es gibt also mehrere Werte \( x \), die denselben Funktionswert haben.
+    \item Nicht surjektiv: \( \sin(x) \) nimmt nur Werte im Intervall \( [-1, 1] \) an, also gibt es kein \( x \in \mathbb{R} \), für das \( f(x) = 2 \) gilt. Daher ist \( f \) nicht surjektiv.
+\end{itemize}
+
+\section*{Aufgabe 3}
+
+Sei \( (K, +, \cdot, \leq) \) ein angeordneter Körper und \( A \subseteq K \) eine nach oben beschränkte Teilmenge.
+
+\subsection*{(a) Besitzt \( A \) ein Supremum \( s \), so ist \( s \) eindeutig bestimmt.}
+
+\textbf{Beweis:} Das Supremum einer Menge \( A \) ist das kleinste Element, das eine obere Schranke für \( A \) ist. Angenommen, es gäbe zwei Suprema \( s_1 \) und \( s_2 \). Da beide Suprema obere Schranken sind, gilt für alle \( a \in A \):
+\[
+a \leq s_1 \quad \text{und} \quad a \leq s_2.
+\]
+Da \( s_1 \) und \( s_2 \) Suprema sind, gilt \( s_1 \leq s_2 \) und \( s_2 \leq s_1 \), also \( s_1 = s_2 \). Daher ist das Supremum eindeutig bestimmt.
+
+\subsection*{(b) Besitzt \( A \) ein Maximum \( m \in A \), so ist \( m \) eindeutig bestimmt.}
+
+\textbf{Beweis:} Ein Maximum \( m \in A \) ist das größte Element in \( A \). Angenommen, \( m_1 \) und \( m_2 \) seien zwei Maxima. Dann gilt:
+\[
+a \leq m_1 \quad \text{und} \quad a \leq m_2.
+\]
+Da beide Maxima sind, folgt \( m_1 \leq m_2 \) und \( m_2 \leq m_1 \), also \( m_1 = m_2 \). Daher ist das Maximum eindeutig bestimmt.
+
+\section*{Aufgabe 4}
+
+Seien \( A := [0,1] \), \( B := (-\infty, 0) \) und \( M := (-\infty, 0) \cup (0, \infty) \) Teilmengen von \( \mathbb{R} \).
+
+\subsection*{(a) Es gilt \( \sup(A) = 1 \in \mathbb{R} \).}
+
+\textbf{Begründung:} Die Menge \( A = [0,1] \) ist eine beschränkte Teilmenge von \( \mathbb{R} \). Da 1 das größte Element in \( A \) ist, ist \( 1 \) das Supremum von \( A \):
+\[
+\sup(A) = 1.
+\]
+
+\subsection*{(b) Es gilt \( \sup(B) = 0 \in \mathbb{R} \).}
+
+\textbf{Begründung:} Die Menge \( B = (-\infty, 0) \) ist nach oben beschränkt, aber 0 selbst ist nicht in \( B \) enthalten. Da 0 die kleinste obere Schranke von \( B \) ist:
+\[
+\sup(B) = 0.
+\]
+
+\subsection*{(c) Die Ordnung \( \leq \) auf \( \mathbb{R} \) induziert eine Ordnung \( \leq_M \) auf \( M \).}
+
+\textbf{Begründung:} Da \( M = (-\infty, 0) \cup (0, \infty) \subset \mathbb{R} \), wird die Ordnung \( \leq \) auf \( \mathbb{R} \) auch auf \( M \) übertragen. Für alle \( x, y \in M \) gilt:
+\[
+x \leq y \implies x \leq_M y.
+\]
+Die Ordnung \( \leq_M \) ist also durch die Ordnung auf \( \mathbb{R} \) induziert.
+
+\subsection*{(d) \( B \) besitzt kein Supremum in \( M \).}
+
+\textbf{Begründung:} Da \( M = (-\infty, 0) \cup (0, \infty) \) an der Stelle \( 0 \) „getrennt“ ist, gehört 0 nicht zu \( M \). Daher kann 0 nicht das Supremum von \( B \) in \( M \) sein, und keine andere Zahl in \( M \) erfüllt diese Rolle. Also besitzt \( B \) kein Supremum in \( M \).
+
+\end{document}
