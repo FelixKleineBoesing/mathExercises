@@ -1,0 +1,162 @@
+%! Author = felix
+%! Date = 11.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 3}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+
+Es sei das folgende lineare Gleichungssystem über dem Körper \( K \) gegeben:
+\[
+x + y + z = 0
+\]
+\[
+x - y - z = 0
+\]
+\[
+x + z = 0
+\]
+Bestimmen Sie die Lösungen dieses Gleichungssystems, falls:
+
+\subsection*{(a) \( K = \mathbb{C} \)}
+
+\textbf{Schritt 1:} Aus der dritten Gleichung folgt:
+\[
+x = -z
+\]
+
+\textbf{Schritt 2:} Einsetzen von \( x = -z \) in die anderen Gleichungen:
+\[
+-z + y + z = 0 \implies y = 0
+\]
+\[
+-z - 0 - z = 0 \implies z = 0
+\]
+
+\textbf{Schritt 3:} Damit ist:
+\[
+x = 0, \quad y = 0, \quad z = 0
+\]
+Die Lösung über \( \mathbb{C} \) ist daher nur die triviale Lösung:
+\[
+(0, 0, 0)
+\]
+
+\subsection*{(b) \( K = \mathbb{F}_2 \)}
+
+Da wir uns in \( \mathbb{F}_2 \) befinden, sind die einzigen möglichen Werte für die Variablen \( 0 \) und \( 1 \).
+Anders gesagt müssen wir in \( \mathbb{F}_2 \) die Gleichungen mod 2 betrachten. Das bedeutet für die Multiplikation und Addition, dass:
+\[
+    1 + 1 = 0, \quad 1 \cdot 1 = 1
+    -1 = 1
+\]
+
+\textbf{Schritt 1:} Aus der dritten Gleichung \( x + z = 0 \) folgt in \( \mathbb{F}_2 \), dass
+\[
+x = z
+\]
+
+\textbf{Schritt 2:} Setzen wir \( x = z \) in die erste Gleichung \( x + y + z = 0 \) ein:
+\[
+z + y + z = 0 \implies 2z + y = 0
+\]
+Da in \( \mathbb{F}_2 \) \( 2z = 0 \) ist, bleibt:
+\[
+y = 0
+\]
+
+\textbf{Schritt 3:} Nun wissen wir, dass \( y = 0 \) ist, und \( x = z \) gilt. Also gibt es zwei mögliche Fälle:
+\begin{itemize}
+    \item Wenn \( z = 0 \), dann ist \( x = 0 \). Die Lösung ist:
+    \[
+    (x, y, z) = (0, 0, 0)
+    \]
+    \item Wenn \( z = 1 \), dann ist \( x = 1 \). Die Lösung ist:
+    \[
+    (x, y, z) = (1, 0, 1)
+    \]
+\end{itemize}
+
+\textbf{Zusammenfassung:} Über \( \mathbb{F}_2 \) gibt es zwei Lösungen:
+\[
+(0, 0, 0) \quad \text{und} \quad (1, 0, 1)
+\]
+
+\section*{Aufgabe 2}
+
+Gesucht sind alle komplexen Zahlen \( z = x + iy \), die die Gleichung \( z^2 = z_0 \) erfüllen, wobei \( z_0 = a + ib \in \mathbb{C} \).
+
+\textbf{Schritt 1:} Wir berechnen das Quadrat von \( z \):
+\[
+z^2 = (x + iy)^2 = x^2 + 2ixy + i^2 y^2 = x^2 - y^2 + 2ixy
+\]
+Dies muss gleich \( z_0 = a + ib \) sein, also ergeben sich die beiden Gleichungen:
+\[
+x^2 - y^2 = a \quad (1), \quad 2xy = b \quad (2)
+\]
+
+\textbf{Schritt 2:} Lösen der Gleichung \( 2xy = b \) nach \( y \):
+\[
+y = \frac{b}{2x} \quad \text{für} \quad x \neq 0
+\]
+
+\textbf{Schritt 3:} Einsetzen von \( y \) in die Gleichung \( x^2 - y^2 = a \):
+\[
+x^2 - \left( \frac{b}{2x} \right)^2 = a \implies x^2 - \frac{b^2}{4x^2} = a
+\]
+Multiplizieren mit \( 4x^2 \) ergibt:
+\[
+4x^4 - 4a x^2 - b^2 = 0
+\]
+Setze \( u = x^2 \), um die quadratische Gleichung zu lösen:
+\[
+4u^2 - 4a u - b^2 = 0
+\]
+Die Lösung ist:
+\[
+u = \frac{a \pm \sqrt{a^2 + b^2}}{2}
+\]
+
+\textbf{Schritt 4:} Bestimmen von \( x \) und \( y \):
+\[
+x = \pm \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}, \quad y = \frac{b}{2x}
+\]
+
+\textbf{Lösungen:} Es gibt zwei Lösungen:
+\[
+z = \pm \left( \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}} + i \frac{b}{2 \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}} \right)
+\]
+
+\section*{Aufgabe 3}
+
+Es sei \( (G, \cdot) \) eine Gruppe. Wir zeigen, dass die Aussagen (a), (b) und (c) für eine nichtleere Teilmenge \( H \subseteq G \) äquivalent sind.
+
+\textbf{Beweis: (a) impliziert (b)} \\
+Angenommen, \( H \) erfüllt die Bedingungen von (a), d.h. für alle \( h_1, h_2 \in H \) gilt \( h_1^{-1} \in H \) und \( h_1 \cdot h_2 \in H \). \\
+Nun zeigen wir, dass für alle \( h_1, h_2 \in H \) auch \( h_1 \cdot h_2^{-1} \in H \) gilt. Da nach (a) \( h_2^{-1} \in H \), gilt durch die Abgeschlossenheit der Gruppenoperation auch \( h_1 \cdot h_2^{-1} \in H \). Somit ist (b) erfüllt.
+
+\textbf{Beweis: (b) impliziert (c)} \\
+Angenommen, \( H \) erfüllt die Bedingung (b), d.h. für alle \( h_1, h_2 \in H \) gilt \( h_1 \cdot h_2^{-1} \in H \). \\
+Da \( h_2 \in H \), gilt auch \( h_2^{-1} \in H \). Da \( H \) unter Inversenbildung abgeschlossen ist, ist \( H \) eine Gruppe. Somit gilt auch (c).
+
+\textbf{Beweis: (c) impliziert (a)} \\
+Angenommen, \( H \) ist eine Gruppe. Wir müssen zeigen, dass \( h_1^{-1} \in H \) und \( h_1 \cdot h_2 \in H \). Da \( H \) eine Gruppe ist, gilt per Definition die Abgeschlossenheit der Operation und die Inversenbildung, also ist (a) erfüllt.
+
+\textbf{Fazit:} Die Aussagen (a), (b) und (c) sind äquivalent.
+
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}
