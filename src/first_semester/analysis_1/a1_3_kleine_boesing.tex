@@ -1,0 +1,245 @@
+%! Author = felix
+%! Date = 14.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 3}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+\subsection*{Teil (a)}
+Zeigen Sie, dass \( \left( \sqrt[n]{x} \right)^n = x \).
+
+\textbf{Beweis:} Nach der Definition der \( n \)-ten Wurzel ist \( \sqrt[n]{x} = y \) genau dann, wenn \( y^n = x \). Daher folgt:
+\[
+\left( \sqrt[n]{x} \right)^n = x.
+\]
+
+\subsection*{Teil (b)}
+Zeigen Sie, dass \( \{ y \in \mathbb{R}_+ : y^n = x \} = \{ \sqrt[n]{x} \} \).
+
+\textbf{Beweis:} Da \( \sqrt[n]{x} \) die einzige positive reelle Zahl ist, die \( y^n = x \) erfüllt, folgt:
+\[
+\{ y \in \mathbb{R}_+ : y^n = x \} = \{ \sqrt[n]{x} \}.
+\]
+
+\subsection*{Teil (c)}
+Zeigen Sie \( x^p \cdot x^q = x^{p+q} \) und \( (x^p)^q = x^{p \cdot q} \).
+
+\textbf{Beweis:}
+
+1. Für \( x^p \cdot x^q = x^{p+q} \):
+   \[
+   x^p = \prod_{i=1}^{p} x, \quad x^q = \prod_{j=1}^{q} x.
+   \]
+   Wenn wir diese Produkte multiplizieren, ergibt sich:
+   \[
+   x^p \cdot x^q = \left( \prod_{i=1}^{p} x \right) \cdot \left( \prod_{j=1}^{q} x \right) = \prod_{k=1}^{p+q} x = x^{p+q}.
+   \]
+
+2. Für \( (x^p)^q = x^{p \cdot q} \):
+   \[
+   x^p = \prod_{i=1}^{p} x.
+   \]
+   Dann gilt:
+   \[
+   (x^p)^q = \prod_{j=1}^{q} \left( \prod_{i=1}^{p} x \right) = \prod_{k=1}^{p \cdot q} x = x^{p \cdot q}.
+   \]
+
+\subsection*{Teil (d)}
+Zeigen Sie \( (xy)^p = x^p y^p \) und \( \left( \frac{x}{y} \right)^p = \frac{x^p}{y^p} \).
+
+\textbf{Beweis:}
+
+1. Für \( (xy)^p = x^p y^p \):
+   \[
+   (xy)^p = \prod_{i=1}^{p} (xy) = \left( \prod_{i=1}^{p} x \right) \cdot \left( \prod_{i=1}^{p} y \right) = x^p y^p.
+   \]
+
+2. Für \( \left( \frac{x}{y} \right)^p = \frac{x^p}{y^p} \):
+   \[
+   \left( \frac{x}{y} \right)^p = \prod_{i=1}^{p} \frac{x}{y} = \frac{\prod_{i=1}^{p} x}{\prod_{i=1}^{p} y} = \frac{x^p}{y^p}.
+   \]
+
+\subsection*{Teil (e)}
+Zeigen Sie \( x < y \land p > 0 \Rightarrow x^p < y^p \).
+
+\textbf{Beweis:} Da \( p > 0 \), bewahrt das Potenzieren mit \( p \) die Ordnung \( x < y \), also:
+\[
+x^p < y^p.
+\]
+
+\subsection*{Teil (f)}
+Zeigen Sie \( x < y \land p < 0 \Rightarrow x^p > y^p \).
+
+\textbf{Beweis:} Da \( p < 0 \), kehrt sich die Ordnung beim Potenzieren um. Daher folgt:
+\[
+x^p > y^p.
+\]
+
+\subsection*{Teil (g)}
+Zeigen Sie \( p < q \land x > 1 \Rightarrow x^p < x^q \).
+
+\textbf{Beweis:} Da \( x > 1 \) und \( p < q \), wächst \( x \) schneller bei \( q \), also:
+\[
+x^p < x^q.
+\]
+
+\subsection*{Teil (h)}
+Zeigen Sie \( p < q \land x < 1 \Rightarrow x^p > x^q \).
+
+\textbf{Beweis:} Da \( x < 1 \), kehrt sich die Ordnung bei höheren Exponenten um, daher:
+\[
+x^p > x^q.
+\]
+
+\section*{Aufgabe 2}
+
+Seien \( a, b \in \mathbb{R} \) mit \( a, b \geq 0 \).
+
+\subsection*{Teil (a)}
+Zeigen Sie die Ungleichung \( \sqrt{ab} \leq \frac{a + b}{2} \).
+
+\textbf{Beweis:} Wir beginnen, indem wir die Ungleichung umformen. Multiplizieren beider Seiten mit 2 ergibt:
+\[
+2\sqrt{ab} \leq a + b.
+\]
+Da \( a \) und \( b \) nicht-negativ sind, können wir beide Seiten quadrieren, ohne die Ungleichung zu verändern:
+\[
+(2\sqrt{ab})^2 \leq (a + b)^2,
+\]
+was sich vereinfacht zu:
+\[
+4ab \leq a^2 + 2ab + b^2.
+\]
+Durch Subtraktion von \( 4ab \) auf beiden Seiten erhalten wir:
+\[
+0 \leq a^2 - 2ab + b^2.
+\]
+Dies können wir als Quadrat schreiben:
+\[
+0 \leq (a - b)^2.
+\]
+Da \( (a - b)^2 \geq 0 \) immer wahr ist, folgt die gewünschte Ungleichung:
+\[
+\sqrt{ab} \leq \frac{a + b}{2}.
+\]
+
+\subsection*{Teil (b)}
+Zeigen Sie, dass in der Ungleichung \( \sqrt{ab} \leq \frac{a + b}{2} \) genau dann Gleichheit eintritt, wenn \( a = b \).
+
+\textbf{Beweis:} Wir setzen \( a = b \) in die Ungleichung ein und prüfen, ob dann Gleichheit gilt.
+
+Die linke Seite der Ungleichung wird zu:
+\[
+\sqrt{ab} = \sqrt{a \cdot a} = \sqrt{a^2} = a.
+\]
+
+Die rechte Seite der Ungleichung wird zu:
+\[
+\frac{a + b}{2} = \frac{a + a}{2} = \frac{2a}{2} = a.
+\]
+
+Damit ergibt sich die Gleichung:
+\[
+a = a,
+\]
+die offensichtlich wahr ist. Dies zeigt, dass Gleichheit genau dann eintritt, wenn \( a = b \).
+
+   \section*{Aufgabe 3}
+
+Auf der Menge \( \mathbb{R} \times \mathbb{R} \) seien folgende Verknüpfungen \( + \) und \( \cdot \) definiert:
+\[
+(a, b) + (a', b') := (a + a', b + b')
+\]
+\[
+(a, b) \cdot (a', b') := (aa' - bb', ab' + a'b).
+\]
+
+\subsection*{(a) Zeigen Sie, dass \( (\mathbb{R} \times \mathbb{R}, +, \cdot) \) ein Körper ist.}
+
+\textbf{Beweis:} Wir überprüfen die Eigenschaften eines Körpers:
+
+1. **Abgeschlossenheit der Addition und Multiplikation:** Für \( (a, b), (a', b') \in \mathbb{R} \times \mathbb{R} \) sind Addition und Multiplikation abgeschlossen, da die Ergebnisse ebenfalls in \( \mathbb{R} \times \mathbb{R} \) liegen.
+
+2. **Assoziativität und Kommutativität der Addition:** Da die Addition komponentenweise erfolgt und \( \mathbb{R} \) assoziativ und kommutativ ist, sind diese Eigenschaften auch hier erfüllt.
+
+3. **Neutrales Element der Addition:** Das neutrale Element ist \( (0, 0) \), da \( (a, b) + (0, 0) = (a, b) \).
+
+4. **Additives Inverses:** Für jedes \( (a, b) \in \mathbb{R} \times \mathbb{R} \) ist das additive Inverse \( (-a, -b) \), da \( (a, b) + (-a, -b) = (0, 0) \).
+
+5. **Kommutativität und Assoziativität der Multiplikation:** Die Multiplikation ist ebenfalls kommutativ und assoziativ, was durch direkte Berechnung gezeigt werden kann.
+
+6. **Distributivgesetz:** Die Multiplikation ist über die Addition distributiv.
+
+Da alle Eigenschaften eines Körpers erfüllt sind, ist \( (\mathbb{R} \times \mathbb{R}, +, \cdot) \) ein Körper.
+
+\subsection*{(b) Zeigen Sie, dass \( i = (0, 1) \) die Eigenschaft \( i^2 = (-1, 0) \) erfüllt.}
+
+Wir berechnen \( i^2 \) für \( i = (0, 1) \):
+\[
+i \cdot i = (0, 1) \cdot (0, 1) = (0 \cdot 0 - 1 \cdot 1, 0 \cdot 1 + 1 \cdot 0) = (-1, 0).
+\]
+Damit ist gezeigt, dass \( i^2 = (-1, 0) \).
+
+   \section*{Aufgabe 4}
+Zeigen Sie, dass für alle \( x, y \in \mathbb{R} \) Folgendes gilt:
+\[
+\max\{x, y\} = \frac{1}{2} (x + y + |x - y|)
+\]
+und
+\[
+\min\{x, y\} = \frac{1}{2} (x + y - |x - y|).
+\]
+
+\textbf{Beweis:} Wir setzen \( y = x + c \) mit einer Konstante \( c \in \mathbb{R} \). Dies bedeutet, dass \( y \) um den Betrag \( c \) größer oder kleiner als \( x \) ist. Dies hilft uns dabei, den Betrag \( |x - y| \) zu analysieren und die gewünschten Ausdrücke für den Maximal- und Minimalwert zu erhalten.
+
+### 1. Berechnung von \( |x - y| \)
+Da \( y = x + c \), erhalten wir:
+\[
+x - y = x - (x + c) = -c.
+\]
+Daraus folgt:
+\[
+|x - y| = | - c | = |c|.
+\]
+
+Nun betrachten wir zwei Fälle, je nachdem, ob \( c \geq 0 \) oder \( c \leq 0 \) ist, um zu zeigen, dass die Formel für den Maximal- und Minimalwert unabhängig von \( c \) tatsächlich korrekt ist.
+
+### 2. Fallunterscheidung für \( \max\{x, y\} \) und \( \min\{x, y\} \)
+
+#### Fall 1: \( c \geq 0 \) (d.h. \( y \geq x \))
+
+In diesem Fall ist \( y = x + c \geq x \), daher gilt \( \max\{x, y\} = y \) und \( \min\{x, y\} = x \).
+
+Berechnung des Maximums:
+\[
+\max\{x, y\} = y = \frac{1}{2} (x + y + |x - y|) = \frac{1}{2} (x + (x + c) + | - c |) = \frac{1}{2} (2x + c + c) = x + c = y.
+\]
+
+Berechnung des Minimums:
+\[
+\min\{x, y\} = x = \frac{1}{2} (x + y - |x - y|) = \frac{1}{2} (x + (x + c) - | - c |) = \frac{1}{2} (2x + c - c) = x.
+\]
+
+#### Fall 2: \( c \leq 0 \) (d.h. \( x \geq y \))
+
+In diesem Fall ist \( x = y - c \geq y \), daher gilt \( \max\{x, y\} = x \) und \( \min\{x, y\} = y \).
+
+Berechnung des Maximums:
+\[
+\max\{x, y\} = x = \frac{1}{2} (x + y + |x - y|) = \frac{1}{2} (x + (x + c) + | - c |) = \frac{1}{2} (2x + c + c) = x + c = y.
+\]
+
+
+\end{document}
