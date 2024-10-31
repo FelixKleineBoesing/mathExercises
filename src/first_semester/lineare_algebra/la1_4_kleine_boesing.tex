@@ -1,0 +1,164 @@
+%! Author = felix
+%! Date = 11.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 4}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+Untersuchen Sie, welche der folgenden Teilmengen Untervektorräume von \( \mathbb{Q}^3 \) sind:
+\[
+\begin{aligned}
+    M_1 &= \{(x, y, z) \in \mathbb{Q}^3 : x, y, z \geq 0\}, \\
+    M_2 &= \{(x, y, z) \in \mathbb{Q}^3 : 3x + y + z = 5\}, \\
+    M_3 &= \{(x, y, z) \in \mathbb{Q}^3 : x + 2y = 3z\}, \\
+    M_4 &= \{(x, y, z) \in \mathbb{Q}^3 : xy - z = 0\}.
+\end{aligned}
+\]
+
+\subsection*{Teil (a)}
+
+\textbf{Beweis:} Um zu überprüfen, ob \( M_1 \) ein Untervektorraum von \( \mathbb{Q}^3 \) ist, müssen wir die folgenden Eigenschaften zeigen:
+
+\begin{enumerate}
+    \item \textbf{Der Nullvektor muss enthalten sein:} Der Nullvektor in \( \mathbb{Q}^3 \) ist \((0, 0, 0)\). Da \(0 \geq 0\) für jede Komponente gilt, gehört der Nullvektor zu \( M_1 \).
+
+    \item \textbf{Abgeschlossenheit unter Addition:} Nehmen wir an, dass \( (x_1, y_1, z_1), (x_2, y_2, z_2) \in M_1 \). Dann sind \( x_1, y_1, z_1 \geq 0 \) und \( x_2, y_2, z_2 \geq 0 \). Für die Summe \((x_1 + x_2, y_1 + y_2, z_1 + z_2)\) gilt ebenfalls \( x_1 + x_2 \geq 0 \), \( y_1 + y_2 \geq 0 \) und \( z_1 + z_2 \geq 0 \), sodass die Summe auch in \( M_1 \) liegt.
+
+    \item \textbf{Abgeschlossenheit unter Skalarmultiplikation:} Sei \( (x, y, z) \in M_1 \) und \( c \in \mathbb{Q} \). Wenn \( c < 0 \), dann wird eine oder mehrere der Komponenten \( cx, cy, cz \) negativ, was die Bedingung \( x, y, z \geq 0 \) verletzt. Daher ist \( M_1 \) nicht unter Skalarmultiplikation abgeschlossen.
+\end{enumerate}
+
+Da \( M_1 \) nicht unter Skalarmultiplikation abgeschlossen ist, ist es \textbf{kein Untervektorraum} von \( \mathbb{Q}^3 \).
+
+\subsection*{Teil (b)}
+
+\textbf{Beweis:} Untersuchen wir, ob \( M_2 \) ein Untervektorraum von \( \mathbb{Q}^3 \) ist.
+
+\begin{enumerate}
+    \item \textbf{Der Nullvektor muss enthalten sein:} Der Nullvektor in \( \mathbb{Q}^3 \) ist \((0, 0, 0)\). Setzen wir diesen in die Bedingung \(3x + y + z = 5\) ein, so erhalten wir:
+   \[
+   3 \cdot 0 + 0 + 0 = 0 \neq 5.
+   \]
+   Daher gehört der Nullvektor \textbf{nicht} zu \( M_2 \).
+\end{enumerate}
+
+Da der Nullvektor nicht in \( M_2 \) liegt, ist \( M_2 \) \textbf{kein Untervektorraum} von \( \mathbb{Q}^3 \).
+
+\subsection*{Teil (c)}
+
+\textbf{Beweis:} Untersuchen wir, ob \( M_3 \) ein Untervektorraum von \( \mathbb{Q}^3 \) ist.
+
+\begin{enumerate}
+    \item \textbf{Der Nullvektor muss enthalten sein:} Der Nullvektor in \( \mathbb{Q}^3 \) ist \((0, 0, 0)\). Setzen wir diesen in die Bedingung \(x + 2y = 3z\) ein, so erhalten wir:
+   \[
+   0 + 2 \cdot 0 = 3 \cdot 0,
+   \]
+   was offensichtlich wahr ist. Daher gehört der Nullvektor zu \( M_3 \).
+
+    \item \textbf{Abgeschlossenheit unter Addition:} Nehmen wir an, dass \( (x_1, y_1, z_1), (x_2, y_2, z_2) \in M_3 \). Dann gilt:
+   \[
+   x_1 + 2y_1 = 3z_1 \quad \text{und} \quad x_2 + 2y_2 = 3z_2.
+   \]
+   Für die Summe \((x_1 + x_2, y_1 + y_2, z_1 + z_2)\) ergibt sich:
+   \[
+   (x_1 + x_2) + 2(y_1 + y_2) = (x_1 + 2y_1) + (x_2 + 2y_2) = 3z_1 + 3z_2 = 3(z_1 + z_2),
+   \]
+   sodass die Summe ebenfalls die Bedingung erfüllt. \( M_3 \) ist also unter Addition abgeschlossen.
+
+    \item \textbf{Abgeschlossenheit unter Skalarmultiplikation:} Sei \( (x, y, z) \in M_3 \) und \( c \in \mathbb{Q} \). Dann gilt:
+   \[
+   x + 2y = 3z.
+   \]
+   Für das Produkt \( c \cdot (x, y, z) = (cx, cy, cz) \) erhalten wir:
+   \[
+   cx + 2(cy) = c(x + 2y) = c \cdot 3z = 3(cz),
+   \]
+   was zeigt, dass auch \( (cx, cy, cz) \) die Bedingung erfüllt. Somit ist \( M_3 \) unter Skalarmultiplikation abgeschlossen.
+\end{enumerate}
+
+Da \( M_3 \) sowohl den Nullvektor enthält als auch unter Addition und Skalarmultiplikation abgeschlossen ist, ist \( M_3 \) ein \textbf{Untervektorraum} von \( \mathbb{Q}^3 \).
+
+\subsection*{Teil (d)}
+
+\textbf{Beweis:} Untersuchen wir, ob \( M_4 \) ein Untervektorraum von \( \mathbb{Q}^3 \) ist.
+
+\begin{enumerate}
+    \item \textbf{Der Nullvektor muss enthalten sein:} Der Nullvektor in \( \mathbb{Q}^3 \) ist \((0, 0, 0)\). Setzen wir diesen in die Bedingung \(xy - z = 0\) ein, so erhalten wir:
+   \[
+   0 \cdot 0 - 0 = 0,
+   \]
+   was offensichtlich wahr ist. Daher gehört der Nullvektor zu \( M_4 \).
+
+    \item \textbf{Abgeschlossenheit unter Addition:} Nehmen wir an, dass \( (x_1, y_1, z_1), (x_2, y_2, z_2) \in M_4 \), also \( x_1 y_1 = z_1 \) und \( x_2 y_2 = z_2 \). Für die Summe \((x_1 + x_2, y_1 + y_2, z_1 + z_2)\) ergibt sich jedoch:
+   \[
+   (x_1 + x_2)(y_1 + y_2) = x_1 y_1 + x_1 y_2 + x_2 y_1 + x_2 y_2.
+   \]
+   Da zusätzliche Kreuzterme wie \( x_1 y_2 \) und \( x_2 y_1 \) auftreten, ist im Allgemeinen \((x_1 + x_2)(y_1 + y_2) \neq z_1 + z_2\). Somit ist \( M_4 \) nicht unter Addition abgeschlossen.
+\end{enumerate}
+
+Da \( M_4 \) nicht unter Addition abgeschlossen ist, ist es \textbf{kein Untervektorraum} von \( \mathbb{Q}^3 \).
+
+\section*{Aufgabe 4.2}
+
+\subsection*{Teil (a)}
+
+\textbf{Beweis:} Wir sollen ein Beispiel eines Vektorraums \( V \) und einer Teilmenge \( M \subseteq V \) finden, sodass für alle \( v, w \in M \) mit \( v \neq w \) die Vektoren \( v \) und \( w \) linear unabhängig sind, die Menge \( M \) jedoch linear abhängig ist.
+
+Ein solches Beispiel ist der Vektorraum \( V = \mathbb{R}^3 \) und die Teilmenge
+\[
+M = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} \right\}.
+\]
+
+Betrachten wir die Eigenschaften dieser Vektoren:
+
+\begin{enumerate}
+    \item Für jedes Paar unterschiedlicher Vektoren \( v, w \in M \) sind \( v \) und \( w \) linear unabhängig. Zum Beispiel sind \( \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} \) und \( \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \) linear unabhängig, da keine Linearkombination \( c_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + c_2 \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = 0 \) für \( c_1, c_2 \in \mathbb{R} \) außer \( c_1 = c_2 = 0 \) existiert.
+
+    \item Die Menge \( M \) ist jedoch linear abhängig, da
+    \[
+    \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}.
+    \]
+    Dies zeigt, dass die Vektoren in \( M \) eine lineare Abhängigkeit aufweisen.
+\end{enumerate}
+
+Somit erfüllt die Teilmenge \( M \) die Bedingungen der Aufgabe.
+
+\subsection*{Teil (b)}
+
+\textbf{Beweis:} Gegeben sei ein Körper \( K \) und ein \( K \)-Vektorraum \( V \). Sei \( M = \{v_1, \dots, v_n\} \subseteq V \) eine Teilmenge, wobei \( 0 \notin M \). Wir sollen zeigen, dass \( M \) genau dann linear unabhängig ist, wenn für alle \( i \in \{1, 2, \dots, n-1\} \) gilt:
+\[
+\langle v_1, \dots, v_i \rangle \cap \langle v_{i+1}, \dots, v_n \rangle = \{0\}.
+\]
+
+\begin{enumerate}
+    \item \textbf{Notwendigkeit:} Angenommen, \( M \) ist linear unabhängig. Dann bedeutet dies, dass keine nicht-triviale Linearkombination der Vektoren in \( M \) den Nullvektor ergibt. Insbesondere ist jeder Vektor \( v_i \) nicht in der Linearkombination der anderen Vektoren, was impliziert, dass für jedes \( i \) die Schnittmenge \( \langle v_1, \dots, v_i \rangle \cap \langle v_{i+1}, \dots, v_n \rangle \) nur den Nullvektor enthält, also
+    \[
+    \langle v_1, \dots, v_i \rangle \cap \langle v_{i+1}, \dots, v_n \rangle = \{0\}.
+    \]
+
+    \item \textbf{Hinreichend:} Angenommen, für alle \( i \in \{1, 2, \dots, n-1\} \) gilt \( \langle v_1, \dots, v_i \rangle \cap \langle v_{i+1}, \dots, v_n \rangle = \{0\} \). Dies bedeutet, dass es keine nicht-triviale Linearkombination von \( v_1, \dots, v_i \) gibt, die auch als Linearkombination von \( v_{i+1}, \dots, v_n \) ausgedrückt werden kann. Folglich ist \( M \) linear unabhängig, da jede Linearkombination, die den Nullvektor ergibt, nur die triviale Lösung \( c_1 = c_2 = \dots = c_n = 0 \) hat.
+\end{enumerate}
+
+Damit ist gezeigt, dass \( M \) genau dann linear unabhängig ist, wenn für alle \( i \in \{1, 2, \dots, n-1\} \) gilt:
+\[
+\langle v_1, \dots, v_i \rangle \cap \langle v_{i+1}, \dots, v_n \rangle = \{0\}.
+\]
+
+
+
+
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}
