@@ -12,23 +12,27 @@
 \begin{document}
 
 \title{Übungsblatt 3}
-\author{Felix Kleine Bösing}
+\author{Felix Kleine Bösing, Juri Ernesto Humberg, Leonhard Meyer}
 \maketitle
 
 \section*{Aufgabe 1}
 
 \subsection*{Teil (a)}
+
 Zeigen Sie, dass \( \left( \sqrt[n]{x} \right)^n = x \).
 
-\textbf{Beweis:} Nach der Definition der \( n \)-ten Wurzel ist \( \sqrt[n]{x} = y \) genau dann, wenn \( y^n = x \). Daher folgt:
+\textbf{Beweis:} Um dies zu zeigen, nehmen wir an, dass \( \sqrt[n]{x} \) das Supremum \( y \in \mathbb{R}_+ \) ist, sodass \( y^n \leq x \). Wir müssen zeigen, dass \( \left( \sqrt[n]{x} \right)^n = x \).
+
+Da \( y \) das größte \( y \) ist, für das \( y^n \leq x \), muss \( \left( \sqrt[n]{x} \right)^n = x \) gelten. Andernfalls gäbe es ein \( y > \sqrt[n]{x} \), für das \( y^n < x \) wäre, was der Definition von \( \sqrt[n]{x} \) widerspricht. Also ergibt sich direkt:
 \[
 \left( \sqrt[n]{x} \right)^n = x.
 \]
 
 \subsection*{Teil (b)}
+
 Zeigen Sie, dass \( \{ y \in \mathbb{R}_+ : y^n = x \} = \{ \sqrt[n]{x} \} \).
 
-\textbf{Beweis:} Da \( \sqrt[n]{x} \) die einzige positive reelle Zahl ist, die \( y^n = x \) erfüllt, folgt:
+\textbf{Beweis:} Dies zeigt, dass \( \sqrt[n]{x} \) die eindeutige Lösung ist. Angenommen, es gäbe ein weiteres \( y \in \mathbb{R}_+ \) mit \( y^n = x \) und \( y \neq \sqrt[n]{x} \). Wenn \( y > \sqrt[n]{x} \), dann wäre \( y^n > x \), und wenn \( y < \sqrt[n]{x} \), dann wäre \( y^n < x \), was in beiden Fällen der Definition von \( \sqrt[n]{x} \) widerspricht. Somit gilt:
 \[
 \{ y \in \mathbb{R}_+ : y^n = x \} = \{ \sqrt[n]{x} \}.
 \]
@@ -269,7 +273,7 @@ und
 
 \textbf{Beweis:} Wir setzen \( y = x + c \) mit einer Konstante \( c \in \mathbb{R} \). Dies bedeutet, dass \( y \) um den Betrag \( c \) größer oder kleiner als \( x \) ist. Dies hilft uns dabei, den Betrag \( |x - y| \) zu analysieren und die gewünschten Ausdrücke für den Maximal- und Minimalwert zu erhalten.
 
-### 1. Berechnung von \( |x - y| \)
+\subsection*{1. Berechnung von \( |x - y| \)}
 Da \( y = x + c \), erhalten wir:
 \[
 x - y = x - (x + c) = -c.
@@ -281,9 +285,9 @@ Daraus folgt:
 
 Nun betrachten wir zwei Fälle, je nachdem, ob \( c \geq 0 \) oder \( c \leq 0 \) ist, um zu zeigen, dass die Formel für den Maximal- und Minimalwert unabhängig von \( c \) tatsächlich korrekt ist.
 
-### 2. Fallunterscheidung für \( \max\{x, y\} \) und \( \min\{x, y\} \)
+\subsection*{2. Fallunterscheidung für \( \max\{x, y\} \) und \( \min\{x, y\} \)}
 
-#### Fall 1: \( c \geq 0 \) (d.h. \( y \geq x \))
+Fall 1: \( c \geq 0 \) (d.h. \( y \geq x \))
 
 In diesem Fall ist \( y = x + c \geq x \), daher gilt \( \max\{x, y\} = y \) und \( \min\{x, y\} = x \).
 
@@ -297,7 +301,9 @@ Berechnung des Minimums:
 \min\{x, y\} = x = \frac{1}{2} (x + y - |x - y|) = \frac{1}{2} (x + (x + c) - | - c |) = \frac{1}{2} (2x + c - c) = x.
 \]
 
-#### Fall 2: \( c \leq 0 \) (d.h. \( x \geq y \))
+\bigskip
+
+Fall 2: \( c \leq 0 \) (d.h. \( x \geq y \))
 
 In diesem Fall ist \( x = y - c \geq y \), daher gilt \( \max\{x, y\} = x \) und \( \min\{x, y\} = y \).
 
