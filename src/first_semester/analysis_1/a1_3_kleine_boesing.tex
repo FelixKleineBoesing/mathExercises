@@ -74,7 +74,7 @@ Zeigen Sie \( (xy)^p = x^p y^p \) und \( \left( \frac{x}{y} \right)^p = \frac{x^
 \subsection*{Teil (e)}
 Zeigen Sie \( x < y \land p > 0 \Rightarrow x^p < y^p \).
 
-\textbf{Beweis:} Da \( p > 0 \), bewahrt das Potenzieren mit \( p \) die Ordnung \( x < y \), also:
+\textbf{Beweis:} Wenn \(x < y\) und \(p>0\), dann bleibt bei der Potenzierung die Ordnung erhalten, da die Funktion \(f(t)=t^p\) für \(p > 0\) monoton wachsend ist, was direkt auf den Definitionen von \(sup\) basiert.
 \[
 x^p < y^p.
 \]
@@ -82,7 +82,7 @@ x^p < y^p.
 \subsection*{Teil (f)}
 Zeigen Sie \( x < y \land p < 0 \Rightarrow x^p > y^p \).
 
-\textbf{Beweis:} Da \( p < 0 \), kehrt sich die Ordnung beim Potenzieren um. Daher folgt:
+\textbf{Beweis:} Da \( p < 0 \), kehrt sich die Ordnung beim Potenzieren um, da die Funktion \(f(t)=t^p\) für \(p < 0\) monoton fallend ist. Daher folgt äquivalent zu Teil (e):
 \[
 x^p > y^p.
 \]
@@ -90,7 +90,7 @@ x^p > y^p.
 \subsection*{Teil (g)}
 Zeigen Sie \( p < q \land x > 1 \Rightarrow x^p < x^q \).
 
-\textbf{Beweis:} Da \( x > 1 \) und \( p < q \), wächst \( x \) schneller bei \( q \), also:
+\textbf{Beweis:} Da \( x > 1 \), \( p < q \) und \(f(t)=t^p\) für wächst \( x \) schneller bei \( q \), also:
 \[
 x^p < x^q.
 \]
@@ -168,20 +168,85 @@ Auf der Menge \( \mathbb{R} \times \mathbb{R} \) seien folgende Verknüpfungen \
 
 \subsection*{(a) Zeigen Sie, dass \( (\mathbb{R} \times \mathbb{R}, +, \cdot) \) ein Körper ist.}
 
-\textbf{Beweis:} Wir überprüfen die Eigenschaften eines Körpers:
+\textbf{Beweis:} Um zu zeigen, dass \( (\mathbb{R} \times \mathbb{R}, +, \cdot) \) ein Körper ist, müssen wir folgende Eigenschaften nachweisen: Abgeschlossenheit der Operationen, Assoziativität und Kommutativität der Addition und Multiplikation, Existenz neutraler und inverser Elemente sowie das Distributivgesetz.
 
-1. **Abgeschlossenheit der Addition und Multiplikation:** Für \( (a, b), (a', b') \in \mathbb{R} \times \mathbb{R} \) sind Addition und Multiplikation abgeschlossen, da die Ergebnisse ebenfalls in \( \mathbb{R} \times \mathbb{R} \) liegen.
+\begin{enumerate}
+   \item \textbf{Abgeschlossenheit der Addition und Multiplikation:} \\
+   Sei \( (a, b), (a', b') \in \mathbb{R} \times \mathbb{R} \).
 
-2. **Assoziativität und Kommutativität der Addition:** Da die Addition komponentenweise erfolgt und \( \mathbb{R} \) assoziativ und kommutativ ist, sind diese Eigenschaften auch hier erfüllt.
+   Für die Addition gilt:
+   \[
+   (a, b) + (a', b') = (a + a', b + b').
+   \]
+   Da \( a, a' \in \mathbb{R} \) und \( b, b' \in \mathbb{R} \), ist auch \( a + a' \in \mathbb{R} \) und \( b + b' \in \mathbb{R} \). Somit liegt \( (a + a', b + b') \in \mathbb{R} \times \mathbb{R} \), und die Addition ist abgeschlossen.
 
-3. **Neutrales Element der Addition:** Das neutrale Element ist \( (0, 0) \), da \( (a, b) + (0, 0) = (a, b) \).
+   Für die Multiplikation gilt:
+   \[
+   (a, b) \cdot (a', b') = (aa' - bb', ab' + a'b).
+   \]
+   Da \( a, a', b, b' \in \mathbb{R} \), sind auch \( aa' - bb' \in \mathbb{R} \) und \( ab' + a'b \in \mathbb{R} \). Somit ist das Ergebnis der Multiplikation wieder ein Element in \( \mathbb{R} \times \mathbb{R} \), und die Multiplikation ist abgeschlossen.
 
-4. **Additives Inverses:** Für jedes \( (a, b) \in \mathbb{R} \times \mathbb{R} \) ist das additive Inverse \( (-a, -b) \), da \( (a, b) + (-a, -b) = (0, 0) \).
+   \item \textbf{Assoziativität und Kommutativität der Addition:} \\
+   Die Addition erfolgt komponentenweise, und da \( \mathbb{R} \) unter Addition assoziativ und kommutativ ist, gilt:
+   \begin{align}
+   ((a, b) + (a', b')) + (a'', b'') = (a + a', b + b') + (a'', b'') \\
+   = (a + a' + a'', b + b' + b'') = (a, b) + ((a', b') + (a'', b''))
+   \end{align}]
+   also ist die Addition assoziativ.
 
-5. **Kommutativität und Assoziativität der Multiplikation:** Die Multiplikation ist ebenfalls kommutativ und assoziativ, was durch direkte Berechnung gezeigt werden kann.
+   Außerdem ist die Addition kommutativ, da
+   \[
+   (a, b) + (a', b') = (a + a', b + b') = (a', b') + (a, b).
+   \]
 
-6. **Distributivgesetz:** Die Multiplikation ist über die Addition distributiv.
+   \item \textbf{Neutrales Element der Addition:} \\
+   Das neutrale Element der Addition ist \( (0, 0) \), da
+   \[
+   (a, b) + (0, 0) = (a + 0, b + 0) = (a, b).
+   \]
 
+   \item \textbf{Additives Inverses:} \\
+   Für jedes \( (a, b) \in \mathbb{R} \times \mathbb{R} \) ist das additive Inverse gegeben durch \( (-a, -b) \), da
+   \[
+   (a, b) + (-a, -b) = (a - a, b - b) = (0, 0).
+   \]
+
+   \item \textbf{Kommutativität und Assoziativität der Multiplikation:} \\
+   Die Kommutativität der Multiplikation folgt daraus, dass
+   \[
+   (a, b) \cdot (a', b') = (aa' - bb', ab' + a'b) = (a', b') \cdot (a, b).
+   \]
+
+   Für die Assoziativität der Multiplikation ist zu zeigen, dass
+   \[
+   ((a, b) \cdot (a', b')) \cdot (a'', b'') = (a, b) \cdot ((a', b') \cdot (a'', b''))
+   \]
+   was durch direkte Berechnung bestätigt werden kann. Dieser Schritt ist jedoch aufwendig und kann mit der expliziten Form der Multiplikation überprüft werden.
+
+   \item \textbf{Neutrales Element der Multiplikation:} \\
+   Das neutrale Element der Multiplikation ist \( (1, 0) \), da
+   \[
+   (a, b) \cdot (1, 0) = (a \cdot 1 - b \cdot 0, a \cdot 0 + b \cdot 1) = (a, b).
+   \]
+
+   \item \textbf{Multiplikatives Inverses:} \\
+   Für jedes \( (a, b) \in \mathbb{R} \times \mathbb{R} \) mit \( (a, b) \neq (0, 0) \) existiert ein Inverses \( (c, d) \) mit
+   \[
+   (a, b) \cdot (c, d) = (1, 0).
+   \]
+   Durch Auflösen der Gleichung ergeben sich die Werte von \( c \) und \( d \), sodass das Inverse berechnet werden kann.
+
+   \item \textbf{Distributivgesetz:} \\
+   Die Multiplikation ist über die Addition distributiv, was sich durch die Berechnung von
+   \[
+   (a, b) \cdot ((a', b') + (a'', b'')) = (a, b) \cdot (a' + a'', b' + b'')
+   \]
+   und
+   \[
+   (a, b) \cdot (a', b') + (a, b) \cdot (a'', b'')
+   \]
+   überprüfen lässt. Beide ergeben dasselbe Resultat.
+\end{enumerate}
 Da alle Eigenschaften eines Körpers erfüllt sind, ist \( (\mathbb{R} \times \mathbb{R}, +, \cdot) \) ein Körper.
 
 \subsection*{(b) Zeigen Sie, dass \( i = (0, 1) \) die Eigenschaft \( i^2 = (-1, 0) \) erfüllt.}

@@ -57,10 +57,9 @@ Die Lösung über \( \mathbb{C} \) ist daher nur die triviale Lösung:
 \subsection*{(b) \( K = \mathbb{F}_2 \)}
 
 Da wir uns in \( \mathbb{F}_2 \) befinden, sind die einzigen möglichen Werte für die Variablen \( 0 \) und \( 1 \).
-Anders gesagt müssen wir in \( \mathbb{F}_2 \) die Gleichungen mod 2 betrachten. Das bedeutet für die Multiplikation und Addition, dass:
+Anders gesagt müssen wir in \( \mathbb{F}_2 \) hier mod 2 anwenden. Das bedeutet für die Multiplikation und Addition, dass:
 \[
-    1 + 1 = 0, \quad 1 \cdot 1 = 1
-    -1 = 1
+    1 + 1 = 0, \quad 1 + 0 = 1, \quad 1 \cdot 1 = 1, \quad 1 \cdot 0 = 0, \quad -1 = 1
 \]
 
 \textbf{Schritt 1:} Aus der dritten Gleichung \( x + z = 0 \) folgt in \( \mathbb{F}_2 \), dass
@@ -102,7 +101,7 @@ Gesucht sind alle komplexen Zahlen \( z = x + iy \), die die Gleichung \( z^2 = 
 \[
 z^2 = (x + iy)^2 = x^2 + 2ixy + i^2 y^2 = x^2 - y^2 + 2ixy
 \]
-Dies muss gleich \( z_0 = a + ib \) sein, also ergeben sich die beiden Gleichungen:
+Dies muss gleich \( z_0 = a + ib \) sein, also ergeben sich die beiden Gleichungen für jeweil den Real- und Imaginärteil:
 \[
 x^2 - y^2 = a \quad (1), \quad 2xy = b \quad (2)
 \]
@@ -116,7 +115,7 @@ y = \frac{b}{2x} \quad \text{für} \quad x \neq 0
 \[
 x^2 - \left( \frac{b}{2x} \right)^2 = a \implies x^2 - \frac{b^2}{4x^2} = a
 \]
-Multiplizieren mit \( 4x^2 \) ergibt:
+Multiplizieren mit \( 4x^2 \) um den Bruch zu eliminieren:
 \[
 4x^4 - 4a x^2 - b^2 = 0
 \]
@@ -124,7 +123,7 @@ Setze \( u = x^2 \), um die quadratische Gleichung zu lösen:
 \[
 4u^2 - 4a u - b^2 = 0
 \]
-Die Lösung ist:
+Die Lösung per Mitternachtsformel ist:
 \[
 u = \frac{a \pm \sqrt{a^2 + b^2}}{2}
 \]
@@ -134,9 +133,9 @@ u = \frac{a \pm \sqrt{a^2 + b^2}}{2}
 x = \pm \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}, \quad y = \frac{b}{2x}
 \]
 
-\textbf{Lösungen:} Es gibt zwei Lösungen:
+\textbf{Lösungen:} Es gibt vier Lösungen für beliebige \( a, b \in \mathbb{R} \)
 \[
-z = \pm \left( \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}} + i \frac{b}{2 \sqrt{\frac{a + \sqrt{a^2 + b^2}}{2}}} \right)
+z = \pm \left( \sqrt{\frac{a \pm \sqrt{a^2 + b^2}}{2}} + i \frac{b}{2 \sqrt{\frac{a \pm \sqrt{a^2 + b^2}}{2}}} \right)
 \]
 
 \section*{Aufgabe 3}
@@ -146,15 +145,136 @@ Es sei \( (G, \cdot) \) eine Gruppe. Wir zeigen, dass die Aussagen (a), (b) und 
 \textbf{Beweis: (a) impliziert (b)} \\
 Angenommen, \( H \) erfüllt die Bedingungen von (a), d.h. für alle \( h_1, h_2 \in H \) gilt \( h_1^{-1} \in H \) und \( h_1 \cdot h_2 \in H \). \\
 Nun zeigen wir, dass für alle \( h_1, h_2 \in H \) auch \( h_1 \cdot h_2^{-1} \in H \) gilt. Da nach (a) \( h_2^{-1} \in H \), gilt durch die Abgeschlossenheit der Gruppenoperation auch \( h_1 \cdot h_2^{-1} \in H \). Somit ist (b) erfüllt.
+\medskip
 
 \textbf{Beweis: (b) impliziert (c)} \\
 Angenommen, \( H \) erfüllt die Bedingung (b), d.h. für alle \( h_1, h_2 \in H \) gilt \( h_1 \cdot h_2^{-1} \in H \). \\
 Da \( h_2 \in H \), gilt auch \( h_2^{-1} \in H \). Da \( H \) unter Inversenbildung abgeschlossen ist, ist \( H \) eine Gruppe. Somit gilt auch (c).
+\medskip
 
 \textbf{Beweis: (c) impliziert (a)} \\
 Angenommen, \( H \) ist eine Gruppe. Wir müssen zeigen, dass \( h_1^{-1} \in H \) und \( h_1 \cdot h_2 \in H \). Da \( H \) eine Gruppe ist, gilt per Definition die Abgeschlossenheit der Operation und die Inversenbildung, also ist (a) erfüllt.
+\medskip
 
 \textbf{Fazit:} Die Aussagen (a), (b) und (c) sind äquivalent.
+
+\section*{Aufgabe 4}
+
+Gegeben ist die Menge \( F = \{0, 1, a, b\} \), für die gezeigt werden soll dass höchstens eine Körperstruktur auf \( F \) definiert werden kann, sodass:
+- \( 0 \) das neutrale Element der Addition ist.
+- \( 1 \) das neutrale Element der Multiplikation ist.
+
+\subsection*{1. Anforderungen an einen Körper}
+
+Ein Körper ist eine algebraische Struktur, in der die folgenden Eigenschaften erfüllt sein müssen:
+\begin{itemize}
+    \item Abgeschlossenheit unter Addition und Multiplikation.
+    \item Existenz von neutralen Elementen der Addition und Multiplikation.
+    \item Existenz von additiven und multiplikativen Inversen.
+    \item Assoziativität und Kommutativität der Addition und Multiplikation.
+    \item Distributivität der Multiplikation über die Addition.
+\end{itemize}
+
+Da \( F \) nur vier Elemente hat, wird ein Körper mit genau diesen Eigenschaften als der endliche Körper \( \mathbb{F}_4 \) bezeichnet, falls er existiert.
+
+\subsection*{2. Additionstabelle}
+
+Da \( 0 \) das neutrale Element der Addition ist, muss gelten:
+\[
+x + 0 = x \quad \text{für alle } x \in F.
+\]
+
+Weiterhin erwarten wir, dass jedes Element ein additives Inverses hat. Das bedeutet, dass für jedes \( x \in F \) ein \( y \in F \) existiert, sodass:
+\[
+x + y = 0.
+\]
+
+Da \( F \) vier Elemente hat und die Addition kommutativ ist, können wir die Tabelle teilweise wie folgt ausfüllen:
+
+\[
+\begin{array}{c|cccc}
+    + & 0 & 1 & a & b \\
+    \hline
+    0 & 0 & 1 & a & b \\
+    1 & 1 & 0 &  &  \\
+    a & a &  & 0 &  \\
+    b & b &  &  & 0 \\
+\end{array}
+\]
+
+Nun müssen wir die übrigen Einträge so ausfüllen, dass jedes Element nur einmal pro Zeile und Spalte auftritt (da wir die Struktur eines endlichen Körpers mit Addition erwarten). Ein sinnvolles Ausfüllen ergibt:
+
+\[
+\begin{array}{c|cccc}
+    + & 0 & 1 & a & b \\
+    \hline
+    0 & 0 & 1 & a & b \\
+    1 & 1 & 0 & b & a \\
+    a & a & b & 0 & 1 \\
+    b & b & a & 1 & 0 \\
+\end{array}
+\]
+
+\subsection*{3. Multiplikationstabelle}
+
+Da \( 1 \) das neutrale Element der Multiplikation ist, muss gelten:
+\[
+x \cdot 1 = x \quad \text{für alle } x \in F.
+\]
+
+Für die Multiplikation muss außerdem jedes von \( 0 \) verschiedene Element ein Inverses besitzen, sodass das Produkt dieser Elemente mit ihrem Inversen \( 1 \) ergibt.
+
+Wir starten mit den einfachsten Einträgen der Tabelle:
+- \( x \cdot 0 = 0 \) für jedes \( x \in F \).
+- \( x \cdot 1 = x \) für jedes \( x \in F \), da \( 1 \) das neutrale Element der Multiplikation ist.
+
+Damit erhalten wir die folgende partielle Multiplikationstabelle:
+
+\[
+\begin{array}{c|cccc}
+    \cdot & 0 & 1 & a & b \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 1 & a & b \\
+    a & 0 & a &  &  \\
+    b & 0 & b &  &  \\
+\end{array}
+\]
+
+Da die Multiplikation kommutativ ist und jedes Element (außer \( 0 \)) ein Inverses haben muss, ergänzen wir die Tabelle so, dass für \( a \) und \( b \) gilt:
+- \( a \cdot b = 1 \), damit \( a \) und \( b \) gegenseitig Inverse sind.
+- \( a \cdot a = b \) und \( b \cdot b = a \), um die restlichen Plätze in der Tabelle auszufüllen.
+
+Die vollständige Multiplikationstabelle sieht dann wie folgt aus:
+
+\[
+\begin{array}{c|cccc}
+    \cdot & 0 & 1 & a & b \\
+    \hline
+    0 & 0 & 0 & 0 & 0 \\
+    1 & 0 & 1 & a & b \\
+    a & 0 & a & b & 1 \\
+    b & 0 & b & 1 & a \\
+\end{array}
+\]
+
+\subsection*{4. Eindeutigkeit der Lösung}
+
+In einem Körper müssen alle von \( 0 \) verschiedenen Elemente ein multiplikatives Inverses haben. Da \( F \) nur vier Elemente hat, müssen \( a \) und \( b \) die Inversen voneinander sein, um sicherzustellen, dass alle von \( 0 \) verschiedenen Elemente multiplikative Inversen besitzen. Dies legt fest, dass:
+\[
+a \cdot b = 1.
+\]
+
+Zusätzlich müssen die Elemente \( a \) und \( b \) bei der Multiplikation untereinander und mit sich selbst Kombinationen ergeben, die konsistent mit den Körperaxiomen sind. Insbesondere muss gelten:
+\[
+a \cdot a = b
+\]
+und
+\[
+b \cdot b = a.
+\]
+
+
 
 \bibliography{main}
 \bibliographystyle{plain}
