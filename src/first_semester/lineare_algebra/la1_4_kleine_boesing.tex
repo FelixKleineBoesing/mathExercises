@@ -156,7 +156,163 @@ Damit ist gezeigt, dass \( M \) genau dann linear unabhängig ist, wenn für all
 \]
 
 
+\section*{Aufgabe 4.3}
 
+Gegeben seien ein Körper \( K \) und die Untervektorräume \( U, V \subseteq K^n \). Definieren wir die folgenden Mengen:
+\[
+\begin{aligned}
+    U \cap V &= \{ x \in K^n : x \in U \text{ und } x \in V \}, \\
+    U \cup V &= \{ x \in K^n : x \in U \text{ oder } x \in V \}, \\
+    U + V &= \{ x \in K^n : \text{es existieren } u \in U \text{ und } v \in V \text{ mit } x = u + v \}.
+\end{aligned}
+\]
+
+Zeigen Sie:
+
+\subsection*{Teil (a)}
+
+\textbf{Beweis:} Um zu zeigen, dass die Mengen \( U \cap V \) und \( U + V \) Untervektorräume des \( K^n \) sind, müssen wir überprüfen, ob sie die Bedingungen für einen Untervektorraum erfüllen:
+
+\begin{enumerate}
+    \item Die Menge muss den Nullvektor enthalten.
+    \item Sie muss unter Addition abgeschlossen sein.
+    \item Sie muss unter Skalarmultiplikation abgeschlossen sein.
+\end{enumerate}
+
+\begin{enumerate}
+    \item \textbf{Untervektorraum \( U \cap V \):}
+    \begin{enumerate}
+        \item \textbf{Nullvektor:} Da \( U \) und \( V \) Untervektorräume von \( K^n \) sind, enthalten beide den Nullvektor \( 0 \). Da \( 0 \in U \) und \( 0 \in V \) gilt, folgt \( 0 \in U \cap V \).
+
+        \item \textbf{Abgeschlossenheit unter Addition:} Sei \( x, y \in U \cap V \). Dann gilt \( x \in U \), \( x \in V \), \( y \in U \) und \( y \in V \). Da \( U \) und \( V \) jeweils unter Addition abgeschlossen sind, ist auch \( x + y \in U \) und \( x + y \in V \). Daher gilt \( x + y \in U \cap V \), und \( U \cap V \) ist unter Addition abgeschlossen.
+
+        \item \textbf{Abgeschlossenheit unter Skalarmultiplikation:} Sei \( x \in U \cap V \) und \( c \in K \). Da \( x \in U \) und \( x \in V \) sowie \( U \) und \( V \) jeweils unter Skalarmultiplikation abgeschlossen sind, folgt \( c \cdot x \in U \) und \( c \cdot x \in V \). Somit ist \( c \cdot x \in U \cap V \), und \( U \cap V \) ist unter Skalarmultiplikation abgeschlossen.
+    \end{enumerate}
+    Daher ist \( U \cap V \) ein Untervektorraum von \( K^n \).
+
+    \item \textbf{Untervektorraum \( U + V \):}
+    \begin{enumerate}
+        \item \textbf{Nullvektor:} Da \( U \) und \( V \) Untervektorräume sind, enthalten beide den Nullvektor \( 0 \). Setzen wir \( u = 0 \in U \) und \( v = 0 \in V \), dann ist \( u + v = 0 \), was zeigt, dass \( 0 \in U + V \).
+
+        \item \textbf{Abgeschlossenheit unter Addition:} Sei \( x, y \in U + V \). Dann existieren \( u_1, u_2 \in U \) und \( v_1, v_2 \in V \) mit \( x = u_1 + v_1 \) und \( y = u_2 + v_2 \). Dann ist:
+        \[
+        x + y = (u_1 + v_1) + (u_2 + v_2) = (u_1 + u_2) + (v_1 + v_2).
+        \]
+        Da \( U \) und \( V \) unter Addition abgeschlossen sind, gilt \( u_1 + u_2 \in U \) und \( v_1 + v_2 \in V \). Somit ist \( x + y \in U + V \), und \( U + V \) ist unter Addition abgeschlossen.
+
+        \item \textbf{Abgeschlossenheit unter Skalarmultiplikation:} Sei \( x \in U + V \) und \( c \in K \). Dann existieren \( u \in U \) und \( v \in V \) mit \( x = u + v \). Dann ist:
+        \[
+        c \cdot x = c \cdot (u + v) = (c \cdot u) + (c \cdot v).
+        \]
+        Da \( U \) und \( V \) unter Skalarmultiplikation abgeschlossen sind, gilt \( c \cdot u \in U \) und \( c \cdot v \in V \). Somit ist \( c \cdot x \in U + V \), und \( U + V \) ist unter Skalarmultiplikation abgeschlossen.
+    \end{enumerate}
+    Daher ist \( U + V \) ein Untervektorraum von \( K^n \).
+\end{enumerate}
+
+\subsection*{Teil (b)}
+
+\textbf{Beweis:} Wir zeigen, dass die Menge \( U \cup V \) genau dann ein Untervektorraum von \( K^n \) ist, wenn \( U \subseteq V \) oder \( V \subseteq U \) gilt.
+
+\begin{enumerate}
+    \item \textbf{Notwendigkeit:} Angenommen, \( U \cup V \) ist ein Untervektorraum von \( K^n \). Wenn weder \( U \subseteq V \) noch \( V \subseteq U \) gilt, dann existieren Vektoren \( u \in U \setminus V \) und \( v \in V \setminus U \). Da \( U \cup V \) ein Untervektorraum ist, muss \( u + v \in U \cup V \) gelten. Da \( u \notin V \) und \( v \notin U \), kann \( u + v \) weder in \( U \) noch in \( V \) liegen, was im Widerspruch zur Definition von \( U \cup V \) als Untervektorraum steht. Daher muss entweder \( U \subseteq V \) oder \( V \subseteq U \) gelten.
+
+    \item \textbf{Hinreichend:} Angenommen, \( U \subseteq V \). Dann gilt \( U \cup V = V \), und da \( V \) ein Untervektorraum ist, ist auch \( U \cup V \) ein Untervektorraum. Analog gilt, wenn \( V \subseteq U \), dann ist \( U \cup V = U \), und \( U \cup V \) ist ebenfalls ein Untervektorraum.
+\end{enumerate}
+
+Damit ist gezeigt, dass \( U \cup V \) genau dann ein Untervektorraum von \( K^n \) ist, wenn \( U \subseteq V \) oder \( V \subseteq U \) gilt.
+
+
+\section*{Aufgabe 4.4}
+
+Prüfen Sie, ob die folgenden Teilmengen linear unabhängig sind:
+
+\subsection*{Teil (a)}
+
+Gegeben sei der Körper \( K = \mathbb{Q} \) und die Menge
+\[
+M_1 := \{ 0 \} \subset \mathbb{Q}^4 =: V.
+\]
+
+\textbf{Beweis:} Die Menge \( M_1 \) besteht nur aus dem Nullvektor. Eine Menge, die nur den Nullvektor enthält, ist per Definition \textbf{nicht linear unabhängig}. Der Nullvektor ist immer linear abhängig, da ein Vielfaches des Nullvektors immer den Nullvektor ergibt.
+
+\textbf{Ergebnis:} Die Menge \( M_1 \) ist \textbf{nicht linear unabhängig}.
+
+\subsection*{Teil (b)}
+
+Gegeben sei der Körper \( K = \mathbb{R} \) und die Menge
+\[
+M_2 := \left\{ \begin{pmatrix} t \\ 2t \end{pmatrix} : t \in \mathbb{R} \right\} \subset \mathbb{R}^2 =: V.
+\]
+
+\textbf{Beweis:} Die Menge \( M_2 \) besteht aus Vektoren der Form \( \begin{pmatrix} t \\ 2t \end{pmatrix} \) mit \( t \in \mathbb{R} \). Diese Vektoren sind alle Vielfache des Vektors \( \begin{pmatrix} 1 \\ 2 \end{pmatrix} \). Daher ist \( M_2 \) ein eindimensionaler Untervektorraum von \( \mathbb{R}^2 \), der durch den Vektor \( \begin{pmatrix} 1 \\ 2 \end{pmatrix} \) aufgespannt wird.
+
+Da jeder Vektor in \( M_2 \) als Vielfaches von \( \begin{pmatrix} 1 \\ 2 \end{pmatrix} \) dargestellt werden kann, sind die Vektoren in \( M_2 \) \textbf{linear abhängig}.
+
+\textbf{Ergebnis:} Die Menge \( M_2 \) ist \textbf{nicht linear unabhängig}.
+
+\subsection*{Teil (c)}
+
+Gegeben sei der Körper \( K = \mathbb{C} \) und die Menge
+\[
+M_3 := \left\{ \begin{pmatrix} i \\ 1 \\ -i \end{pmatrix}, \begin{pmatrix} 0 \\ 1 + i \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ i - 1 \end{pmatrix} \right\} \subset \mathbb{C}^3 =: V.
+\]
+
+\textbf{Beweis:} Um zu prüfen, ob die Vektoren in \( M_3 \) linear unabhängig sind, untersuchen wir, ob es Skalare \( \lambda_1 \), \( \lambda_2 \) und \( \lambda_3 \in \mathbb{C} \) gibt, sodass:
+\[
+\lambda_1 \begin{pmatrix} i \\ 1 \\ -i \end{pmatrix} + \lambda_2 \begin{pmatrix} 0 \\ 1 + i \\ 1 \end{pmatrix} + \lambda_3 \begin{pmatrix} 1 \\ 0 \\ i - 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}.
+\]
+
+Diese Gleichung lässt sich in das folgende lineare Gleichungssystem umschreiben:
+\[
+\begin{cases}
+\lambda_1 \cdot i + \lambda_3 = 0, \\
+\lambda_1 + \lambda_2 \cdot (1 + i) = 0, \\
+-\lambda_1 \cdot i + \lambda_2 + \lambda_3 \cdot (i - 1) = 0.
+\end{cases}
+\]
+
+Wir lösen dieses Gleichungssystem mit dem Gausschen Eliminiationsverfahren und finden, dass die einzige Lösung \( \lambda_1 = \lambda_2 = \lambda_3 = 0 \) ist. Dies bedeutet, dass keine nicht-triviale Linearkombination der Vektoren den Nullvektor ergibt. Daher sind die Vektoren in \( M_3 \) linear unabhängig.
+
+\textbf{Ergebnis:} Die Vektoren in \( M_3 \) sind \textbf{linear unabhängig}.
+
+\subsection*{Teil (d)}
+
+Gegeben sei der Körper \( K = \mathbb{F}_5 \) (der endliche Körper mit fünf Elementen) und die Menge
+\[
+M_4 := \left\{ \begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix}, \begin{pmatrix} 1 \\ 4 \\ 2 \end{pmatrix} \right\} \subset \mathbb{F}_5^3 =: V.
+\]
+
+\textbf{Beweis:} Um zu prüfen, ob die Vektoren in \( M_4 \) linear unabhängig sind, stellen wir die Frage, ob es Skalare \( c_1, c_2 \in \mathbb{F}_5 \) gibt, sodass:
+\[
+c_1 \begin{pmatrix} 3 \\ 1 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 1 \\ 4 \\ 2 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}.
+\]
+
+Dies ergibt das folgende Gleichungssystem in \( \mathbb{F}_5 \):
+\[
+\begin{cases}
+3c_1 + c_2 \equiv 0 \pmod{5}, \\
+c_1 + 4c_2 \equiv 0 \pmod{5}, \\
+2c_1 + 2c_2 \equiv 0 \pmod{5}.
+\end{cases}
+\]
+
+Wir lösen dieses System schrittweise im endlichen Körper \( \mathbb{F}_5 \):
+
+\begin{enumerate}
+    \item \textbf{Erste Gleichung:} \( 3c_1 + c_2 \equiv 0 \pmod{5} \Rightarrow c_2 \equiv -3c_1 \pmod{5} \). Da \( -3 \equiv 2 \pmod{5} \), erhalten wir \( c_2 \equiv 2c_1 \pmod{5} \).
+
+    \item \textbf{Zweite Gleichung:} Setzen wir \( c_2 \equiv 2c_1 \pmod{5} \) in die zweite Gleichung ein:
+    \[
+    c_1 + 4 \cdot (2c_1) \equiv 0 \pmod{5} \Rightarrow c_1 + 8c_1 \equiv 0 \pmod{5} \Rightarrow 9c_1 \equiv 0 \pmod{5}.
+    \]
+    Da \( 9 \equiv 4 \pmod{5} \), haben wir \( 4c_1 \equiv 0 \pmod{5} \). Da \( 4 \) in \( \mathbb{F}_5 \) eine Einheit ist, folgt \( c_1 = 0 \).
+
+    \item \textbf{Einsetzen in die erste Gleichung:} Setzen wir \( c_1 = 0 \) in die erste Gleichung ein, ergibt sich \( c_2 = 0 \).
+\end{enumerate}
+
+Da die einzige Lösung \( c_1 = 0 \) und \( c_2 = 0 \) ist, sind die Vektoren in \( M_4 \) linear unabhängig.
+
+\textbf{Ergebnis:} Die Vektoren in \( M_4 \) sind \textbf{linear unabhängig}.
 
 \bibliography{main}
 \bibliographystyle{plain}
