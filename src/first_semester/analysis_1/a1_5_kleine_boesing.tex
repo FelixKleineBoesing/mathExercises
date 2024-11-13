@@ -12,267 +12,192 @@
 % Document
 \begin{document}
 
-\title{Übungsblatt 4}
+\title{Übungsblatt 5}
 \author{Felix Kleine Bösing, Juri Ernesto Humberg, Leonhard Meyer}
 \maketitle
 
 \section*{Aufgabe 1}
 
-Bestimmen Sie alle komplexen Zahlen \( z = x + iy \in \mathbb{C} \) (\( x, y \in \mathbb{R} \)) mit \( z^3 = 1 \). Sie müssen beweisen, dass Sie keine Lösungen übersehen haben. Zeichnen Sie Ihre Lösungen im \( \mathbb{R}^2 \).
+Zeigen Sie, dass für alle \( k \in \mathbb{N} \) die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) gegen 1 konvergiert.
+
+(Hinweis: Betrachten Sie zunächst den Fall \( k = 1 \).)
 
 \subsection*{Teil (a)}
 
-\textbf{Beweis:}
-Um alle komplexen Zahlen \( z = x + iy \) zu finden, für die \( z^3 = 1 \) gilt, gehen wir wie folgt vor:
+\textbf{Beweis:} Wir zeigen zunächst, dass die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für \( k = 1 \) gegen 1 konvergiert.
+
 \begin{enumerate}
-    \item Zunächst schreiben wir \( z^3 = 1 \) in der Form:
+    \item Betrachte die allgemeine Form der \( n \)-ten Wurzel von \( n \):
     \[
-    (x + iy)^3 = 1
+    a_n = \sqrt[n]{n} = n^{\frac{1}{n}}.
     \]
-    \item Entwickeln wir \( (x + iy)^3 \) mithilfe des Binomischen Satzes:
+
+    \item Um zu zeigen, dass \( a_n \to 1 \) für \( n \to \infty \), betrachten wir den natürlichen Logarithmus von \( a_n \):
     \[
-    (x + iy)^3 = x^3 + 3x^2(iy) + 3x(iy)^2 + (iy)^3
+    \ln(a_n) = \ln\left(n^{\frac{1}{n}}\right) = \frac{1}{n} \ln(n).
     \]
+
+    \item Nun untersuchen wir das Verhalten von \( \frac{\ln(n)}{n} \) für \( n \to \infty \):
     \[
-    = x^3 + 3x^2 \cdot iy + 3x \cdot (i^2 \cdot y^2) + (i^3 \cdot y^3)
+    \lim_{n \to \infty} \frac{\ln(n)}{n} = 0.
     \]
-    \item Da \( i^2 = -1 \) und \( i^3 = -i \), vereinfacht sich der Ausdruck zu:
+    Dies folgt aus der Anwendung der Regel von de l'Hôpital, da die Ableitung des Zählers \( \ln(n) \) und die Ableitung des Nenners \( n \) wie folgt sind:
     \[
-    = x^3 + 3x^2 \cdot iy - 3x \cdot y^2 - iy^3
+    \lim_{n \to \infty} \frac{\ln(n)}{n} = \lim_{n \to \infty} \frac{\frac{1}{n}}{1} = \lim_{n \to \infty} \frac{1}{n} = 0.
     \]
-    \item Gruppieren wir nun die Real- und Imaginärteile:
+
+    \item Daraus folgt:
     \[
-    = (x^3 - 3xy^2) + i(3x^2y - y^3)
+    \lim_{n \to \infty} \ln(a_n) = 0.
     \]
-    \item Damit \( z^3 = 1 \) ist, muss der Realteil \( x^3 - 3xy^2 = 1 \) und der Imaginärteil \( 3x^2y - y^3 = 0 \) sein. Wir haben also das Gleichungssystem:
-    \[
-    x^3 - 3xy^2 = 1
-    \]
-    \[
-    3x^2y - y^3 = 0
-    \]
-    \item Betrachten wir die zweite Gleichung \( 3x^2y - y^3 = 0 \). Diese können wir umformen zu:
-    \[
-    y(3x^2 - y^2) = 0
-    \]
-    Das liefert zwei Möglichkeiten:
-    \begin{enumerate}
-        \item \( y = 0 \): Wenn \( y = 0 \), wird \( z = x \) reell. Setzen wir \( y = 0 \) in die erste Gleichung ein, erhalten wir \( x^3 = 1 \), was \( x = 1 \) ergibt. Also ist eine Lösung \( z = 1 \).
-        \item \( 3x^2 = y^2 \): Wenn \( y \neq 0 \), dann gilt \( y^2 = 3x^2 \), also \( y = \pm \sqrt{3}x \).
-    \end{enumerate}
-    \item Setzen wir \( y = \pm \sqrt{3}x \) in die erste Gleichung ein:
-    \[
-    x^3 - 3x(\pm \sqrt{3}x)^2 = 1
-    \]
-    \[
-    x^3 - 3x \cdot 3x^2 = 1
-    \]
-    \[
-    x^3 - 9x^3 = 1
-    \]
-    \[
-    -8x^3 = 1 \Rightarrow x^3 = -\frac{1}{8} \Rightarrow x = -\frac{1}{2}
-    \]
-    \item Damit sind die möglichen Werte von \( x \) und \( y \):
-    \[
-    x = 1, \quad y = 0 \Rightarrow z = 1
-    \]
-    \[
-    x = -\frac{1}{2}, \quad y = \pm \frac{\sqrt{3}}{2} \Rightarrow z = -\frac{1}{2} \pm i\frac{\sqrt{3}}{2}
-    \]
+    Da der Logarithmus eine stetige Funktion ist, erhalten wir \( \lim_{n \to \infty} a_n = e^0 = 1 \).
+
 \end{enumerate}
 
-\textbf{Ergebnis:} Die Lösungen sind also:
-\[
-z_0 = 1, \quad z_1 = -\frac{1}{2} + i\frac{\sqrt{3}}{2}, \quad z_2 = -\frac{1}{2} - i\frac{\sqrt{3}}{2}
-\]
-
-\clearpage
+Damit ist gezeigt, dass \( \left( \sqrt[n]{n} \right)_{n \in \mathbb{N}} \) für \( k = 1 \) gegen 1 konvergiert.
 
 \subsection*{Teil (b)}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\textwidth]{img/a1_4_1.png}
-    \caption{Darstellung der Lösungen im \(\mathbb{R}^2\)}
-\end{figure}
+\textbf{Beweis für allgemeines \( k \):} Nun zeigen wir die Konvergenz der Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für beliebiges \( k \in \mathbb{N} \).
+
+\begin{enumerate}
+    \item Die Folge hat die Form:
+    \[
+    a_n = \sqrt[n]{n^k} = (n^k)^{\frac{1}{n}} = n^{\frac{k}{n}}.
+    \]
+
+    \item Betrachten wir den natürlichen Logarithmus von \( a_n \):
+    \[
+    \ln(a_n) = \ln\left(n^{\frac{k}{n}}\right) = \frac{k}{n} \ln(n).
+    \]
+
+    \item Analog zum Fall \( k = 1 \) betrachten wir das Verhalten von \( \frac{k \ln(n)}{n} \) für \( n \to \infty \):
+    \[
+    \lim_{n \to \infty} \frac{k \ln(n)}{n} = k \cdot \lim_{n \to \infty} \frac{\ln(n)}{n} = k \cdot 0 = 0.
+    \]
+
+    \item Also gilt:
+    \[
+    \lim_{n \to \infty} \ln(a_n) = 0 \Rightarrow \lim_{n \to \infty} a_n = e^0 = 1.
+    \]
+\end{enumerate}
+
+Damit haben wir gezeigt, dass die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für beliebiges \( k \in \mathbb{N} \) gegen 1 konvergiert.
 
 \section*{Aufgabe 2}
 
-Sei \( (z_n)_{n \in \mathbb{N}} \) eine komplexe Zahlenfolge mit
-\[
-z_n := i^n + \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n
-\]
-für alle \( n \in \mathbb{N} \). Bestimmen Sie:
-
-\begin{enumerate}
-    \item[(a)] \( \sup(\{\operatorname{Re}(z_n) : n \in \mathbb{N}\}) \).
-    \item[(b)] \( \inf(\{\operatorname{Im}(z_n) : n \in \mathbb{N}\}) \).
-    \item[(c)] \( \sup(\{|z_n| : n \in \mathbb{N}\}) \).
-\end{enumerate}
-
-\subsection*{Lösung:}
-
-Um die Teilaufgaben zu lösen, analysieren wir zunächst den Ausdruck für \( z_n \).
-
-\subsection*{Teil (a)}
-
-Betrachten wir den Realteil von \( z_n \):
-\[
-z_n = i^n + \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n
-\]
-
-1. Der Term \( i^n \) wechselt periodisch in den Werten \( i^0 = 1 \), \( i^1 = i \), \( i^2 = -1 \), \( i^3 = -i \), und wiederholt sich dann alle vier Schritte. Somit hat der Realteil von \( i^n \) die Werte \( 1 \) und \( -1 \), abhängig davon, ob \( n \) gerade oder ungerade ist.
-
-2. Der Ausdruck \( \frac{1 + i}{\sqrt{2}} \) hat den Betrag \( 1 \) und Argument \( \frac{\pi}{4} \). Somit ist \( \left( \frac{1 + i}{\sqrt{2}} \right)^n \) eine Drehung um den Ursprung und oszilliert im Einheitskreis. Der Realteil von \( \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n \) oszilliert daher ebenfalls zwischen \( -\frac{1}{2} \) und \( \frac{1}{2} \).
-
-Daraus folgt:
-\[
-\operatorname{Re}(z_n) \in \left[ -1 - \frac{1}{2}, 1 + \frac{1}{2} \right] = [-1.5, 1.5]
-\]
-und daher ist
-\[
-\sup(\{\operatorname{Re}(z_n) : n \in \mathbb{N}\}) = 1.5.
-\]
-
-\subsection*{Teil (b)}
-
-Für den Imaginärteil von \( z_n \) gilt analog:
-
-1. Der Imaginärteil von \( i^n \) wechselt periodisch in den Werten \( 0 \), \( 1 \), \( 0 \), \( -1 \), ebenfalls abhängig von \( n \) modulo 4.
-
-2. Der Imaginärteil von \( \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n \) oszilliert zwischen \( -\frac{1}{2} \) und \( \frac{1}{2} \).
-
-Daraus ergibt sich:
-\[
-\operatorname{Im}(z_n) \in \left[ -1 - \frac{1}{2}, 1 + \frac{1}{2} \right] = [-1.5, 1.5]
-\]
-und daher ist
-\[
-\inf(\{\operatorname{Im}(z_n) : n \in \mathbb{N}\}) = -1.5.
-\]
-
-\subsection*{Teil (c)}
-
-Betrachten wir den Betrag von \( z_n \):
-\[
-|z_n| = \left| i^n + \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n \right|
-\]
-
-Da \( i^n \) und \( \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n \) beide Beträge höchstens 1 haben, gilt:
-\[
-|z_n| \leq |i^n| + \left| \frac{1}{2} \left( \frac{1 + i}{\sqrt{2}} \right)^n \right| = 1 + \frac{1}{2} = 1.5
-\]
-
-Somit ist
-\[
-\sup(\{|z_n| : n \in \mathbb{N}\}) = 1.5.
-\]
-
-\textbf{Ergebnis:} Die gesuchten Werte sind:
-\begin{enumerate}
-    \item[(a)] \( \sup(\{\operatorname{Re}(z_n) : n \in \mathbb{N}\}) = 1.5 \)
-    \item[(b)] \( \inf(\{\operatorname{Im}(z_n) : n \in \mathbb{N}\}) = -1.5 \)
-    \item[(c)] \( \sup(\{|z_n| : n \in \mathbb{N}\}) = 1.5 \)
-\end{enumerate}
-
 \section*{Aufgabe 3}
 
-Sei \( (a_n)_{n \in \mathbb{N}} \) eine Folge in \( \mathbb{R} \) mit \( a_n \to 0 \) und \( a_n > 0 \) für alle \( n \in \mathbb{N} \). Zeigen Sie, dass die Menge \( \{a_n \mid n \in \mathbb{N}\} \) ein Maximum besitzt. Zeigen Sie auch, dass die Menge \( \{a_n \mid n \in \mathbb{N}\} \) nicht notwendigerweise ein Maximum besitzt, falls nicht gefordert wird, dass \( a_n > 0 \) für jedes \( n \in \mathbb{N} \) gilt.
+Berechnen Sie die Häufungspunkte, den Limes superior, sowie den Limes inferior (falls existent) der folgenden reellen Folgen.
 
-\subsection*{Lösung:}
+\subsection*{(a) \( a_n = \left( \frac{3}{2} + (-1)^n \right)^n \)}
 
-\subsection*{Teil (a): Die Menge \( \{a_n \mid n \in \mathbb{N}\} \) besitzt ein Maximum, wenn \( a_n > 0 \) für alle \( n \in \mathbb{N} \)}
-
-\textbf{Beweis:}
-Da \( (a_n) \) eine konvergente Folge ist und \( a_n \to 0 \), folgt, dass die Folge eine obere Schranke besitzt, d.h., es existiert ein \( M > 0 \), sodass \( a_n \leq M \) für alle \( n \in \mathbb{N} \). Da \( a_n > 0 \) für alle \( n \in \mathbb{N} \), handelt es sich bei der Menge \( \{a_n \mid n \in \mathbb{N}\} \) um eine Teilmenge von \( (0, M] \), die nach oben beschränkt ist.
-
-Da \( a_n \to 0 \) und \( a_n > 0 \) für alle \( n \in \mathbb{N} \), können wir schließen, dass die Folge von Werten \( \{a_n \mid n \in \mathbb{N}\} \) am Anfang größere Werte annimmt und sich dann gegen 0 bewegt. Somit existiert ein Index \( N \in \mathbb{N} \), für den \( a_N = \sup(\{a_n \mid n \in \mathbb{N}\}) \), da die Folge aufgrund der Konvergenz gegen 0 von einem Maximum ausgehend immer kleiner wird.
-
-Damit besitzt die Menge \( \{a_n \mid n \in \mathbb{N}\} \) ein Maximum.
-
-\subsection*{Teil (b): Die Menge \( \{a_n \mid n \in \mathbb{N}\} \) besitzt nicht notwendigerweise ein Maximum, wenn \( a_n > 0 \) für alle \( n \in \mathbb{N} \) nicht gefordert wird}
-
-\textbf{Beweis:}
-Wenn die Bedingung \( a_n > 0 \) für alle \( n \in \mathbb{N} \) entfällt, könnte die Folge \( (a_n) \) negative oder wechselnde Vorzeichen annehmen. Ein Beispiel für eine solche Folge ist \( a_n = (-1)^n + \frac{1}{n} \).
-
-1. In diesem Fall konvergiert \( a_n \) ebenfalls gegen 0, aber die Werte der Folge oszillieren und erreichen kein Maximum.
-2. Da die Folge \( a_n = (-1)^n + \frac{1}{n} \) abwechselnd positive und negative Werte annimmt, ist die Menge \( \{a_n \mid n \in \mathbb{N}\} \) nicht nach oben beschränkt und besitzt daher kein Maximum.
-
-Dieses Beispiel zeigt, dass die Bedingung \( a_n > 0 \) für alle \( n \in \mathbb{N} \) entscheidend dafür ist, dass die Menge \( \{a_n \mid n \in \mathbb{N}\} \) ein Maximum besitzt. Ohne diese Bedingung könnte die Folge wechselnde Vorzeichen oder auch negative Werte annehmen, was dazu führt, dass die Menge kein Maximum besitzt.
-
-\textbf{Ergebnis:}
+\textbf{Lösung:}
 \begin{enumerate}
-    \item Die Menge \( \{a_n \mid n \in \mathbb{N}\} \) besitzt ein Maximum, wenn \( a_n > 0 \) für alle \( n \in \mathbb{N} \).
-    \item Die Menge \( \{a_n \mid n \in \mathbb{N}\} \) besitzt nicht notwendigerweise ein Maximum, wenn die Bedingung \( a_n > 0 \) für alle \( n \in \mathbb{N} \) nicht gegeben ist.
+    \item Betrachten wir \( a_n = \left( \frac{3}{2} + (-1)^n \right)^n \).
+    \item Da \( (-1)^n \) abwechselnd \( 1 \) und \( -1 \) ist, erhalten wir für gerade \( n \):
+        \[
+        a_{2k} = \left( \frac{3}{2} + 1 \right)^{2k} = \left( \frac{5}{2} \right)^{2k} \to \infty \quad \text{für } k \to \infty.
+        \]
+        Für ungerade \( n \):
+        \[
+        a_{2k+1} = \left( \frac{3}{2} - 1 \right)^{2k+1} = \left( \frac{1}{2} \right)^{2k+1} \to 0 \quad \text{für } k \to \infty.
+        \]
+    \item Daher divergiert die Folge \( a_n \), aber wir können feststellen:
+        \[
+        \limsup_{n \to \infty} a_n = \infty \quad \text{und} \quad \liminf_{n \to \infty} a_n = 0.
+        \]
+    \item Es existieren keine Häufungspunkte, da die Folge keine begrenzten Werte annimmt.
 \end{enumerate}
+
+\subsection*{(b) \( b_n = \begin{cases}
+2 + \frac{1}{3n} & \text{falls } n = 3k, \\
+3 + \frac{n+2}{n} & \text{falls } n = 3k + 1, \\
+3 & \text{falls } n = 3k + 2
+\end{cases} \)}
+
+\textbf{Lösung:}
+\begin{enumerate}
+    \item Untersuchen wir die drei Fälle:
+        \begin{enumerate}
+            \item Für \( n = 3k \):
+            \[
+            b_{3k} = 2 + \frac{1}{3k} \to 2 \quad \text{für } k \to \infty.
+            \]
+            \item Für \( n = 3k + 1 \):
+            \[
+            b_{3k+1} = 3 + \frac{3k+1 + 2}{3k+1} \to 4 \quad \text{für } k \to \infty.
+            \]
+            \item Für \( n = 3k + 2 \):
+            \[
+            b_{3k+2} = 3.
+            \]
+        \end{enumerate}
+    \item Damit haben wir die Häufungspunkte \( \{2, 3, 4\} \).
+    \item Der Limes superior ist \( \limsup_{n \to \infty} b_n = 4 \) und der Limes inferior ist \( \liminf_{n \to \infty} b_n = 2 \).
+\end{enumerate}
+
+\subsection*{(c) \( c_0 = \sqrt{2} \) und \( c_{n+1} = \sqrt{2 + c_n} \) für \( n \geq 0 \)}
+
+\textbf{Lösung:}
+\begin{enumerate}
+    \item Die Folge \( (c_n) \) ist monoton wachsend und nach oben beschränkt. Wir zeigen, dass sie gegen einen Grenzwert konvergiert.
+    \item Sei \( L = \lim_{n \to \infty} c_n \). Dann gilt:
+    \[
+    L = \sqrt{2 + L}.
+    \]
+    \item Quadrieren beiderseits ergibt:
+    \[
+    L^2 = 2 + L \Rightarrow L^2 - L - 2 = 0 \Rightarrow (L - 2)(L + 1) = 0.
+    \]
+    \item Da \( L \geq 0 \), folgt \( L = 2 \).
+    \item Somit konvergiert die Folge \( (c_n) \) gegen 2, und der einzige Häufungspunkt ist 2. Daher gilt:
+    \[
+    \limsup_{n \to \infty} c_n = \liminf_{n \to \infty} c_n = 2.
+    \]
+\end{enumerate}
+
+\subsection*{(d) \( d_n = 42 + (-n)^n \)}
+
+\textbf{Lösung:}
+\begin{enumerate}
+    \item Da \( (-n)^n \) für \( n \) gerade positiv und sehr groß wird, und für \( n \) ungerade negativ und sehr groß im Betrag, divergiert \( d_n \) abwechselnd gegen \( +\infty \) und \( -\infty \).
+    \item Somit hat die Folge keinen Limes superior, keinen Limes inferior und keine Häufungspunkte.
+\end{enumerate}
+
 
 \section*{Aufgabe 4}
 
-Untersuchen Sie die folgende Folgen auf Konvergenz beziehungsweise Divergenz.
+Beweisen Sie, dass eine beschränkte reelle oder komplexe Folge genau dann konvergiert, wenn sie genau einen Häufungspunkt besitzt.
 
-\subsection*{Teil (a): \( (a_n)_{n \in \mathbb{N}} \) mit \( a_n := (-1)^n \)}
+\subsection*{Beweis:}
 
-\textbf{Lösung:} Die Folge \( a_n = (-1)^n \) oszilliert zwischen den Werten \( 1 \) und \( -1 \), je nachdem, ob \( n \) gerade oder ungerade ist. Da die Folge keine feste Zahl als Grenzwert hat, ist sie divergent.
+Wir beweisen die Aussage in zwei Richtungen.
 
-\[
-\lim_{n \to \infty} a_n \text{ existiert nicht} \Rightarrow (a_n) \text{ ist divergent.}
-\]
-
-\subsection*{Teil (b): \( (b_n)_{n \in \mathbb{N}} \) mit \( b_n := \frac{n^2}{n^3 + 1} \)}
-
-\textbf{Lösung:} Um das Verhalten der Folge \( b_n = \frac{n^2}{n^3 + 1} \) für \( n \to \infty \) zu untersuchen, betrachten wir den höchsten Exponenten im Zähler und Nenner.
-
-\[
-b_n = \frac{n^2}{n^3 + 1} = \frac{n^2}{n^3 \left(1 + \frac{1}{n^3}\right)} = \frac{1}{n \left(1 + \frac{1}{n^3}\right)}
-\]
-
-Da \( \frac{1}{n} \to 0 \) für \( n \to \infty \), folgt:
-
-\[
-\lim_{n \to \infty} b_n = 0
-\]
-
-Also konvergiert die Folge \( (b_n) \) gegen 0.
-
-\subsection*{Teil (c): \( (c_n)_{n \in \mathbb{N}} \) mit \( c_n := \frac{4n^2 - 6n}{n^2 + 1} \)}
-
-\textbf{Lösung:} Wir untersuchen das Verhalten von \( c_n = \frac{4n^2 - 6n}{n^2 + 1} \) für \( n \to \infty \), indem wir den höchsten Exponenten im Zähler und Nenner betrachten.
-
-\[
-c_n = \frac{4n^2 - 6n}{n^2 + 1} = \frac{n^2 (4 - \frac{6}{n})}{n^2 (1 + \frac{1}{n^2})} = \frac{4 - \frac{6}{n}}{1 + \frac{1}{n^2}}
-\]
-
-Da \( \frac{6}{n} \to 0 \) und \( \frac{1}{n^2} \to 0 \) für \( n \to \infty \), ergibt sich:
-
-\[
-\lim_{n \to \infty} c_n = \frac{4 - 0}{1 + 0} = 4
-\]
-
-Also konvergiert die Folge \( (c_n) \) gegen 4.
-
-\subsection*{Teil (d): \( (d_n)_{n \in \mathbb{N}} \) mit \( d_n := \frac{n^2 + 1}{3n} \)}
-
-\textbf{Lösung:} Wir untersuchen das Verhalten von \( d_n = \frac{n^2 + 1}{3n} \) für \( n \to \infty \), indem wir den höchsten Exponenten im Zähler und Nenner betrachten.
-
-\[
-d_n = \frac{n^2 + 1}{3n} = \frac{n \cdot \left(n + \frac{1}{n}\right)}{3n} = \frac{n + \frac{1}{n}}{3} = \frac{n}{3} + \frac{1}{3n}
-\]
-
-Da der Term \( \frac{n}{3} \to \infty \) für \( n \to \infty \), divergiert die Folge \( (d_n) \) gegen \( \infty \).
-
-\[
-\lim_{n \to \infty} d_n = \infty \Rightarrow (d_n) \text{ ist divergent.}
-\]
-
-\subsection*{Ergebnis:}
 \begin{enumerate}
-    \item[(a)] Die Folge \( (a_n) = (-1)^n \) ist divergent.
-    \item[(b)] Die Folge \( (b_n) = \frac{n^2}{n^3 + 1} \) konvergiert gegen 0.
-    \item[(c)] Die Folge \( (c_n) = \frac{4n^2 - 6n}{n^2 + 1} \) konvergiert gegen 4.
-    \item[(d)] Die Folge \( (d_n) = \frac{n^2 + 1}{3n} \) ist divergent gegen \( \infty \).
+    \item[\textbf{1. Richtung:}] \textbf{(Wenn die Folge konvergiert, hat sie genau einen Häufungspunkt)}
+
+    Sei \( (a_n)_{n \in \mathbb{N}} \) eine beschränkte, konvergente reelle oder komplexe Folge mit Grenzwert \( L \). Da die Folge konvergiert, bedeutet dies, dass für jedes \( \epsilon > 0 \) nur endlich viele Folgenglieder außerhalb des \( \epsilon \)-Umkreises um \( L \) liegen, also
+    \[
+    \forall \epsilon > 0 \; \exists N \in \mathbb{N} \; \text{sodass} \; |a_n - L| < \epsilon \; \forall n \geq N.
+    \]
+
+    Da \( L \) der einzige Punkt ist, dem sich die Folge beliebig nahe annähert, ist \( L \) ein Häufungspunkt von \( (a_n) \).
+
+    Angenommen, die Folge hätte noch einen weiteren Häufungspunkt \( L' \neq L \). Dann müsste es für \( L' \) ebenfalls ein \( \epsilon' > 0 \) geben, sodass unendlich viele Folgenglieder in dem \( \epsilon' \)-Umkreis um \( L' \) liegen. Dies widerspricht jedoch der Definition der Konvergenz, da die Folge \( (a_n) \) nur um \( L \) „häuft“. Daher kann \( L \) der einzige Häufungspunkt der Folge sein.
+
+    Also hat eine konvergente Folge genau einen Häufungspunkt.
+
+    \item[\textbf{2. Richtung:}] \textbf{(Wenn die Folge genau einen Häufungspunkt hat, dann konvergiert sie)}
+
+    Sei \( (a_n)_{n \in \mathbb{N}} \) eine beschränkte Folge, die genau einen Häufungspunkt \( L \) besitzt. Da die Folge beschränkt ist, existiert nach dem Satz von Bolzano-Weierstraß eine konvergente Teilfolge \( (a_{n_k})_{k \in \mathbb{N}} \), die gegen \( L \) konvergiert, da \( L \) der einzige Häufungspunkt ist.
+
+    Angenommen, die gesamte Folge \( (a_n) \) konvergiert nicht gegen \( L \). Dann müsste es ein \( \epsilon > 0 \) geben, sodass unendlich viele Folgenglieder \( a_n \) den \( \epsilon \)-Umkreis um \( L \) verlassen. Diese Folgenglieder könnten eine weitere Teilfolge bilden, die nicht gegen \( L \) konvergiert, was im Widerspruch dazu steht, dass \( L \) der einzige Häufungspunkt ist.
+
+    Daher muss die gesamte Folge gegen \( L \) konvergieren.
 \end{enumerate}
 
+Damit ist gezeigt, dass eine beschränkte Folge genau dann konvergiert, wenn sie genau einen Häufungspunkt besitzt. \(\square\)
 
 
 \end{document}
