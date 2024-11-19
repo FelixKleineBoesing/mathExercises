@@ -8,7 +8,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
-
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}
 % Document
 \begin{document}
 
@@ -17,74 +17,129 @@
 \maketitle
 
 \section*{Aufgabe 1}
+Zeigen Sie, dass für alle \( k \in \mathbb{N} \) die Folge
+\(\left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}}\) gegen 1 konvergiert.
 
-Zeigen Sie, dass für alle \( k \in \mathbb{N} \) die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) gegen 1 konvergiert.
-
-(Hinweis: Betrachten Sie zunächst den Fall \( k = 1 \).)
-
-\subsection*{Teil (a)}
-
-\textbf{Beweis:} Wir zeigen zunächst, dass die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für \( k = 1 \) gegen 1 konvergiert.
-
+\textbf{Beweisstrategie:}
 \begin{enumerate}
-    \item Betrachte die allgemeine Form der \( n \)-ten Wurzel von \( n \):
-    \[
-    a_n = \sqrt[n]{n} = n^{\frac{1}{n}}.
-    \]
-
-    \item Um zu zeigen, dass \( a_n \to 1 \) für \( n \to \infty \), betrachten wir den natürlichen Logarithmus von \( a_n \):
-    \[
-    \ln(a_n) = \ln\left(n^{\frac{1}{n}}\right) = \frac{1}{n} \ln(n).
-    \]
-
-    \item Nun untersuchen wir das Verhalten von \( \frac{\ln(n)}{n} \) für \( n \to \infty \):
-    \[
-    \lim_{n \to \infty} \frac{\ln(n)}{n} = 0.
-    \]
-    Dies folgt aus der Anwendung der Regel von de l'Hôpital, da die Ableitung des Zählers \( \ln(n) \) und die Ableitung des Nenners \( n \) wie folgt sind:
-    \[
-    \lim_{n \to \infty} \frac{\ln(n)}{n} = \lim_{n \to \infty} \frac{\frac{1}{n}}{1} = \lim_{n \to \infty} \frac{1}{n} = 0.
-    \]
-
-    \item Daraus folgt:
-    \[
-    \lim_{n \to \infty} \ln(a_n) = 0.
-    \]
-    Da der Logarithmus eine stetige Funktion ist, erhalten wir \( \lim_{n \to \infty} a_n = e^0 = 1 \).
-
+    \item Zeige, dass die Bedingung für \(k = 1\) gilt.
+    \item Zeige, dass die Bedingung für \(k = 1\) dann für alle \(k \in \mathbb{N}\) die Bedingung impliziert.
 \end{enumerate}
 
-Damit ist gezeigt, dass \( \left( \sqrt[n]{n} \right)_{n \in \mathbb{N}} \) für \( k = 1 \) gegen 1 konvergiert.
+\textbf{Beweis für \(k = 1\):}
+
+\(\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z}}\): \((a_{n})_{n\in\mathbb{N}} = \sqrt[n]{n} \rightarrow 1\)
+
+Wenn die Folge \(\sqrt[n]{n}\) gegen 1 konvergiert, existiert per Definition ein \(\epsilon > 0\) zu \(N(\epsilon) \in \mathbb{N}\), so dass gilt:
+\[
+|\sqrt[n]{n} - 1| < \epsilon, \quad \forall n \geq N(\epsilon).
+\]
+
+Zuerst definieren wir \( x_{n} = \sqrt[n]{n} - 1 \), für welches wir nun zeigen wollen, dass \( x_{n} < \epsilon \) ist.
+
+Um \( x_{n} \) nach \(n\) umzuformen:
+\begin{align*}
+    x_{n} &= \sqrt[n]{n} - 1, \\
+    \sqrt[n]{n} &= x_{n} + 1, \\
+    n &= (x_{n} + 1)^{n}.
+\end{align*}
+
+Wir können \((x_{n} + 1)^{n}\) mithilfe des binomischen Lehrsatzes umformen und erhalten:
+\[
+(x_{n} + 1)^{n} = \sum_{k=0}^{n} \binom{n}{k} x_{n}^{k}.
+\]
+
+Da wir nun eine Summe haben, können wir die Summanden für \(k = 0\) und \(k = 2\) betrachten und eine neue Ungleichung definieren, da klar ist, dass die gesamte Summe mindestens größer als die Teilsumme ist:
+\[
+n = \sum_{k=0}^{n} \binom{n}{k} x_{n}^{k} \geq 1 + \frac{n(n-1)}{2} x_{n}^{2}.
+\]
+
+Nun formen wir diese Ungleichung nach \(x_{n}\) um:
+\[
+n - 1 \geq \frac{n(n-1)}{2} x_{n}^{2},
+\]
+\[
+\frac{2}{n} \geq x_{n}^{2},
+\]
+\[
+x_{n} \leq \sqrt{\frac{2}{n}}.
+\]
+
+Wir wollen zeigen, dass \( x_{n} \leq \sqrt{\frac{2}{n}} < \epsilon \) für alle \(\epsilon > 0\). Dies impliziert:
+\[
+\sqrt{\frac{2}{n}} < \epsilon \Rightarrow \frac{2}{n} < \epsilon^{2} \Rightarrow \frac{2}{\epsilon^{2}} < n.
+\]
+
+Der Satz von Archimedes besagt, dass ein solches \(N \in \mathbb{N}\) existiert, sodass die Ungleichung erfüllt ist. Somit folgt hieraus:
+\[
+x_{n} = \sqrt[n]{n} - 1 \leq \sqrt{\frac{2}{n}} \leq \sqrt{\frac{2}{N}} < \epsilon.
+\]
+
+Hiermit ist die Aussage für \(k = 1\) bewiesen.
+
+\textbf{Beweis für alle \(k \in \mathbb{N}\):}
+
+\[
+\lim\limits_{n \rightarrow \infty} \sqrt[n]{n^{k}} = \left(\lim\limits_{n \rightarrow \infty} \sqrt[n]{n}\right)^k.
+\]
+
+Da wir bereits gezeigt haben, dass jeder einzelne Ausdruck \(\lim\limits_{n \rightarrow \infty} \sqrt[n]{n}\) gegen 1 konvergiert, folgt, dass auch \(\lim\limits_{n \rightarrow \infty} \sqrt[n]{n^{k}} \rightarrow 1\).
+
+\section*{Aufgabe 2}
+
+\textbf{Beweis:} Wir zeigen, dass für alle \( n \in \mathbb{N} \) gilt: \( a_n \geq \sqrt{c} \) und \( a_{n+1} \leq a_n \).
+
+\begin{enumerate}
+    \item \textbf{Behauptung:} Für alle \( n \in \mathbb{N} \) gilt \( a_n \geq \sqrt{c} \).
+
+    \item \textbf{Beweis von \( a_n \geq \sqrt{c} \):} Wir beweisen diese Aussage rekursiv. Der Startwert \( a_0 \in \mathbb{R}_+ \) ist beliebig und erfüllt \( a_0 \geq \sqrt{c} \), wenn wir \( a_0 \) entsprechend wählen. Die rekursive Definition der Folge lautet
+    \[
+    a_{n+1} = \frac{1}{2} \left( a_n + \frac{c}{a_n} \right).
+    \]
+    Angenommen, \( a_n \geq \sqrt{c} \). Dann folgt, dass \( \frac{c}{a_n} \leq \sqrt{c} \), da \( c \) positiv ist und \( a_n \geq \sqrt{c} \) angenommen wurde.
+
+    \item \textbf{Abschätzung von \( a_{n+1} \):} Mit der rekursiven Formel können wir nun \( a_{n+1} \) abschätzen:
+    \[
+    a_{n+1} = \frac{1}{2} \left( a_n + \frac{c}{a_n} \right).
+    \]
+    Da \( a_n \geq \sqrt{c} \) und \( \frac{c}{a_n} \leq \sqrt{c} \), ergibt sich:
+    \[
+    a_{n+1} \geq \frac{1}{2} \left( \sqrt{c} + \sqrt{c} \right).
+    \]
+    Da \( \sqrt{c} + \sqrt{c} = 2 \sqrt{c} \), folgt:
+    \[
+    a_{n+1} \geq \frac{1}{2} \cdot 2 \sqrt{c} = \sqrt{c}.
+    \]
+    Damit ist gezeigt, dass \( a_{n+1} \geq \sqrt{c} \), wenn \( a_n \geq \sqrt{c} \) gilt. Folglich ist \( a_n \geq \sqrt{c} \) für alle \( n \in \mathbb{N} \).
+
+    \item \textbf{Monotonie der Folge:} Wir zeigen, dass die Folge \( (a_n)_{n \in \mathbb{N}} \) monoton fallend ist, also \( a_{n+1} \leq a_n \).
+
+    Es gilt:
+    \[
+    a_{n+1} = \frac{1}{2} \left( a_n + \frac{c}{a_n} \right).
+    \]
+    Da \( a_n \geq \sqrt{c} \) ist, folgt aus der Konstruktion von \( a_{n+1} \) durch das arithmetisch-geometrische Mittel, dass \( a_{n+1} \leq a_n \).
+\end{enumerate}
+
+Damit haben wir gezeigt, dass \( (a_n)_{n \in \mathbb{N}} \) eine monoton fallende und nach unten durch \( \sqrt{c} \) beschränkte Folge ist.
 
 \subsection*{Teil (b)}
 
-\textbf{Beweis für allgemeines \( k \):} Nun zeigen wir die Konvergenz der Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für beliebiges \( k \in \mathbb{N} \).
+\textbf{Beweis:} Da die Folge \( (a_n)_{n \in \mathbb{N}} \) monoton fallend und nach unten durch \( \sqrt{c} \) beschränkt ist, konvergiert sie nach dem Monotoniekriterium. Sei \( a := \lim_{n \to \infty} a_n \).
 
-\begin{enumerate}
-    \item Die Folge hat die Form:
-    \[
-    a_n = \sqrt[n]{n^k} = (n^k)^{\frac{1}{n}} = n^{\frac{k}{n}}.
-    \]
+Im Grenzwert folgt aus der Rekursionsgleichung
+\[
+a = \frac{1}{2} \left( a + \frac{c}{a} \right).
+\]
+Durch Umstellen ergibt sich
+\[
+2a = a + \frac{c}{a} \Rightarrow a = \sqrt{c}.
+\]
+Damit folgt \( \lim_{n \to \infty} a_n = \sqrt{c} \).
 
-    \item Betrachten wir den natürlichen Logarithmus von \( a_n \):
-    \[
-    \ln(a_n) = \ln\left(n^{\frac{k}{n}}\right) = \frac{k}{n} \ln(n).
-    \]
+\subsection*{Teil (c)}
 
-    \item Analog zum Fall \( k = 1 \) betrachten wir das Verhalten von \( \frac{k \ln(n)}{n} \) für \( n \to \infty \):
-    \[
-    \lim_{n \to \infty} \frac{k \ln(n)}{n} = k \cdot \lim_{n \to \infty} \frac{\ln(n)}{n} = k \cdot 0 = 0.
-    \]
-
-    \item Also gilt:
-    \[
-    \lim_{n \to \infty} \ln(a_n) = 0 \Rightarrow \lim_{n \to \infty} a_n = e^0 = 1.
-    \]
-\end{enumerate}
-
-Damit haben wir gezeigt, dass die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für beliebiges \( k \in \mathbb{N} \) gegen 1 konvergiert.
-
-\section*{Aufgabe 2}
+?
 
 \section*{Aufgabe 3}
 

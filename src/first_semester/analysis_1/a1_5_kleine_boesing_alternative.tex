@@ -1,0 +1,80 @@
+%! Author = felix
+%! Date = 14.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}
+% Document
+\begin{document}
+
+\title{Übungsblatt 5}
+\author{Felix Kleine Bösing, Juri Ernesto Humberg, Leonhard Meyer}
+\maketitle
+
+\section*{Aufgabe 1}
+
+\subsection*{Teil (a)}
+
+\textbf{Beweis:} Wir wollen zeigen, dass die Folge
+\[
+\left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}}
+\]
+für alle \( k \in \mathbb{N} \) gegen 1 konvergiert.
+
+\begin{enumerate}
+    \item \textbf{Hypothese und Idee des Beweises:} Es ist zu zeigen, dass
+    \[
+    \lim_{n \to \infty} \sqrt[n]{n^k} = 1.
+    \]
+    Wir beginnen mit dem Spezialfall \( k = 1 \), wie im Hinweis vorgeschlagen, und verallgemeinern dann das Ergebnis für beliebige \( k \in \mathbb{N} \).
+
+    \item \textbf{Betrachte den Fall \( k = 1 \):} In diesem Fall lautet die Folge
+    \[
+    a_n = \sqrt[n]{n}.
+    \]
+    Wir schreiben \( a_n \) um:
+    \[
+    a_n = n^{\frac{1}{n}}.
+    \]
+    Wir behaupten, dass \( \lim_{n \to \infty} n^{\frac{1}{n}} = 1 \).
+
+    \item \textbf{Beweis durch Grenzwertbestimmung:} Um den Grenzwert von \( n^{\frac{1}{n}} \) zu berechnen, betrachten wir den natürlichen Logarithmus von \( a_n \):
+    \[
+    \ln(a_n) = \ln\left(n^{\frac{1}{n}}\right) = \frac{1}{n} \ln(n).
+    \]
+    Es genügt zu zeigen, dass \( \lim_{n \to \infty} \frac{\ln(n)}{n} = 0 \).
+
+    \item \textbf{Grenzwert von \( \frac{\ln(n)}{n} \):} Da der Zähler \( \ln(n) \) langsamer wächst als der Nenner \( n \), können wir L'Hôpital's Regel anwenden:
+    \[
+    \lim_{n \to \infty} \frac{\ln(n)}{n} = \lim_{n \to \infty} \frac{\frac{1}{n}}{1} = \lim_{n \to \infty} \frac{1}{n} = 0.
+    \]
+    Damit folgt
+    \[
+    \lim_{n \to \infty} \ln(a_n) = 0.
+    \]
+    Da \( \ln(a_n) \to 0 \), folgt \( a_n \to e^0 = 1 \).
+
+    \item \textbf{Verallgemeinerung auf beliebiges \( k \in \mathbb{N} \):} Für \( k > 1 \) betrachten wir die Folge
+    \[
+    a_n = \sqrt[n]{n^k} = (n^k)^{\frac{1}{n}} = n^{\frac{k}{n}}.
+    \]
+    Analog zum Fall \( k = 1 \) betrachten wir den natürlichen Logarithmus:
+    \[
+    \ln(a_n) = \frac{k}{n} \ln(n).
+    \]
+    Auch hier gilt, dass \( \frac{k}{n} \ln(n) \to 0 \) für \( n \to \infty \), wie zuvor gezeigt.
+
+    \item \textbf{Schlussfolgerung:} Da \( \lim_{n \to \infty} \ln(a_n) = 0 \) für alle \( k \in \mathbb{N} \) gilt, folgt
+    \[
+    \lim_{n \to \infty} a_n = e^0 = 1.
+    \]
+\end{enumerate}
+
+Damit ist gezeigt, dass die Folge \( \left( \sqrt[n]{n^k} \right)_{n \in \mathbb{N}} \) für alle \( k \in \mathbb{N} \) gegen 1 konvergiert.
+
+\end{document}

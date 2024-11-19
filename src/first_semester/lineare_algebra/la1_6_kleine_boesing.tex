@@ -1,0 +1,470 @@
+%! Author = felix
+%! Date = 11.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 6}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 1}
+
+Gegeben sei die Matrix \( A \in \mathbb{Q}^{5 \times 5} \) mit
+\[
+A =
+\begin{pmatrix}
+1 & 0 & 1 & 0 & 1 \\
+0 & 1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 1 & 1 \\
+0 & 1 & 1 & 1 & 0 \\
+1 & 0 & 1 & 0 & 1
+\end{pmatrix}
+\]
+
+Berechnen Sie:
+\begin{enumerate}
+    \item den Rang der Matrix,
+    \item eine Basis des von den Zeilen der Matrix aufgespannten Untervektorraums von \( \mathbb{Q}^5 \),
+    \item sowie die Dimension des Kerns \( \ker(A) \), also \( \dim(L_{A, 0}) \)
+\end{enumerate}
+
+\subsection*{Lösung}
+
+\textbf{Beweis:} Wir gehen schrittweise vor.
+
+\begin{enumerate}
+    \item \textbf{Berechnung des Rangs der Matrix \( A \):} \\
+    Um den Rang der Matrix \( A \) zu bestimmen, bringen wir \( A \) mittels elementarer Zeilenumformungen in reduzierte Zeilenstufenform.
+
+    \textbf{Schritt 1: Abhängige Zeilen entfernen.} \\
+    Die Zeilen der Matrix \( A \) sind:
+    \[
+    \begin{aligned}
+        &\mathbf{z}_1 = (1, 0, 1, 0, 1), \quad \mathbf{z}_2 = (0, 1, 1, 1, 0), \\
+        &\mathbf{z}_3 = (1, 1, 1, 1, 1), \quad \mathbf{z}_4 = (0, 1, 1, 1, 0), \quad \mathbf{z}_5 = (1, 0, 1, 0, 1)
+    \end{aligned}
+    \]
+    Es ist direkt erkennbar:
+    \begin{itemize}
+        \item \( \mathbf{z}_4 = \mathbf{z}_2 \) (Zeile 4 ist linear abhängig von Zeile 2),
+        \item \( \mathbf{z}_5 = \mathbf{z}_1 \) (Zeile 5 ist linear abhängig von Zeile 1)
+    \end{itemize}
+    Wir entfernen \( \mathbf{z}_4 \) und \( \mathbf{z}_5 \), wodurch die reduzierte Matrix lautet:
+    \[
+    A' =
+    \begin{pmatrix}
+    1 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0 \\
+    1 & 1 & 1 & 1 & 1
+    \end{pmatrix}
+    \]
+
+    \textbf{Schritt 2: Gauß-Elimination.} \\
+    Wir bringen \( A' \) durch Zeilenoperationen in Zeilenstufenform:
+    \[
+    A' =
+    \begin{pmatrix}
+    1 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0 \\
+    1 & 1 & 1 & 1 & 1
+    \end{pmatrix}
+    \]
+    Subtrahiere \( \mathbf{z}_1 \) von \( \mathbf{z}_3 \):
+    \[
+    \begin{pmatrix}
+    1 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0 \\
+    0 & 1 & 0 & 1 & 0
+    \end{pmatrix}
+    \]
+    Subtrahiere \( \mathbf{z}_2 \) von \( \mathbf{z}_3 \):
+    \[
+    \begin{pmatrix}
+    1 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0 \\
+    0 & 0 & -1 & 0 & 0
+    \end{pmatrix}
+    \]
+    Multipliziere die letzte Zeile mit \( -1 \):
+    \[
+    \begin{pmatrix}
+    1 & 0 & 1 & 0 & 1 \\
+    0 & 1 & 1 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0
+    \end{pmatrix}
+    \]
+
+    In Zeilenstufenform hat die Matrix \( 3 \) nicht-null Zeilen. Somit ist der Rang von \( A \):
+    \[
+    \text{Rang}(A) = 3
+    \]
+
+    \item \textbf{Bestimmung einer Basis des von den Zeilen aufgespannten Untervektorraums:} \\
+    Die linear unabhängigen Zeilenvektoren der Zeilenstufenform von \( A' \) bilden eine Basis des Zeilenraums:
+    \[
+    \mathcal{B}_U = \left\{
+    \begin{pmatrix} 1 & 0 & 1 & 0 & 1 \end{pmatrix}, \,
+    \begin{pmatrix} 0 & 1 & 1 & 1 & 0 \end{pmatrix}, \,
+    \begin{pmatrix} 0 & 0 & 1 & 0 & 0 \end{pmatrix}
+    \right\}
+    \]
+
+    \item \textbf{Bestimmung der Dimension von \( \mathbf{L}_{A,0} := \ker(A) \):} \\
+    Um die Dimension des Kerns von \( A \) zu bestimmen, wenden wir den Rangsatz an. Dieser besagt:
+    \[
+    \dim(\ker(A)) + \text{Rang}(A) = n,
+    \]
+    wobei \( n \) die Anzahl der Spalten der Matrix ist. In diesem Fall ist \( n = 5 \). Da wir bereits bestimmt haben, dass der Rang der Matrix \( \text{Rang}(A) = 3 \) ist, ergibt sich:
+    \[
+    \dim(\ker(A)) = n - \text{Rang}(A) = 5 - 3 = 2.
+    \]
+
+    \textbf{Interpretation:} Die Dimension von \( \ker(A) \) gibt die Anzahl der linear unabhängigen Lösungen des homogenen Gleichungssystems \( A \mathbf{x} = 0 \) an. In diesem Fall ist \( \dim(\ker(A)) = 2 \), was bedeutet, dass der Kern von \( A \) ein zweidimensionaler Untervektorraum von \( \mathbb{Q}^5 \) ist.
+
+\end{enumerate}
+
+\textbf{Ergebnis:}
+\begin{enumerate}
+    \item Der Rang der Matrix ist \( 3 \).
+    \item Eine Basis des Zeilenraums ist:
+    \[
+    \mathcal{B}_U = \left\{
+    \begin{pmatrix} 1 & 0 & 1 & 0 & 1 \end{pmatrix}, \,
+    \begin{pmatrix} 0 & 1 & 1 & 1 & 0 \end{pmatrix}, \,
+    \begin{pmatrix} 0 & 0 & 1 & 0 & 0 \end{pmatrix}
+    \right\}
+    \]
+    \item Die Dimension des Kerns ist \( \dim(\ker(A)) = 2 \)
+\end{enumerate}
+
+
+\section*{Aufgabe 2}
+
+Es sei \( K \) ein Körper, \( U, V \) und \( W \) \( K \)-Vektorräume und \( f: V \to W \), \( g: W \to U \) lineare Abbildungen. Zeigen Sie, dass dann auch
+\[
+h := g \circ f : V \to U
+\]
+eine lineare Abbildung ist.
+
+\subsection*{Lösung}
+
+\textbf{Beweis:} Wir zeigen, dass die Verkettung \( h = g \circ f \) die Eigenschaften einer linearen Abbildung erfüllt. Dafür müssen wir zeigen:
+\begin{enumerate}
+    \item \( h(v_1 + v_2) = h(v_1) + h(v_2) \) für alle \( v_1, v_2 \in V \),
+    \item \( h(\lambda v) = \lambda h(v) \) für alle \( v \in V \) und \( \lambda \in K \)
+\end{enumerate}
+
+\textbf{1. Additivität:} \\
+Für \( v_1, v_2 \in V \) gilt:
+\[
+h(v_1 + v_2) = (g \circ f)(v_1 + v_2) = g(f(v_1 + v_2))
+\]
+Da \( f \) eine lineare Abbildung ist, gilt:
+\[
+f(v_1 + v_2) = f(v_1) + f(v_2)
+\]
+Einsetzen in die obige Gleichung ergibt:
+\[
+h(v_1 + v_2) = g(f(v_1) + f(v_2))
+\]
+Da \( g \) ebenfalls linear ist, gilt:
+\[
+g(f(v_1) + f(v_2)) = g(f(v_1)) + g(f(v_2))
+\]
+Somit erhalten wir:
+\[
+h(v_1 + v_2) = g(f(v_1)) + g(f(v_2)) = h(v_1) + h(v_2)
+\]
+
+\textbf{2. Homogenität:} \\
+Für \( v \in V \) und \( \lambda \in K \) gilt:
+\[
+h(\lambda v) = (g \circ f)(\lambda v) = g(f(\lambda v))
+\]
+Da \( f \) linear ist, gilt:
+\[
+f(\lambda v) = \lambda f(v)
+\]
+Einsetzen ergibt:
+\[
+h(\lambda v) = g(\lambda f(v))
+\]
+Da \( g \) linear ist, gilt:
+\[
+g(\lambda f(v)) = \lambda g(f(v))
+\]
+Somit erhalten wir:
+\[
+h(\lambda v) = \lambda g(f(v)) = \lambda h(v)
+\]
+
+\textbf{Schlussfolgerung:} \\
+Da \( h \) sowohl additiv als auch homogen ist, folgt, dass \( h \) eine lineare Abbildung ist.
+
+\textbf{Ergebnis:} Die Verkettung \( h = g \circ f : V \to U \) ist linear.
+
+
+\section*{Aufgabe 3}
+
+\subsection*{(a)}
+
+Es seien die folgenden Vektoren in \( \mathbb{Q}^4 \) gegeben:
+\[
+a = \begin{pmatrix} 1 \\ 2 \\ 0 \\ -3 \end{pmatrix}, \,
+b = \begin{pmatrix} 0 \\ -1 \\ 1 \\ 0 \end{pmatrix}, \,
+c = \begin{pmatrix} 2 \\ -4 \\ 3 \\ -1 \end{pmatrix}, \,
+d = \begin{pmatrix} 1 \\ 0 \\ 1 \\ -2 \end{pmatrix}.
+\]
+Sei \( U \) der von \( a, b, c, d \) erzeugte Unterraum. Geben Sie eine Basis von \( U \) an.
+
+\subsection*{Lösung}
+
+Um eine Basis des Unterraums \( U \) zu bestimmen, überprüfen wir die lineare Unabhängigkeit der Vektoren \( a, b, c, d \). Dazu bilden wir die Matrix, deren Zeilen die Vektoren \( a, b, c, d \) sind, und bringen sie durch Gauß-Eliminationsverfahren in Zeilenstufenform. Die nicht-null Zeilen der Zeilenstufenform bilden dann eine Basis von \( U \).
+
+\textbf{Matrix der Vektoren:}
+\[
+A = \begin{pmatrix}
+1 & 2 & 0 & -3 \\
+0 & -1 & 1 & 0 \\
+2 & -4 & 3 & -1 \\
+1 & 0 & 1 & -2
+\end{pmatrix}.
+\]
+
+\textbf{Schritt 1: Gauß-Eliminationsverfahren.}
+
+\begin{enumerate}
+    \item Zunächst verwenden wir die erste Zeile als Pivotzeile und eliminieren den Eintrag in der ersten Spalte der dritten und vierten Zeile:
+    \[
+    \text{Neue dritte Zeile: } Z_3 - 2Z_1 = \begin{pmatrix} 0 & -8 & 3 & 5 \end{pmatrix}.
+    \]
+    \[
+    \text{Neue vierte Zeile: } Z_4 - Z_1 = \begin{pmatrix} 0 & -2 & 1 & 1 \end{pmatrix}.
+    \]
+    Die neue Matrix lautet:
+    \[
+    A_1 = \begin{pmatrix}
+    1 & 2 & 0 & -3 \\
+    0 & -1 & 1 & 0 \\
+    0 & -8 & 3 & 5 \\
+    0 & -2 & 1 & 1
+    \end{pmatrix}.
+    \]
+
+    \item Nun wählen wir die zweite Zeile als Pivotzeile und eliminieren die Einträge in der zweiten Spalte der dritten und vierten Zeile:
+    \[
+    \text{Neue dritte Zeile: } Z_3 - 8Z_2 = \begin{pmatrix} 0 & 0 & -5 & 5 \end{pmatrix}.
+    \]
+    \[
+    \text{Neue vierte Zeile: } Z_4 - 2Z_2 = \begin{pmatrix} 0 & 0 & -1 & 1 \end{pmatrix}.
+    \]
+    Die neue Matrix lautet:
+    \[
+    A_2 = \begin{pmatrix}
+    1 & 2 & 0 & -3 \\
+    0 & -1 & 1 & 0 \\
+    0 & 0 & -5 & 5 \\
+    0 & 0 & -1 & 1
+    \end{pmatrix}.
+    \]
+
+    \item Schließlich verwenden wir die dritte Zeile als Pivotzeile und eliminieren den Eintrag in der dritten Spalte der vierten Zeile:
+    \[
+    \text{Neue vierte Zeile: } Z_4 - \frac{1}{5} Z_3 = \begin{pmatrix} 0 & 0 & 0 & 0 \end{pmatrix}.
+    \]
+    Die resultierende Matrix in Zeilenstufenform lautet:
+    \[
+    A' = \begin{pmatrix}
+    1 & 2 & 0 & -3 \\
+    0 & -1 & 1 & 0 \\
+    0 & 0 & -5 & 5 \\
+    0 & 0 & 0 & 0
+    \end{pmatrix}.
+    \]
+\end{enumerate}
+
+\textbf{Schritt 2: Interpretation der Zeilenstufenform.}
+
+Die Zeilen 1, 2 und 3 sind linear unabhängig, da keine Zeile als Linearkombination der anderen dargestellt werden kann. Daher bilden sie eine Basis des Unterraums \( U \).
+
+\textbf{Ergebnis:} Eine Basis von \( U \) ist gegeben durch:
+\[
+\mathcal{B}_U = \left\{
+\begin{pmatrix} 1 \\ 2 \\ 0 \\ -3 \end{pmatrix}, \,
+\begin{pmatrix} 0 \\ -1 \\ 1 \\ 0 \end{pmatrix}, \,
+\begin{pmatrix} 0 \\ 0 \\ -5 \\ 5 \end{pmatrix}
+\right\}.
+\]
+
+Der Unterraum \( U \) hat die Dimension \( 3 \).
+
+\textbf{Teil (b):} \\
+Wir bestimmen die Basen von \( W \cap W' \) und \( W + W' \).
+
+\subsection*{Schritt 1: Basis von \( W \cap W' \)}
+
+Der Schnitt \( W \cap W' \) besteht aus allen Vektoren, die sowohl in \( W \) als auch in \( W' \) liegen. Diese Vektoren sind Linearkombinationen der Basisvektoren von \( W \) und gleichzeitig Linearkombinationen der Basisvektoren von \( W' \). Wir formulieren dies als Gleichungssystem:
+
+\[
+x_1 \begin{pmatrix} 2 \\ 3 \\ -1 \\ 1 \end{pmatrix} + x_2 \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix} + x_3 \begin{pmatrix} 3 \\ 6 \\ -2 \\ 2 \end{pmatrix}
+= y_1 \begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix} + y_2 \begin{pmatrix} 4 \\ 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+
+Dies ergibt ein Gleichungssystem für die Einträge der beiden Seiten. Schreiben wir die Gleichung komponentenweise auf:
+
+\[
+\begin{pmatrix} 2x_1 + 0x_2 + 3x_3 \\ 3x_1 + x_2 + 6x_3 \\ -x_1 + 0x_2 - 2x_3 \\ x_1 + 0x_2 + 2x_3 \end{pmatrix}
+=
+\begin{pmatrix} y_1 + 4y_2 \\ 0y_1 + 0y_2 \\ 0y_1 + 0y_2 \\ 4y_1 + y_2 \end{pmatrix}.
+\]
+
+Das System ist:
+
+1. \( 2x_1 + 3x_3 = y_1 + 4y_2 \),
+2. \( 3x_1 + x_2 + 6x_3 = 0 \),
+3. \( -x_1 - 2x_3 = 0 \),
+4. \( x_1 + 2x_3 = 4y_1 + y_2 \).
+
+\textbf{Lösung durch Gauß-Eliminationsverfahren:}
+
+1. Aus Gleichung (3) folgt \( x_1 = -2x_3 \).
+2. Setzen wir \( x_1 = -2x_3 \) in Gleichung (1) ein:
+   \[
+   2(-2x_3) + 3x_3 = y_1 + 4y_2 \quad \Rightarrow \quad -4x_3 + 3x_3 = y_1 + 4y_2 \quad \Rightarrow \quad -x_3 = y_1 + 4y_2.
+   \]
+3. Aus Gleichung (4) folgt, nach Einsetzen von \( x_1 = -2x_3 \):
+   \[
+   -2x_3 + 2x_3 = 4y_1 + y_2 \quad \Rightarrow \quad 0 = 4y_1 + y_2.
+   \]
+   Daraus folgt \( y_2 = -4y_1 \).
+
+Zusammen mit \( x_1 = -2x_3 \) und \( x_3 = -y_1 - 4y_2 \) (aus Gleichung 1) lässt sich zeigen, dass alle Lösungen eine eindeutige Linearkombination ergeben. Der einzige Schnittpunkt ist:
+
+\[
+W \cap W' = \text{Spann} \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix} \right\}.
+\]
+
+\textbf{Basis von \( W \cap W' \):}
+\[
+\mathcal{B}_{W \cap W'} = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix} \right\}.
+\]
+
+\subsection*{Schritt 2: Basis von \( W + W' \)}
+
+Der Unterraum \( W + W' \) besteht aus allen Linearkombinationen der Vektoren in \( W \) und \( W' \). Die Basen von \( W \) und \( W' \) werden vereinigt, und wir überprüfen die lineare Unabhängigkeit der resultierenden Menge. Die Vektoren sind:
+
+\[
+\begin{pmatrix} 2 \\ 3 \\ -1 \\ 1 \end{pmatrix}, \,
+\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \,
+\begin{pmatrix} 3 \\ 6 \\ -2 \\ 2 \end{pmatrix}, \,
+\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \,
+\begin{pmatrix} 4 \\ 0 \\ 0 \\ 1 \end{pmatrix}.
+\]
+
+Wir bilden eine Matrix mit diesen Vektoren als Zeilen und bringen sie in Zeilenstufenform:
+
+\[
+A = \begin{pmatrix}
+2 & 3 & -1 & 1 \\
+0 & 1 & 0 & 0 \\
+3 & 6 & -2 & 2 \\
+1 & 0 & 0 & 4 \\
+4 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+
+Durch Gauß-Elimination erhalten wir:
+
+\[
+A' = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0
+\end{pmatrix}.
+\]
+
+Die ersten vier Zeilen sind linear unabhängig. Daher ist eine Basis von \( W + W' \):
+
+\[
+\mathcal{B}_{W + W'} = \left\{
+\begin{pmatrix} 2 \\ 3 \\ -1 \\ 1 \end{pmatrix}, \,
+\begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \,
+\begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \,
+\begin{pmatrix} 4 \\ 0 \\ 0 \\ 1 \end{pmatrix}
+\right\}.
+\]
+
+\textbf{Ergebnis:}
+\begin{enumerate}
+    \item Eine Basis von \( W \cap W' \) ist:
+    \[
+    \mathcal{B}_{W \cap W'} = \left\{ \begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix} \right\}.
+    \]
+    \item Eine Basis von \( W + W' \) ist:
+    \[
+    \mathcal{B}_{W + W'} = \left\{
+    \begin{pmatrix} 2 \\ 3 \\ -1 \\ 1 \end{pmatrix}, \,
+    \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \end{pmatrix}, \,
+    \begin{pmatrix} 1 \\ 0 \\ 0 \\ 4 \end{pmatrix}, \,
+    \begin{pmatrix} 4 \\ 0 \\ 0 \\ 1 \end{pmatrix}
+    \right\}.
+    \]
+\end{enumerate}
+
+
+\section*{Aufgabe 4}
+
+Seien \( f: U \to V \) und \( g: V \to W \) lineare Abbildungen zwischen \( K \)-Vektorräumen. Zeigen Sie: Ist \( g \circ f \) ein Isomorphismus, so sind \( \ker(g) \) und \( \operatorname{im}(f) \) Komplementärräume in \( V \).
+
+\subsection*{Lösung}
+
+\textbf{Beweis:} Wir zeigen, dass \( \ker(g) \oplus \operatorname{im}(f) = V \), wenn \( g \circ f \) ein Isomorphismus ist.
+
+\textbf{1. Eigenschaften eines Isomorphismus:} \\
+Da \( g \circ f \) ein Isomorphismus ist, gilt:
+\begin{enumerate}
+    \item \( g \circ f \) ist bijektiv, also sowohl injektiv als auch surjektiv.
+    \item Für \( f \) gilt: \( \ker(f) = \{0\} \), da \( f \) injektiv sein muss, damit \( g \circ f \) injektiv ist.
+    \item Für \( g \) gilt: \( \operatorname{im}(g) = W \), da \( g \) surjektiv sein muss, damit \( g \circ f \) surjektiv ist.
+\end{enumerate}
+
+\textbf{2. Zerlegung von \( V \):} \\
+Sei \( v \in V \). Wir wollen \( v \) als Summe \( v = v_1 + v_2 \) mit \( v_1 \in \ker(g) \) und \( v_2 \in \operatorname{im}(f) \) schreiben. Dafür nutzen wir die Eigenschaften von \( f \) und \( g \).
+
+\begin{enumerate}
+    \item Sei \( v_2 = f(u) \) für ein \( u \in U \). Da \( g \circ f \) bijektiv ist, existiert zu jedem \( w \in W \) ein eindeutiges \( u \in U \), sodass \( g(f(u)) = w \). Insbesondere ist \( \operatorname{im}(f) \subseteq V \).
+    \item Sei \( v_1 \in \ker(g) \). Per Definition von \( \ker(g) \) gilt \( g(v_1) = 0 \). Da \( \operatorname{im}(f) \) surjektiv auf \( W \) wirkt, ist jeder \( v \in V \) eindeutig als Summe \( v = v_1 + v_2 \) darstellbar mit \( v_1 \in \ker(g) \) und \( v_2 \in \operatorname{im}(f) \).
+\end{enumerate}
+
+\textbf{3. Komplementarität:} \\
+Um zu zeigen, dass \( \ker(g) \) und \( \operatorname{im}(f) \) Komplementärräume sind, müssen zwei Eigenschaften erfüllt sein:
+\begin{enumerate}
+    \item \( \ker(g) \cap \operatorname{im}(f) = \{0\} \): \\
+    Sei \( v \in \ker(g) \cap \operatorname{im}(f) \). Dann gilt \( v \in \ker(g) \), also \( g(v) = 0 \), und gleichzeitig \( v = f(u) \) für ein \( u \in U \). Da \( g \circ f \) injektiv ist, folgt \( u = 0 \), also \( v = 0 \).
+    \item \( \ker(g) + \operatorname{im}(f) = V \): \\
+    Sei \( v \in V \). Da \( g \circ f \) surjektiv ist, existiert ein \( u \in U \) mit \( f(u) \in \operatorname{im}(f) \). Somit kann jedes \( v \in V \) als Summe eines Elements aus \( \ker(g) \) und \( \operatorname{im}(f) \) geschrieben werden.
+\end{enumerate}
+
+\textbf{Schlussfolgerung:} \\
+Da \( \ker(g) \cap \operatorname{im}(f) = \{0\} \) und \( \ker(g) + \operatorname{im}(f) = V \), folgt:
+\[
+\ker(g) \oplus \operatorname{im}(f) = V.
+\]
+
+\textbf{Ergebnis:} Sind \( f: U \to V \) und \( g: V \to W \) linear und ist \( g \circ f \) ein Isomorphismus, so sind \( \ker(g) \) und \( \operatorname{im}(f) \) Komplementärräume in \( V \).
+
+
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}
