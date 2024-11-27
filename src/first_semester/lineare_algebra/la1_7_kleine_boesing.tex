@@ -1,0 +1,268 @@
+%! Author = felix
+%! Date = 11.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% Document
+\begin{document}
+
+\title{Übungsblatt 7}
+\author{Felix Kleine Bösing}
+\maketitle
+
+\section*{Aufgabe 7.1}
+
+Gegeben ist die lineare Abbildung \( f: \mathbb{R}^2 \to \mathbb{R}^2 \) mit den Eigenschaften
+\[
+f\left(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\right) = \begin{pmatrix} -2 \\ 1 \end{pmatrix} \quad \text{und} \quad
+f\left(\begin{pmatrix} -3 \\ 0 \end{pmatrix}\right) = \begin{pmatrix} 0 \\ -3 \end{pmatrix}
+\]
+
+\subsection*{Teil (a)}
+Wir berechnen \( f\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right) \) und \( f\left(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) \)
+
+\textbf{Beweis:} \\
+Da \( f \) linear ist, gilt für beliebige Vektoren \( \mathbf{v}_1, \mathbf{v}_2 \in \mathbb{R}^2 \):
+\[
+f(a \mathbf{v}_1 + b \mathbf{v}_2) = a f(\mathbf{v}_1) + b f(\mathbf{v}_2),
+\]
+wobei \( a, b \in \mathbb{R} \) sind. Wir stellen \( \begin{pmatrix} 1 \\ 0 \end{pmatrix} \) und \( \begin{pmatrix} 0 \\ 1 \end{pmatrix} \) als Linearkombination der gegebenen Vektoren \( \begin{pmatrix} 1 \\ 2 \end{pmatrix} \) und \( \begin{pmatrix} -3 \\ 0 \end{pmatrix} \) dar.
+
+1. Für \( \begin{pmatrix} 1 \\ 0 \end{pmatrix} \) lösen wir das Gleichungssystem:
+\[
+a \begin{pmatrix} 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} -3 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\]
+Daraus folgen die Gleichungen:
+\[
+a - 3b = 1, \quad 2a = 0
+\]
+Aus \( 2a = 0 \) folgt \( a = 0 \). Einsetzen in \( a - 3b = 1 \) ergibt \( b = -\frac{1}{3} \). Somit gilt:
+\[
+\begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0 \cdot \begin{pmatrix} 1 \\ 2 \end{pmatrix} - \frac{1}{3} \cdot \begin{pmatrix} -3 \\ 0 \end{pmatrix}
+\]
+Daraus folgt:
+\[
+f\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right) = 0 \cdot f\left(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\right) - \frac{1}{3} \cdot f\left(\begin{pmatrix} -3 \\ 0 \end{pmatrix}\right) = -\frac{1}{3} \cdot \begin{pmatrix} 0 \\ -3 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+
+2. Für \( \begin{pmatrix} 0 \\ 1 \end{pmatrix} \) lösen wir:
+\[
+a \begin{pmatrix} 1 \\ 2 \end{pmatrix} + b \begin{pmatrix} -3 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+\]
+Dies ergibt die Gleichungen:
+\[
+a - 3b = 0, \quad 2a = 1
+\]
+Aus \( 2a = 1 \) folgt \( a = \frac{1}{2} \). Einsetzen in \( a - 3b = 0 \) ergibt \( b = \frac{1}{6} \). Somit gilt:
+\[
+\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \frac{1}{2} \cdot \begin{pmatrix} 1 \\ 2 \end{pmatrix} + \frac{1}{6} \cdot \begin{pmatrix} -3 \\ 0 \end{pmatrix}
+\]
+Daraus folgt:
+\[
+f\left(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) = \frac{1}{2} \cdot f\left(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\right) + \frac{1}{6} \cdot f\left(\begin{pmatrix} -3 \\ 0 \end{pmatrix}\right) = \frac{1}{2} \cdot \begin{pmatrix} -2 \\ 1 \end{pmatrix} + \frac{1}{6} \cdot \begin{pmatrix} 0 \\ -3 \end{pmatrix} = \begin{pmatrix} -1 \\ \frac{1}{2} - \frac{1}{2} \end{pmatrix}
+\]
+
+\subsection*{Teil (b)}
+
+Wir untersuchen, ob \( f \) injektiv und/oder surjektiv ist.
+
+\textbf{Beweis:} \\
+1. \textbf{Injektivität:} \\
+Eine lineare Abbildung \( f: \mathbb{R}^2 \to \mathbb{R}^2 \) ist genau dann injektiv, wenn ihr Kern nur den Nullvektor enthält, d.h. \( \ker(f) = \{ \mathbf{0} \} \). \\
+Um den Kern zu bestimmen, lösen wir:
+\[
+f\left(\begin{pmatrix} x \\ y \end{pmatrix}\right) = \mathbf{0},
+\]
+was mit der Darstellung von \( f \) äquivalent ist zu:
+\[
+x \cdot f\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right) + y \cdot f\left(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) = \mathbf{0}
+\]
+Einsetzen der Ergebnisse aus Teil (a):
+\[
+x \cdot \begin{pmatrix} 0 \\ 1 \end{pmatrix} + y \cdot \begin{pmatrix} -1 \\ \frac{1}{2} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+\]
+Daraus erhalten wir das Gleichungssystem:
+\[
+\begin{aligned}
+&-y = 0, \\
+&x + \frac{1}{2}y = 0
+\end{aligned}
+\]
+Aus der ersten Gleichung folgt \( y = 0 \). Einsetzen in die zweite Gleichung ergibt \( x = 0 \). Somit ist \( \ker(f) = \{ \mathbf{0} \} \), und \( f \) ist injektiv.
+
+2. \textbf{Surjektivität:} \\
+Eine lineare Abbildung \( f: \mathbb{R}^2 \to \mathbb{R}^2 \) ist surjektiv, wenn ihr Bild \( \mathrm{im}(f) \) den gesamten Zielraum \( \mathbb{R}^2 \) umfasst, d.h. \( \mathrm{im}(f) = \mathbb{R}^2 \). \\
+Das Bild von \( f \) ist der von \( f\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right) \) und \( f\left(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) \) aufgespannte Unterraum. Da diese beiden Vektoren linear unabhängig sind (ihre Determinante ist ungleich null), spannen sie \( \mathbb{R}^2 \) auf. Somit ist \( f \) surjektiv.
+
+\textbf{Schlussfolgerung:} \\
+Die Abbildung \( f \) ist sowohl injektiv als auch surjektiv, d.h. \( f \) ist bijektiv.
+
+\subsection*{Teil (c)}
+
+Wir beschreiben, was \( f \) mit einem gegebenen Vektor macht.
+
+\textbf{Beschreibung:} \\
+Die Abbildung \( f \) transformiert Vektoren im \( \mathbb{R}^2 \) gemäß der durch \( f\left(\begin{pmatrix} 1 \\ 0 \end{pmatrix}\right) = \begin{pmatrix} 0 \\ 1 \end{pmatrix} \) und \( f\left(\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right) = \begin{pmatrix} -1 \\ \frac{1}{2} \end{pmatrix} \) definierten Transformation. Diese Transformation entspricht einer Kombination aus einer Drehung und einer Streckung/Scherung.
+
+\textbf{Skizze:} \\
+Zur Veranschaulichung können wir die Bilder der Basisvektoren und die von ihnen aufgespannten Bereiche skizzieren. Damit wird sichtbar, wie \( f \) den Raum transformiert. (Hier wird eine schematische Darstellung empfohlen, die die Transformation von Basisvektoren zeigt.)
+
+\section*{Aufgabe 7.2}
+
+Sei \( K \) ein Körper.
+
+\subsection*{Teil (a)}
+
+\textbf{Aufgabe:} Gibt es eine \( K \)-lineare Abbildung \( \varphi : K^4 \to K^2 \) mit 1-dimensionalem Kern?
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item Nach dem Dimensionssatz gilt für eine \( K \)-lineare Abbildung \( \varphi: K^n \to K^m \):
+    \[
+    \dim \ker(\varphi) + \dim \operatorname{im}(\varphi) = n
+    \]
+    \item Für \( \varphi: K^4 \to K^2 \) bedeutet dies:
+    \[
+    \dim \ker(\varphi) + \dim \operatorname{im}(\varphi) = 4
+    \]
+    \item Da der Zielraum \( K^2 \) ist, gilt \( \dim \operatorname{im}(\varphi) \leq 2 \). Falls \( \dim \ker(\varphi) = 1 \), folgt:
+    \[
+    1 + \dim \operatorname{im}(\varphi) = 4 \implies \dim \operatorname{im}(\varphi) = 3
+    \]
+    \item Dies ist jedoch ein Widerspruch, da der Zielraum nur Dimension 2 hat. Daher kann es keine solche Abbildung geben.
+\end{enumerate}
+
+\subsection*{Teil (b)}
+
+\textbf{Aufgabe:} Seien \( V, W \subset K^5 \) Untervektorräume mit \( \dim V = 3 \) und \( \dim W = 4 \). Zeigen Sie \( \dim (V \cap W) \geq 2 \).
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item Für zwei Untervektorräume \( V \) und \( W \) eines Vektorraums \( K^n \) gilt die Dimensionsformel:
+    \[
+    \dim(V + W) = \dim V + \dim W - \dim (V \cap W)
+    \]
+    \item Da \( V + W \subseteq K^5 \), gilt:
+    \[
+    \dim(V + W) \leq 5
+    \]
+    \item Setzen wir die bekannten Dimensionen ein:
+    \[
+    \dim(V + W) = \dim V + \dim W - \dim (V \cap W)
+    \]
+    Das ergibt:
+    \[
+    \dim(V \cap W) = \dim V + \dim W - \dim(V + W) \geq 3 + 4 - 5 = 2
+    \]
+    \item Damit folgt \( \dim(V \cap W) \geq 2 \).
+\end{enumerate}
+
+\section*{Aufgabe 7.3}
+
+Sei \( K \) ein Körper.
+
+\subsection*{Teil (a)}
+
+\textbf{Aufgabe:} Bestimmen Sie alle linearen Abbildungen \( f: K \to K \).
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item Eine lineare Abbildung \( f: K \to K \) ist vollständig durch das Bild des Elements \( 1 \in K \) definiert, da \( f \) linear ist und für alle \( \lambda \in K \):
+    \[
+    f(\lambda) = \lambda \cdot f(1)
+    \]
+    \item Bezeichnen wir \( f(1) = c \) mit \( c \in K \), dann ist die Abbildung durch \( f(\lambda) = c \lambda \) für alle \( \lambda \in K \) gegeben.
+    \item Somit ist jede lineare Abbildung \( f: K \to K \) eine Multiplikation mit einem festen Skalar \( c \in K \).
+\end{enumerate}
+
+\subsection*{Teil (b)}
+
+\textbf{Aufgabe:} Seien \( a, b \in K \). Betrachten Sie \( f: K^2 \to K \) mit \( f(x, y) = ax + by \). Bestimmen Sie eine Basis von
+\[
+\ker f = \{(x, y) \in K^2 : f(x, y) = 0\}
+\]
+Wann ist \( f \) surjektiv?
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item Der Kern von \( f \) ist definiert durch die Gleichung:
+    \[
+    f(x, y) = ax + by = 0
+    \]
+    \item Um den Kern zu bestimmen, lösen wir diese Gleichung nach \( y \) auf (falls \( b \neq 0 \)):
+    \[
+    y = -\frac{a}{b}x
+    \]
+    \item Der Kern ist dann der Untervektorraum
+    \[
+    \ker f = \text{span}\left\{\begin{pmatrix} b \\ -a \end{pmatrix}\right\},
+    \]
+    wobei \( b \neq 0 \) vorausgesetzt wird. Falls \( b = 0 \), ist \( f(x, y) = ax \), und der Kern ist
+    \[
+    \ker f = \text{span}\left\{\begin{pmatrix} 0 \\ 1 \end{pmatrix}\right\}
+    \]
+    \item Eine Basis des Kerns hängt also von den Werten von \( a \) und \( b \) ab:
+    \begin{itemize}
+        \item Falls \( b \neq 0 \), ist \( \begin{pmatrix} b \\ -a \end{pmatrix} \) eine Basis von \( \ker f \).
+        \item Falls \( b = 0 \), ist \( \begin{pmatrix} 0 \\ 1 \end{pmatrix} \) eine Basis von \( \ker f \).
+    \end{itemize}
+    \item \( f \) ist surjektiv, wenn der Bildraum von \( f \) ganz \( K \) ist. Dies ist der Fall, wenn \( a \neq 0 \) oder \( b \neq 0 \), da mindestens einer der beiden Koeffizienten ungleich Null sein muss, um alle Werte in \( K \) zu erzeugen.
+\end{enumerate}
+
+\section*{Aufgabe 7.4}
+
+Sei \( f \) ein Endomorphismus des Vektorraumes \( V \) mit \( f^2 = f \). Zeigen Sie, dass \( \ker(f) \) und \( \operatorname{im}(f) \) Komplementärräume in \( V \) sind.
+
+\subsection*{Beweis:}
+\begin{enumerate}
+    \item Zunächst zeigen wir, dass \( V = \ker(f) \oplus \operatorname{im}(f) \), also
+    \[
+    V = \ker(f) + \operatorname{im}(f) \quad \text{und} \quad \ker(f) \cap \operatorname{im}(f) = \{0\}
+    \]
+
+    \item Zeigen von \( V = \ker(f) + \operatorname{im}(f) \):
+    \begin{enumerate}
+        \item Sei \( v \in V \). Da \( f^2 = f \), ist \( f \) idempotent, das heißt:
+        \[
+        f(v) \in \operatorname{im}(f) \quad \text{und} \quad v - f(v) \in \ker(f),
+        \]
+        da
+        \[
+        f(v - f(v)) = f(v) - f^2(v) = f(v) - f(v) = 0
+        \]
+        \item Somit lässt sich jeder Vektor \( v \in V \) als Summe schreiben:
+        \[
+        v = f(v) + (v - f(v)),
+        \]
+        wobei \( f(v) \in \operatorname{im}(f) \) und \( v - f(v) \in \ker(f) \). Also gilt \( V = \ker(f) + \operatorname{im}(f) \).
+    \end{enumerate}
+
+    \item Zeigen von \( \ker(f) \cap \operatorname{im}(f) = \{0\} \):
+    \begin{enumerate}
+        \item Sei \( v \in \ker(f) \cap \operatorname{im}(f) \). Dann gilt:
+        \[
+        v \in \ker(f) \implies f(v) = 0 \quad \text{und} \quad v \in \operatorname{im}(f) \implies \exists w \in V : v = f(w)
+        \]
+        \item Einsetzen von \( v = f(w) \) in \( f(v) = 0 \) ergibt:
+        \[
+        f(v) = f(f(w)) = f(w) = v \implies v = 0
+        \]
+        \item Also ist \( \ker(f) \cap \operatorname{im}(f) = \{0\} \).
+    \end{enumerate}
+
+    \item Da \( V = \ker(f) + \operatorname{im}(f) \) und \( \ker(f) \cap \operatorname{im}(f) = \{0\} \), folgt:
+    \[
+    V = \ker(f) \oplus \operatorname{im}(f),
+    \]
+    und somit sind \( \ker(f) \) und \( \operatorname{im}(f) \) Komplementärräume in \( V \).
+\end{enumerate}
+
+\bibliography{main}
+\bibliographystyle{plain}
+
+\end{document}

@@ -1,0 +1,356 @@
+%! Author = felix
+%! Date = 14.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}
+% Document
+\begin{document}
+
+\title{Übungsblatt 6}
+\author{Felix Kleine Bösing, Juri Ernesto Humberg, Leonhard Meyer}
+\maketitle
+\newpage
+
+\subsection*{Teil (a)}
+Gegeben ist eine reelle Folge $(a_n)_{n \in \mathbb{N}}$ und eine Konstante $q \in \mathbb{R}$ mit $0 < q < 1$. Weiterhin existiert ein $N \in \mathbb{N}$, sodass
+\[
+|a_{n+1} - a_n| \leq q |a_n - a_{n-1}| \quad \text{für alle } n \geq N.
+\]
+Es ist zu zeigen, dass $(a_n)_{n \in \mathbb{N}}$ eine Cauchy-Folge ist. Außerdem soll gezeigt werden, dass diese Eigenschaft nicht notwendigerweise gilt, falls lediglich $|a_{n+1} - a_n| < |a_n - a_{n-1}|$ für alle $n \geq N$ gilt.
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item \textbf{Cauchy-Folge unter der Bedingung \( |a_{n+1} - a_n| \leq q |a_n - a_{n-1}| \):}
+    \begin{enumerate}
+        \item Definieren wir die Abstände \( d_n = |a_{n+1} - a_n| \). Aus der Bedingung folgt, dass
+        \[
+        d_{n+1} \leq q \cdot d_n \quad \text{für alle } n \geq N.
+        \]
+        Durch wiederholte Anwendung erhalten wir für \( k \geq 1 \):
+        \[
+        d_{N+k} \leq q^k \cdot d_N.
+        \]
+        \item Für \( m > n \geq N \) gilt die Dreiecksungleichung:
+        \[
+        |a_m - a_n| \leq \sum_{k=n}^{m-1} |a_{k+1} - a_k| = \sum_{k=n}^{m-1} d_k.
+        \]
+        Setzen wir die Abschätzung \( d_k \leq q^{k-N} \cdot d_N \) ein:
+        \[
+        |a_m - a_n| \leq \sum_{k=n}^{m-1} q^{k-N} \cdot d_N.
+        \]
+        \item Die Summe der \( q^{k-N} \)-Terme bildet eine geometrische Reihe:
+        \[
+        \sum_{k=n}^{m-1} q^{k-N} = q^{n-N} \cdot \frac{1 - q^{m-n}}{1-q}.
+        \]
+        Für \( m \to \infty \) konvergiert die geometrische Reihe, und es bleibt:
+        \[
+        |a_m - a_n| \leq \frac{q^{n-N}}{1-q} \cdot d_N.
+        \]
+        \item Da \( q^{n-N} \to 0 \) für \( n \to \infty \), folgt \( |a_m - a_n| \to 0 \). Somit ist \( (a_n)_{n \in \mathbb{N}} \) eine Cauchy-Folge.
+    \end{enumerate}
+
+    \item \textbf{Die schwächere Bedingung \( |a_{n+1} - a_n| < |a_n - a_{n-1}| \):}
+    \begin{enumerate}
+        \item Die schwächere Bedingung \( |a_{n+1} - a_n| < |a_n - a_{n-1}| \) bedeutet nur, dass die Abstände zwischen aufeinanderfolgenden Folgengliedern kleiner werden, garantiert aber nicht, dass die Folge summierbar ist oder konvergiert.
+        \item Betrachten wir die Folge \( a_n = \ln(n+1) \). Es gilt:
+        \[
+        |a_{n+1} - a_n| = \ln(n+2) - \ln(n+1) = \ln\left(1 + \frac{1}{n+1}\right).
+        \]
+        Für \( n \to \infty \) konvergiert \( \ln\left(1 + \frac{1}{n+1}\right) \to 0 \). Dennoch divergiert \( a_n \), da \( \ln(n+1) \to \infty \).
+        \item Somit zeigt dieses Gegenbeispiel, dass die schwächere Bedingung \( |a_{n+1} - a_n| < |a_n - a_{n-1}| \) nicht ausreicht, um zu garantieren, dass \( (a_n)_{n \in \mathbb{N}} \) eine Cauchy-Folge ist.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Schlussfolgerung:}
+\begin{enumerate}
+    \item Die Bedingung \( |a_{n+1} - a_n| \leq q |a_n - a_{n-1}| \) mit \( 0 < q < 1 \) garantiert durch die Summierbarkeit der Abstände, dass \( (a_n)_{n \in \mathbb{N}} \) eine Cauchy-Folge ist und daher konvergiert.
+    \item Die schwächere Bedingung \( |a_{n+1} - a_n| < |a_n - a_{n-1}| \) ist hingegen nicht ausreichend, wie das Gegenbeispiel \( a_n = \ln(n+1) \) zeigt.
+\end{enumerate}
+\subsection*{Teil (b)}
+Zu zeigen ist, dass die rekursiv definierten Folgen $a_n$ und $b_n$ konvergieren und deren Grenzwerte zu berechnen sind.
+
+\textbf{Beweis:}
+\begin{enumerate}
+    \item \textbf{Teil (i):} Die Folge $a_n$ ist definiert durch
+    \[
+    a_0 = 1 \quad \text{und} \quad a_{n+1} = \frac{2 + a_n}{1 + a_n} \quad \text{für } n \geq 1.
+    \]
+    \begin{enumerate}
+        \item \textbf{Grenzwert:} Falls die Folge konvergiert, muss der Grenzwert $a$ die Gleichung erfüllen:
+        \[
+        a = \frac{2 + a}{1 + a}.
+        \]
+        Multiplizieren mit $1+a$ ergibt:
+        \[
+        a (1 + a) = 2 + a \implies a^2 = 2.
+        \]
+        Da $a_n > 0$ für alle $n$, folgt:
+        \[
+        a = \sqrt{2}.
+        \]
+
+        \item \textbf{Beschränktheit der Folge:} Wir zeigen, dass die Folge $a_n$ beschränkt ist:
+        \begin{itemize}
+            \item Der Startwert ist $a_0 = 1$, und $a_1 = \frac{2+1}{1+1} = 1.5$.
+            \item Für $a_n > 0$ gilt aus der Definition:
+            \[
+            a_{n+1} = \frac{2 + a_n}{1 + a_n}.
+            \]
+            Da der Zähler $2 + a_n$ und der Nenner $1 + a_n$ positiv sind, folgt $a_{n+1} > 0$. Weiterhin ist $a_{n+1} < 2$, da der Bruch für $a_n > 0$ kleiner als 2 bleibt.
+        \end{itemize}
+        Damit liegt $a_n$ im Intervall $(0, 2)$ und ist somit beschränkt.
+
+        \item \textbf{Oszillation und Konvergenz der Folge:}
+        \begin{itemize}
+            \item Die Folge $a_n$ ist nicht monoton, sondern oszilliert um den Grenzwert $\sqrt{2}$. Die ersten Werte der Folge sind:
+            \[
+            a_0 = 1, \quad a_1 = 1.5, \quad a_2 \approx 1.4167, \quad a_3 \approx 1.413, \quad a_4 \approx 1.4142.
+            \]
+            \item Es ist zu sehen, dass die Folge abwechselnd über und unter $\sqrt{2}$ liegt. Insbesondere gilt:
+            \[
+            a_0 < \sqrt{2}, \quad a_1 > \sqrt{2}, \quad a_2 < \sqrt{2}, \quad a_3 > \sqrt{2}, \dots
+            \]
+        \end{itemize}
+
+        Um die Konvergenz zu zeigen, betrachten wir die Differenzen \( |a_{n+1} - a_n| \):
+        \[
+        |a_{n+1} - a_n| = \left| \frac{2 + a_n}{1 + a_n} - a_n \right|.
+        \]
+        Bringen wir die Terme auf einen gemeinsamen Nenner:
+        \[
+        a_{n+1} - a_n = \frac{2 + a_n - a_n(1 + a_n)}{1 + a_n}.
+        \]
+        Der Zähler vereinfacht sich zu:
+        \[
+        2 + a_n - a_n - a_n^2 = 2 - a_n^2.
+        \]
+        Damit gilt:
+        \[
+        a_{n+1} - a_n = \frac{2 - a_n^2}{1 + a_n}.
+        \]
+        Für \( n \to \infty \) konvergiert \( a_n \to \sqrt{2} \), sodass \( 2 - a_n^2 \to 0 \). Der Nenner \( 1 + a_n \) bleibt positiv und beschränkt. Somit folgt:
+        \[
+        |a_{n+1} - a_n| \to 0.
+        \]
+
+        Da die Folge beschränkt ist und \( |a_{n+1} - a_n| \to 0 \), ist die Folge eine \textbf{Cauchy-Folge}. Da jede Cauchy-Folge im reellen Raum konvergiert, konvergiert \( (a_n) \) gegen \( \sqrt{2} \).
+    \end{enumerate}
+\item \textbf{Teil (ii):} Die Folge $b_n$ ist definiert durch
+\[
+b_0 = 1 \quad \text{und} \quad b_{n+1} = 1 + \frac{1}{b_n} \quad \text{für } n \geq 1.
+\]
+
+\begin{enumerate}
+    \item \textbf{Grenzwert:} Falls die Folge $b_n$ konvergiert, existiert ein Grenzwert $b = \lim_{n \to \infty} b_n$, der die Gleichung erfüllen muss:
+    \[
+    b = 1 + \frac{1}{b}.
+    \]
+    Multiplizieren mit $b$ ergibt:
+    \[
+    b^2 = b + 1 \implies b^2 - b - 1 = 0.
+    \]
+    Die Lösung der quadratischen Gleichung lautet:
+    \[
+    b = \frac{1 \pm \sqrt{5}}{2}.
+    \]
+    Da $b_n > 0$ für alle $n$, folgt:
+    \[
+    b = \frac{1 + \sqrt{5}}{2}.
+    \]
+
+    \item \textbf{Beschränktheit der Folge:} Wir zeigen, dass die Folge $b_n$ beschränkt ist:
+    \begin{itemize}
+        \item Der Startwert ist $b_0 = 1$, und aus der Rekursion folgt:
+        \[
+        b_1 = 1 + \frac{1}{b_0} = 2, \quad b_2 = 1 + \frac{1}{b_1} = 1.5, \quad b_3 = 1 + \frac{1}{b_2} \approx 1.6667.
+        \]
+        \item Für $b_n > 0$ gilt aus der Definition:
+        \[
+        b_{n+1} = 1 + \frac{1}{b_n}.
+        \]
+        Da \( \frac{1}{b_n} > 0 \), folgt \( b_{n+1} > 1 \) für alle \( n \).
+        \item Weiterhin zeigt die Rekursion, dass \( b_{n+1} \leq 2 \), da:
+        \[
+        b_{n+1} = 1 + \frac{1}{b_n} \leq 1 + 1 = 2.
+        \]
+        Somit liegt die Folge \( b_n \) im Intervall \( (1, 2] \) und ist beschränkt.
+
+    \end{itemize}
+
+    \item \textbf{Monotonie der Folge:} Wir zeigen, dass die Folge \( b_n \) monoton fallend ist:
+    \begin{itemize}
+        \item Aus der Rekursion \( b_{n+1} = 1 + \frac{1}{b_n} \) folgt, dass:
+        \[
+        b_{n+1} - b_n = 1 + \frac{1}{b_n} - b_n = \frac{1 - (b_n - 1)b_n}{b_n}.
+        \]
+        \item Da \( b_n > 1 \), ist \( b_n - 1 > 0 \). Weiterhin gilt:
+        \[
+        1 - (b_n - 1)b_n < 0 \quad \text{für alle } b_n > 1.
+        \]
+        Somit folgt \( b_{n+1} - b_n < 0 \), also ist die Folge monoton fallend.
+    \end{itemize}
+
+    \item \textbf{Konvergenz der Folge:} Da die Folge \( b_n \) beschränkt und monoton ist, konvergiert sie nach dem Monotonie-Kriterium. Der Grenzwert ist:
+    \[
+    b = \frac{1 + \sqrt{5}}{2}.
+    \]
+\end{enumerate}
+\end{enumerate}
+
+\section*{Aufgabe 4}
+Gegeben seien zwei konvergente Reihen
+\[
+\sum_{n=1}^\infty a_n \quad \text{und} \quad \sum_{n=1}^\infty b_n
+\]
+sowie eine Konstante \( c \in \mathbb{R} \). Es ist zu zeigen, dass auch die Reihen
+\[
+\sum_{n=1}^\infty (a_n + b_n) \quad \text{und} \quad \sum_{n=1}^\infty (c \cdot a_n)
+\]
+konvergieren und es gelten:
+\begin{enumerate}[label=(\alph*)]
+    \item \[
+        \sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n,
+    \]
+    \item \[
+        \sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+    \]
+\end{enumerate}
+
+\subsection*{Beweis}
+\begin{enumerate}
+    \item \textbf{Linearität der Addition:} Wir beweisen zunächst, dass die Summe der Reihe \(\sum_{n=1}^\infty (a_n + b_n)\) der Summe der Reihen \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) entspricht:
+    \begin{enumerate}
+        \item Da \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) konvergieren, existieren ihre jeweiligen Grenzwerte:
+        \[
+        S_a = \sum_{n=1}^\infty a_n, \quad S_b = \sum_{n=1}^\infty b_n.
+        \]
+        \item Die partielle Summe der Reihe \(\sum_{n=1}^\infty (a_n + b_n)\) ist definiert als:
+        \[
+        S_N = \sum_{n=1}^N (a_n + b_n) = \sum_{n=1}^N a_n + \sum_{n=1}^N b_n.
+        \]
+        \item Da die Grenzwerte existieren, folgt für \(N \to \infty\):
+        \[
+        \lim_{N \to \infty} S_N = \lim_{N \to \infty} \sum_{n=1}^N a_n + \lim_{N \to \infty} \sum_{n=1}^N b_n.
+        \]
+        Somit gilt:
+        \[
+        \sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n.
+        \]
+    \end{enumerate}
+
+    \item \textbf{Skalarmultiplikation:} Wir beweisen, dass die Multiplikation der Reihe \(\sum_{n=1}^\infty (c \cdot a_n)\) mit einer Konstanten \( c \) dem Produkt von \( c \) mit der Summe der Reihe \(\sum_{n=1}^\infty a_n\) entspricht:
+    \begin{enumerate}
+        \item Da \(\sum_{n=1}^\infty a_n\) konvergiert, existiert der Grenzwert:
+        \[
+        S_a = \sum_{n=1}^\infty a_n.
+        \]
+        \item Die partielle Summe der Reihe \(\sum_{n=1}^\infty (c \cdot a_n)\) ist definiert als:
+        \[
+        S_N = \sum_{n=1}^N (c \cdot a_n) = c \cdot \sum_{n=1}^N a_n.
+        \]
+        \item Für \(N \to \infty\) folgt:
+        \[
+        \lim_{N \to \infty} S_N = c \cdot \lim_{N \to \infty} \sum_{n=1}^N a_n.
+        \]
+        Da \(\sum_{n=1}^\infty a_n\) konvergiert, gilt:
+        \[
+        \sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Schlussfolgerung}
+Die Reihen \(\sum_{n=1}^\infty (a_n + b_n)\) und \(\sum_{n=1}^\infty (c \cdot a_n)\) sind konvergent, wenn \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) konvergieren. Die Grenzwerte ergeben sich durch die Linearität der Addition und die Skalierung:
+\[
+\sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n,
+\]
+\[
+\sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+\]
+
+\section*{Aufgabe 4}
+Gegeben seien zwei konvergente Reihen
+\[
+\sum_{n=1}^\infty a_n \quad \text{und} \quad \sum_{n=1}^\infty b_n
+\]
+sowie eine Konstante \( c \in \mathbb{R} \). Es ist zu zeigen, dass auch die Reihen
+\[
+\sum_{n=1}^\infty (a_n + b_n) \quad \text{und} \quad \sum_{n=1}^\infty (c \cdot a_n)
+\]
+konvergieren und es gelten:
+\begin{enumerate}[label=(\alph*)]
+    \item \[
+        \sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n,
+    \]
+    \item \[
+        \sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+    \]
+\end{enumerate}
+
+\subsection*{Beweis}
+\begin{enumerate}
+    \item \textbf{Linearität der Addition:} Wir beweisen zunächst, dass die Summe der Reihe \(\sum_{n=1}^\infty (a_n + b_n)\) der Summe der Reihen \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) entspricht:
+    \begin{enumerate}
+        \item Da \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) konvergieren, existieren ihre jeweiligen Grenzwerte:
+        \[
+        S_a = \sum_{n=1}^\infty a_n, \quad S_b = \sum_{n=1}^\infty b_n.
+        \]
+        Weiterhin ist bekannt, dass die Summe von zwei konvergenten Reihen ebenfalls konvergiert.
+        \item Die partielle Summe der Reihe \(\sum_{n=1}^\infty (a_n + b_n)\) ist definiert als:
+        \[
+        S_N = \sum_{n=1}^N (a_n + b_n) = \sum_{n=1}^N a_n + \sum_{n=1}^N b_n.
+        \]
+        \item Da die Grenzwerte existieren und die Grenzwertbildung linear ist, folgt für \(N \to \infty\):
+        \[
+        \lim_{N \to \infty} S_N = \lim_{N \to \infty} \sum_{n=1}^N a_n + \lim_{N \to \infty} \sum_{n=1}^N b_n.
+        \]
+        Somit gilt:
+        \[
+        \sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n.
+        \]
+        Hierbei wurde die Stetigkeit der Addition verwendet.
+    \end{enumerate}
+
+    \item \textbf{Skalarmultiplikation:} Wir beweisen, dass die Multiplikation der Reihe \(\sum_{n=1}^\infty (c \cdot a_n)\) mit einer Konstanten \( c \) dem Produkt von \( c \) mit der Summe der Reihe \(\sum_{n=1}^\infty a_n\) entspricht:
+    \begin{enumerate}
+        \item Da \(\sum_{n=1}^\infty a_n\) konvergiert, existiert der Grenzwert:
+        \[
+        S_a = \sum_{n=1}^\infty a_n.
+        \]
+        Weiterhin bleibt die Multiplikation einer konvergenten Reihe mit einer Konstanten \( c \) ebenfalls konvergent, da die Multiplikation mit \( c \) keine Divergenz verursachen kann.
+        \item Die partielle Summe der Reihe \(\sum_{n=1}^\infty (c \cdot a_n)\) ist definiert als:
+        \[
+        S_N = \sum_{n=1}^N (c \cdot a_n) = c \cdot \sum_{n=1}^N a_n.
+        \]
+        \item Für \(N \to \infty\) folgt:
+        \[
+        \lim_{N \to \infty} S_N = c \cdot \lim_{N \to \infty} \sum_{n=1}^N a_n.
+        \]
+        Da \(\sum_{n=1}^\infty a_n\) konvergiert, gilt:
+        \[
+        \sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+        \]
+        Hierbei wurde die Stetigkeit der Multiplikation verwendet.
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Schlussfolgerung}
+Die Reihen \(\sum_{n=1}^\infty (a_n + b_n)\) und \(\sum_{n=1}^\infty (c \cdot a_n)\) sind konvergent, wenn \(\sum_{n=1}^\infty a_n\) und \(\sum_{n=1}^\infty b_n\) konvergieren. Die Grenzwerte ergeben sich durch die Linearität der Addition und die Skalierung:
+\[
+\sum_{n=1}^\infty (a_n + b_n) = \sum_{n=1}^\infty a_n + \sum_{n=1}^\infty b_n,
+\]
+\[
+\sum_{n=1}^\infty (c \cdot a_n) = c \cdot \sum_{n=1}^\infty a_n.
+\]
+Hierbei wurden die Stetigkeit der Grenzwertoperationen und die Linearität der Addition und Multiplikation zentral verwendet.
+
+
+
+\end{document}

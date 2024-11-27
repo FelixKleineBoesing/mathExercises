@@ -1,0 +1,365 @@
+%! Author = felix
+%! Date = 14.10.2024
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\DeclareMathAlphabet\mathbb{U}{fplmbb}{m}{n}
+% Document
+\begin{document}
+
+\title{Übungsblatt 6}
+\author{Felix Kleine Bösing, Juri Ernesto Humberg, Leonhard Meyer}
+\maketitle
+\newpage
+
+\section*{Aufgabe 1}
+
+Untersuchen wir die folgenden Reihen auf Konvergenz und bestimmen gegebenenfalls ihre Werte:
+
+\[
+\text{(a)} \quad \sum_{n=1}^\infty \left( \frac{1}{n} - \frac{1}{n+2} \right) \quad \text{und} \quad
+\text{(b)} \quad \sum_{n=1}^\infty \left( \frac{2}{3} \right)^n
+\]
+
+\subsection*{(a) \(\sum_{n=1}^\infty \left( \frac{1}{n} - \frac{1}{n+2} \right)\)}
+
+\textbf{Beweis:}
+Diese Reihe ist eine sogenannte teleskopische Reihe, da sich viele Terme gegenseitig aufheben. Untersuchen wir dies genauer:
+
+\begin{enumerate}
+    \item Die allgemeine Partialsumme der Reihe lautet:
+    \[
+    S_N = \sum_{n=1}^N \left( \frac{1}{n} - \frac{1}{n+2} \right)
+    \]
+    Schreiben wir die Summanden explizit aus:
+    \[
+    S_N = \left( \frac{1}{1} - \frac{1}{3} \right) + \left( \frac{1}{2} - \frac{1}{4} \right) + \left( \frac{1}{3} - \frac{1}{5} \right) + \dots + \left( \frac{1}{N} - \frac{1}{N+2} \right)
+    \]
+
+    \item Es wird deutlich, dass sich die meisten Terme \(\frac{1}{n+2}\) für \(n \leq N-2\) gegenseitig aufheben. Übrig bleiben:
+    \[
+    S_N = \frac{1}{1} + \frac{1}{2} - \frac{1}{N+1} - \frac{1}{N+2}
+    \]
+
+    \item Betrachten wir den Grenzwert der Partialsumme für \(N \to \infty\):
+    \[
+    \lim_{N \to \infty} S_N = \frac{1}{1} + \frac{1}{2} - \lim_{N \to \infty} \frac{1}{N+1} - \lim_{N \to \infty} \frac{1}{N+2}
+    \]
+    Da \(\frac{1}{N+1} \to 0\) und \(\frac{1}{N+2} \to 0\), bleibt:
+    \[
+    \lim_{N \to \infty} S_N = \frac{1}{1} + \frac{1}{2} = \frac{3}{2}
+    \]
+\end{enumerate}
+
+\textbf{Ergebnis:} Die Reihe konvergiert, und ihr Wert ist \(\frac{3}{2}\).
+
+\subsection*{(b) \(\sum_{n=1}^\infty \left( \frac{2}{3} \right)^n\)}
+
+\textbf{Beweis:}
+Diese Reihe ist eine geometrische Reihe der Form:
+\[
+\sum_{n=1}^\infty ar^n \quad \text{mit } a = 1 \text{ und } r = \frac{2}{3}.
+\]
+
+\begin{enumerate}
+    \item Eine geometrische Reihe konvergiert, wenn \(|r| < 1\). Da hier \(|r| = \frac{2}{3} < 1\), ist die Reihe konvergent.
+    \item Die Summe einer geometrischen Reihe ergibt sich aus der Formel:
+    \[
+    S = \frac{ar}{1 - r}
+    \]
+    Für die gegebene Reihe ist \(a = 1\) und \(r = \frac{2}{3}\). Somit:
+    \[
+    S = \frac{\frac{2}{3}}{1 - \frac{2}{3}} = \frac{\frac{2}{3}}{\frac{1}{3}} = 2
+    \]
+\end{enumerate}
+
+\textbf{Ergebnis:} Die Reihe konvergiert, und ihr Wert ist \(2\).
+
+\section*{Zusammenfassung:}
+\begin{enumerate}
+    \item[(a)] \(\sum_{n=1}^\infty \left( \frac{1}{n} - \frac{1}{n+2} \right)\): Konvergiert, Wert ist \(\frac{3}{2}\).
+    \item[(b)] \(\sum_{n=1}^\infty \left( \frac{2}{3} \right)^n\): Konvergiert, Wert ist \(2\).
+\end{enumerate}
+
+
+\section*{Aufgabe 2}
+
+Untersuchen wir die folgenden Reihen auf Konvergenz oder Divergenz.
+
+\subsection*{(a) \(\sum_{k=1}^\infty \frac{2}{k!}\)}
+
+\textbf{Schritt 1: Ist \((a_k)\) eine Nullfolge?}
+Die allgemeinen Glieder der Reihe sind \(a_k = \frac{2}{k!}\).
+\[
+\lim_{k \to \infty} a_k = \lim_{k \to \infty} \frac{2}{k!} = 0
+\]
+Da \((a_k)\) eine Nullfolge ist, prüfen wir weiter.
+
+\textbf{Schritt 2: Ist \((a_k)\) alternierend?}
+Nein, alle Glieder sind positiv.
+
+\textbf{Schritt 3: Quotientenkriterium anwenden.}
+Berechnen wir den Grenzwert:
+\[
+q = \lim_{k \to \infty} \frac{a_{k+1}}{a_k} = \lim_{k \to \infty} \frac{\frac{2}{(k+1)!}}{\frac{2}{k!}} = \lim_{k \to \infty} \frac{k!}{(k+1)!} = \lim_{k \to \infty} \frac{k!}{(k+1) \cdot k!} = \lim_{k \to \infty} \frac{1}{k+1} = 0
+\]
+Da \(q < 1\), konvergiert die Reihe nach dem Quotientenkriterium.
+
+\textbf{Fazit:} Die Reihe \(\sum_{k=1}^\infty \frac{2}{k!}\) konvergiert absolut.
+
+\subsection*{(b) \(\sum_{k=0}^\infty \frac{k+4}{k^2 - 3k + 1}\)}
+
+\textbf{Schritt 1: Ist \((a_k)\) eine Nullfolge?}
+Die allgemeinen Glieder der Reihe sind \(a_k = \frac{k+4}{k^2 - 3k + 1}\). Für \(k \to \infty\):
+\[
+a_k \sim \frac{k}{k^2} = \frac{1}{k}
+\]
+\((a_k)\) ist eine Nullfolge. Wir prüfen weiter.
+
+\textbf{Schritt 2: Ist \((a_k)\) alternierend?}
+Nein, alle Glieder sind positiv.
+
+\textbf{Schritt 3: Vergleich mit der harmonischen Reihe.}
+Da \(a_k \sim \frac{1}{k}\) und die harmonische Reihe \(\sum_{k=1}^\infty \frac{1}{k}\) divergiert, divergiert auch die gegebene Reihe nach dem Minorantenkriterium.
+
+\textbf{Fazit:} Die Reihe \(\sum_{k=0}^\infty \frac{k+4}{k^2 - 3k + 1}\) divergiert.
+
+\subsection*{(c) \(\sum_{k=4}^\infty (-1)^k \frac{1}{k^2 - 3k}\)}
+
+\textbf{Schritt 1: Ist \((a_k)\) eine Nullfolge?}
+Die allgemeinen Glieder der Reihe sind \(a_k = \frac{1}{k^2 - 3k}\). Für \(k \to \infty\):
+\[
+\lim_{k \to \infty} a_k = \lim_{k \to \infty} \frac{1}{k^2} = 0
+\]
+\((a_k)\) ist eine Nullfolge. Wir prüfen weiter.
+
+\textbf{Schritt 2: Ist \((a_k)\) alternierend?}
+Ja, die Vorzeichen wechseln durch den Faktor \((-1)^k\).
+
+\textbf{Schritt 3: Prüfen wir das Leibniz-Kriterium.}
+Die Bedingungen des Leibniz-Kriteriums sind:
+\begin{enumerate}
+    \item \(a_k \to 0\) für \(k \to \infty\): Dies gilt, wie oben gezeigt.
+    \item \(a_k\) ist monoton fallend: Für \(k \geq 4\) wächst der Nenner \(k^2 - 3k\) streng monoton, also ist \(a_k\) streng monoton fallend.
+\end{enumerate}
+Da beide Bedingungen erfüllt sind, konvergiert die Reihe nach dem Leibniz-Kriterium.
+
+\textbf{Fazit:} Die Reihe \(\sum_{k=4}^\infty (-1)^k \frac{1}{k^2 - 3k}\) konvergiert.
+
+\subsection*{(d) \(\sum_{k=0}^\infty \left(\frac{2k+3}{3k+2}\right)^k\)}
+
+\textbf{Schritt 1: Ist \((a_k)\) eine Nullfolge?}
+Die allgemeinen Glieder der Reihe sind:
+\[
+a_k = \left(\frac{2k+3}{3k+2}\right)^k
+\]
+Betrachten wir den Bruch:
+\[
+\frac{2k+3}{3k+2} = \frac{2 + \frac{3}{k}}{3 + \frac{2}{k}} \to \frac{2}{3} \quad \text{für } k \to \infty
+\]
+Somit:
+\[
+a_k = \left(\frac{2k+3}{3k+2}\right)^k \to 0 \quad \text{für } k \to \infty
+\]
+\((a_k)\) ist eine Nullfolge.
+
+\textbf{Schritt 2: Ist \(a_k\) eine Potenzfolge?}
+Ja, \(a_k = \left(\frac{2k+3}{3k+2}\right)^k\). Prüfen wir das Wurzelkriterium:
+\[
+\limsup_{k \to \infty} \sqrt[k]{a_k} = \limsup_{k \to \infty} \frac{2k+3}{3k+2} = \frac{2}{3} < 1
+\]
+Da der Grenzwert kleiner als \(1\) ist, konvergiert die Reihe absolut nach dem Wurzelkriterium.
+
+\textbf{Fazit:} Die Reihe \(\sum_{k=0}^\infty \left(\frac{2k+3}{3k+2}\right)^k\) konvergiert absolut.
+
+\section*{Zusammenfassung}
+\begin{enumerate}
+    \item[(a)] \(\sum_{k=1}^\infty \frac{2}{k!}\): Konvergiert absolut nach dem Quotientenkriterium.
+    \item[(b)] \(\sum_{k=0}^\infty \frac{k+4}{k^2 - 3k + 1}\): Divergiert nach dem Minorantenkriterium.
+    \item[(c)] \(\sum_{k=4}^\infty (-1)^k \frac{1}{k^2 - 3k}\): Konvergiert nach dem Leibniz-Kriterium.
+    \item[(d)] \(\sum_{k=0}^\infty \left(\frac{2k+3}{3k+2}\right)^k\): Konvergiert absolut nach dem Wurzelkriterium.
+\end{enumerate}
+
+
+\section*{Aufgabe 3}
+
+\subsection*{(a) Zeigen wir, dass die Reihe \(\sum_{k=0}^\infty \frac{1}{k!}\) konvergiert.}
+
+\textbf{Beweis:} Um die Konvergenz der Reihe \(\sum_{k=0}^\infty \frac{1}{k!}\) zu zeigen, verwenden wir den Wurzelkriterium (Cauchy-Kriterium).
+
+\begin{enumerate}
+    \item Die allgemeinen Glieder der Reihe sind \(a_k = \frac{1}{k!}\). Wir prüfen, ob
+    \[
+    \limsup_{k \to \infty} \sqrt[k]{|a_k|} < 1
+    \]
+    gilt.
+
+    \item Für \(a_k = \frac{1}{k!}\) erhalten wir:
+    \[
+    \sqrt[k]{a_k} = \sqrt[k]{\frac{1}{k!}} = \frac{1}{\sqrt[k]{k!}}
+    \]
+    Da \(k!\) das Produkt \(1 \cdot 2 \cdot 3 \cdots k\) ist, wächst \(k!\) exponentiell mit \(k\). Somit gilt:
+    \[
+    \sqrt[k]{k!} \to \infty \quad \text{für } k \to \infty
+    \]
+    und
+    \[
+    \frac{1}{\sqrt[k]{k!}} \to 0
+    \]
+
+    \item Daher ist:
+    \[
+    \limsup_{k \to \infty} \sqrt[k]{a_k} = 0 < 1
+    \]
+
+    \item Nach dem Wurzelkriterium folgt, dass die Reihe \(\sum_{k=0}^\infty \frac{1}{k!}\) konvergiert.
+\end{enumerate}
+
+\textbf{Ergebnis:} Die Reihe \(\sum_{k=0}^\infty \frac{1}{k!}\) ist konvergent.
+
+
+\subsection*{(b) Zeigen wir, dass für alle \(n \in \mathbb{N}\) gilt:}
+\[
+\left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!} \leq \left( 1 + \frac{1}{n} \right)^{n+1}
+\]
+
+\textbf{Beweis:} Wir beweisen die beiden Ungleichungen separat.
+
+\begin{enumerate}
+    \item Erste Ungleichung:
+    \[
+    \left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!}
+    \]
+    Wir verwenden die Binomialentwicklung für \(\left( 1 + \frac{1}{n} \right)^n\):
+    \[
+    \left( 1 + \frac{1}{n} \right)^n = \sum_{k=0}^n \binom{n}{k} \left(\frac{1}{n}\right)^k
+    \]
+    Dabei ist der Binomialkoeffizient definiert als:
+    \[
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+    \]
+
+    Um zu zeigen, dass \(\left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!}\), vergleichen wir die Terme der beiden Summen.
+    Für jedes \(k \leq n\) gilt:
+    \[
+    \binom{n}{k} \cdot \left(\frac{1}{n}\right)^k = \frac{n!}{k!(n-k)!} \cdot \frac{1}{n^k}
+    \]
+    Der Faktor \(\frac{n!}{(n-k)!}\) im Zähler wächst bei kleinen \(k\), wird jedoch durch den Nenner \(n^k\) dominiert, sobald \(k\) größer wird. Daher ist:
+    \[
+    \binom{n}{k} \cdot \frac{1}{n^k} \leq \frac{1}{k!}
+    \]
+    Summieren wir diese Terme über \(k = 0, 1, \dots, n\), ergibt sich:
+    \[
+    \left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!}
+    \]
+
+    \item Zweite Ungleichung:
+    \[
+    \sum_{k=0}^n \frac{1}{k!} \leq \left( 1 + \frac{1}{n} \right)^{n+1}
+    \]
+    Wir erweitern die Summe bis \(n+1\), indem wir die Bernoulli-Ungleichung verwenden:
+    \[
+    \left( 1 + \frac{1}{n} \right)^{n+1} = \sum_{k=0}^{n+1} \binom{n+1}{k} \left(\frac{1}{n}\right)^k
+    \]
+    Wie zuvor ist \(\binom{n+1}{k} \cdot \left(\frac{1}{n}\right)^k \geq \frac{1}{k!}\) für jedes \(k \leq n\). Die zusätzlichen Terme der Summe für \(k = n+1\) sorgen dafür, dass die Ungleichung erhalten bleibt:
+    \[
+    \sum_{k=0}^n \frac{1}{k!} \leq \sum_{k=0}^{n+1} \binom{n+1}{k} \left(\frac{1}{n}\right)^k = \left( 1 + \frac{1}{n} \right)^{n+1}
+    \]
+\end{enumerate}
+
+\textbf{Schlussfolgerung:} Beide Ungleichungen sind gezeigt, und daher gilt für alle \(n \in \mathbb{N}\):
+\[
+\left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!} \leq \left( 1 + \frac{1}{n} \right)^{n+1}
+\]
+
+
+\subsection*{(c) Folgern wir, dass \(e = \sum_{k=0}^\infty \frac{1}{k!}\) gilt, wobei \(e\) die Eulersche Zahl ist.}
+
+\textbf{Beweis:} Da die Reihe \(\sum_{k=0}^\infty \frac{1}{k!}\) nach Teil (a) konvergiert und wir in Teil (b) gezeigt haben, dass:
+\[
+\left( 1 + \frac{1}{n} \right)^n \leq \sum_{k=0}^n \frac{1}{k!} \leq \left( 1 + \frac{1}{n} \right)^{n+1}
+\]
+folgt für \(n \to \infty\), dass \(\sum_{k=0}^\infty \frac{1}{k!}\) denselben Grenzwert hat wie die bekannten Annäherungen an \(e\):
+\[
+e = \lim_{n \to \infty} \left( 1 + \frac{1}{n} \right)^n
+\]
+Somit ist:
+\[
+e = \sum_{k=0}^\infty \frac{1}{k!}
+\]
+
+\textbf{Ergebnis:} Die Reihendarstellung für \(e\) ist bewiesen.
+
+\section*{Aufgabe 4}
+
+Zeigen wir, dass die Eulersche Zahl \(e\) irrational ist.
+\textit{Hinweis: Verwenden wir die Reihendarstellung von \(e\)}:
+
+\[
+e = \sum_{n=0}^\infty \frac{1}{n!}
+\]
+
+\textbf{Beweis:} Wir zeigen, dass \(e\) irrational ist, indem wir annehmen, \(e\) sei rational, und daraus einen Widerspruch herleiten.
+
+\begin{enumerate}
+    \item Annahme: Rationalität von \(e\):
+    Nehmen wir an, \(e\) sei rational. Das bedeutet, dass \(e\) als Bruch \(\frac{p}{q}\) dargestellt werden kann, wobei \(p, q \in \mathbb{Z}\) und \(q \neq 0\).
+
+    \item Reihendarstellung von \(e\):
+    Die Zahl \(e\) lässt sich als unendliche Summe schreiben:
+    \[
+    e = \sum_{n=0}^\infty \frac{1}{n!}
+    \]
+    Für eine endliche Approximation betrachten wir:
+    \[
+    e = \sum_{n=0}^N \frac{1}{n!} + R_N
+    \]
+    wobei \(R_N\) der Restterm der Reihe ist:
+    \[
+    R_N = \sum_{n=N+1}^\infty \frac{1}{n!}
+    \]
+
+    \item Abschätzung des Restterms:
+    Um \(R_N\) abzuschätzen, beachten wir, dass für \(n \geq N+1\) gilt:
+    \[
+    \frac{1}{n!} \leq \frac{1}{(N+1)!}
+    \]
+    Somit gilt für den Restterm:
+    \[
+    R_N = \sum_{n=N+1}^\infty \frac{1}{n!} \leq \frac{1}{(N+1)!} + \frac{1}{(N+2)!} + \frac{1}{(N+3)!} + \dots
+    \]
+
+    Dies kann weiter vereinfacht werden zu:
+    \[
+    R_N \leq \frac{1}{(N+1)!} \left( 1 + \frac{1}{N+2} + \frac{1}{(N+2)(N+3)} + \dots \right)
+    \]
+
+    Da die Fakultät \((N+1)!\) im Nenner sehr schnell wächst, ist \(R_N\) für große \(N\) extrem klein. Insbesondere gilt für \(R_N\):
+    \[
+    R_N < \frac{1}{(N+1)!}
+    \]
+
+    \item Widerspruchsbeweis:
+    Multiplizieren wir beide Seiten der Gleichung \(e = \sum_{n=0}^N \frac{1}{n!} + R_N\) mit \(q! (N+1)!\), wobei \(q!\) die Fakultät des Nenners aus \(\frac{p}{q}\) ist, ergibt sich:
+    \[
+    q!(N+1)! \cdot e = q!(N+1)! \cdot \sum_{n=0}^N \frac{1}{n!} + q!(N+1)! \cdot R_N
+    \]
+
+    Der erste Term \(q!(N+1)! \cdot \sum_{n=0}^N \frac{1}{n!}\) ist eine ganze Zahl, da \(q!\) die Nenner der Summanden teilt. Der zweite Term \(q!(N+1)! \cdot R_N\) kann jedoch niemals eine ganze Zahl sein, da \(R_N < \frac{1}{(N+1)!}\). Das bedeutet, dass:
+    \[
+    q!(N+1)! \cdot R_N < 1
+    \]
+    Da \(q!(N+1)! \cdot R_N\) eine ganze Zahl sein müsste, entsteht ein Widerspruch.
+
+\end{enumerate}
+
+\textbf{Schlussfolgerung:} Unsere Annahme, dass \(e\) rational sei, führt zu einem Widerspruch. Daher ist \(e\) irrational.
+
+
+\end{document}
